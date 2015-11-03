@@ -347,6 +347,7 @@ function revisar_items(evaluando) {
 			}					
 		});
 	}
+
 	else {
 		$('.item-value').each(function() {
 
@@ -384,7 +385,7 @@ function revisar_items(evaluando) {
 	}
 
 	$('#porcentaje-realizado').html(porcentaje_correcto + "%  - ("+rta_correctas+" / "+rta_respondidas+") ");
-	$('#ponderacion-realizado').html(pond + "%  / 100%");
+	$('#ponderacion-realizado').html(pond + "%  de  100%");
 }
 
 /*
