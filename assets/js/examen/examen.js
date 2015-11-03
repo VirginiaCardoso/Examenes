@@ -373,8 +373,6 @@ function revisar_items(evaluando) {
 				}
 			}					
 		});
-		
-
 	}
 
 	var porcentaje_correcto = 0;
@@ -383,9 +381,8 @@ function revisar_items(evaluando) {
 		porcentaje_correcto = (rta_correctas * 100) / rta_respondidas;
 		porcentaje_correcto = porcentaje_correcto.toFixed(2);
 	}
-
 	$('#porcentaje-realizado').html(porcentaje_correcto + "%  - ("+rta_correctas+" / "+rta_respondidas+") ");
-	$('#ponderacion-realizado').html(pond + "%  de  100%");
+	$('#ponderacion-realizado').html(pond + "%  /  100%");
 }
 
 /*
