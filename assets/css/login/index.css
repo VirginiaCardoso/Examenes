@@ -1,0 +1,52 @@
+/*	
+	AUTOR		Fernando Andrés Prieto
+	AUTOR		Diego Martín Schwindt
+	COPYRIGHT	Marzo, 2014 - Departamento de Ciencias e Ingeniería de la Computación - UNIVERSIDAD NACIONAL DEL SUR 
+*/
+
+.form-container {
+	margin: 0px auto;
+	max-width: 250px;
+}
+
+.form-login .form-login-heading {
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+.form-login .form-control {
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	 -moz-box-sizing: border-box;
+	      box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.form-login .form-control:focus {
+	z-index: 2;
+}
+
+.form-login input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-login input[type="password"] {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.btn-submit {
+	margin-top: 10px;
+}
+
+.label-error {
+	margin-bottom: 0px;
+}
+
+.label-error > p {
+	margin-bottom: 0px;
+}

@@ -1,0 +1,74 @@
+div.lista {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+body {
+	min-width: 600px !Important;
+}
+
+span.glyphicon.grande {
+    font-size: 1.3em;
+
+}
+
+div.boton-modificar{
+	/*width:25%;*/
+	margin: 3px 3px 3px 3px;
+	/*text-align: center;*/
+	/*float:left;	*/
+	display: inline-block;
+}
+div.boton-contrasena{
+	/*width:25%;*/
+	margin: 3px 3px 3px 3px;
+	/*text-align: center;*/
+	/*float:left;	*/
+	display: inline-block;
+}
+
+div.boton-eliminar{
+	/*width:25%;*/
+	margin: 3px 3px 3px 3px;
+/*	text-align: center;*/
+	/*float:left;	*/
+	display: inline-block;
+}
+div.contenedor-botones{
+	overflow: hidden;
+	width: 100%;
+}
+
+.blanco {
+	color: #FFFFFF ;
+}
+/*
+.rojo {
+	color: #E60000 ;
+}
+
+.amarillo {
+	color: #CCCC00 ;
+}*/
+.modal-body .form-horizontal .col-sm-2,
+.modal-body .form-horizontal .col-sm-10 {
+    width: 100%
+}
+
+.modal-body .form-horizontal .control-label {
+    text-align: left;
+}
+.modal-body .form-horizontal .col-sm-offset-2 {
+    margin-left: 15px;
+}
+
+.select {
+	min-width: 250px;
+	max-width: 600px;
+}
+
+.codig {
+	min-width: 100px;
+	max-width: 150px;
+
+}

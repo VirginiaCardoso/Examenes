@@ -1,0 +1,13 @@
+ACTIVIDAD ACTUAL:
+Guardo un string en la session (usar funcion get_actividad_actual o set de Usuario) para ver que esta haciendo. Con eso se controla que no salga de un examen.
+	(TENERLA EN CUENTA ANTES DE CADA METODO DE CONTROLADORES PARA REDIRECCIONAR)
+		
+HREFs:
+	Cuando uses links para hacer ajax, es decir, que la pagina actual no va a ser redireccionada a una nueva o cuando lo 
+	uses como si fuera un boton, en lugar de poner # en el href, ponelo en data-target. Eso evita que en la url del browser  
+	te quede con un # al final y quede feo.
+
+	Ejemplo <a href="#">Hago Ajax<a>     (no hacer esto) -> url browser = http://localhost/Medicina/#
+			<a data-target="#">Hago Ajax<a> (hacer esto) -> url browser = http://localhost/Medicina
+
+	

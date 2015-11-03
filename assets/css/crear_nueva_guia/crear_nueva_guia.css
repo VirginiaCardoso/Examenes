@@ -1,0 +1,123 @@
+/* 
+    Text fields 
+*/
+/*
+div.input-group-option:last-child span.input-group-addon-remove{
+    display: none;
+}
+
+div.input-group-option:last-child input.form-control{
+    border-bottom-right-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+div.input-group-option span.input-group-addon-remove{
+	cursor: pointer;
+}
+
+div.input-group-option{
+    margin-bottom: 3px;
+}
+*/
+/* 
+    Selects 
+*/
+
+/*div.input-group-multiple-select:last-child span.input-group-addon-remove{
+	display: none;
+}
+
+div.input-group-multiple-select:last-child input.form-control{
+	border-bottom-right-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+div.input-group-multiple-select span.input-group-addon-remove{
+	cursor: pointer;
+    background: none;
+    border: none;
+}
+
+div.input-group-multiple-select{
+    margin-bottom: 5px;
+}
+
+.table-sortable tbody tr {
+    cursor: move;
+}*/
+
+.contenedor_guia{
+    float: left;
+    width: 100%;
+    padding: 2px 2px 2px 2px;
+    margin: 2px 2px 2px 2px;
+}
+
+.items_guia {
+    padding: 1px 1px 1px 1px;
+    margin: 2px 2px 2px 2px;
+   /* border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: #838485;*/
+    float:left;
+    width: 55%;
+
+}
+
+.forms_items {
+    padding: 1px 1px 1px 1px;
+    /*margin: 2px 2px 2px 2px;*/
+   /* border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: #838485;*/
+    float:left;
+    width: 35%;
+}
+
+.row_items{
+    /*padding: 1px 1px 1px 1px;*/
+    float: left;
+
+}
+
+.input_item {
+    /*width: 65%;*/
+    float: left;
+     /*padding: 1px 1px 1px 1px;*/
+}
+.input_pond {
+    /*width: 15%;*/
+    float: left;
+     /*padding: 1px 1px 1px 1px;*/
+}
+.porc {
+    /*width: 5;*/
+    float: left;
+     /*padding: 1px 1px 1px 1px;*/
+}
+
+.add {
+    padding: 2px 2px 2px 2px;
+    /*width: 15%;*/
+    float: left;
+}
+
+/*
+#select-item {
+    font-size: 12px;
+}
+*/
+.guardar-guia{
+    width: 100%;
+    float: left;
+}
+
+#tituloGrupo{
+    padding: 1px 1px 1px 1px;
+}
+
+.table-sortable tbody tr {
+    cursor: move;
+}

@@ -1,0 +1,60 @@
+/*
+	generar.css
+	
+	AUTOR		Fernando Andrés Prieto
+	AUTOR		Diego Martín Schwindt
+	COPYRIGHT	Marzo, 2014 - Departamento de Ciencias e Ingeniería de la Computación - UNIVERSIDAD NACIONAL DEL SUR 
+*/
+
+body {
+	min-width: 290px !Important;
+}
+
+.form-container {
+	margin: 0px auto;
+	min-width: 225px;
+}
+
+.form-group-generar {
+	max-width: 600px;
+	margin-bottom: 15px;
+	float: left;
+}
+.form-group-generar > label {
+	text-align: left !Important;
+	width: 85px;
+}
+
+.form-group-generar > div {
+	width: 100%;
+}
+
+.form-group-generar > div > div {
+	padding-top: 4px;
+}
+
+.form-group-generar-fecha {
+	min-width: 270px;
+}
+
+.fecha {
+	width: 200px !Important;
+}
+
+.form-group-buttons {
+	text-align: center;
+	clear: both;
+	margin: 0px auto;
+	width: 100%;
+}
+
+h2 {
+	margin-bottom: 20px;
+	margin-right: 0px;
+	max-width: 600px;
+}
+
+.select {
+	min-width: 250px;
+	max-width: 600px;
+}

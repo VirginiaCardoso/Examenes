@@ -1,0 +1,330 @@
+/*
+	styles.css
+	
+	AUTOR		Fernando Andrés Prieto
+	AUTOR		Diego Martín Schwindt
+	COPYRIGHT	Marzo, 2014 - Departamento de Ciencias e Ingeniería de la Computación - UNIVERSIDAD NACIONAL DEL SUR 
+*/
+
+html, body {
+	height: 100%;
+}
+
+.clearboth {
+	clear:both;
+}
+
+.wrapper {
+	height: 100%;
+}
+
+/* HEADER - BANNER */
+
+.header {
+	min-height: 100px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+footer {	
+	min-height: 40px;
+	padding: 15px 0px;
+	border-top: 2px solid #142543;	
+}
+
+.header-footer-color {
+	background-color: rgb(25, 47, 85);
+}
+
+.header-image {
+
+	background: rgb(25,47,85); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(25,47,85,1) 0%, rgba(25,47,85,0.98) 50%, rgba(25,47,85,0) 100%), 
+    url(../img/header1.jpg) no-repeat top right; /* FF3.6+ */
+
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(25,47,85,1)), color-stop(50%,rgba(25,47,85,0.98)), color-stop(100%,rgba(25,47,85,0))), 
+	url(../img/header1.jpg) no-repeat top right; /* Chrome,Safari4+ */
+
+	background:  -webkit-linear-gradient(left, rgba(25,47,85,1) 0%,rgba(25,47,85,0.98) 50%,rgba(25,47,85,0) 100%), 
+	url(../img/header1.jpg) no-repeat top right; /* Chrome10+,Safari5.1+ */
+
+	background:  -o-linear-gradient(left, rgba(25,47,85,1) 0%,rgba(25,47,85,0.98) 50%,rgba(25,47,85,0) 100%), 
+	url(../img/header1.jpg) no-repeat top right; /* Opera 11.10+ */
+
+	background:  -ms-linear-gradient(left, rgba(25,47,85,1) 0%,rgba(25,47,85,0.98) 50%,rgba(25,47,85,0) 100%), 
+	url(../img/header1.jpg) no-repeat top right; /* IE10+ */
+
+	background: linear-gradient(to right, rgba(25,47,85,1) 0%,rgba(25,47,85,0.98) 50%,rgba(25,47,85,0) 100%), 
+	url(../img/header1.jpg) no-repeat top right; /* W3C */
+
+	background-size: contain;
+
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#192f55', endColorstr='#192f55',GradientType=1 ); /* IE6-9 */
+}
+
+.header-logo {
+	background-size: contain !Important;
+	width: 90px;
+	height: 90px;
+	float:left;
+}
+
+.header-texto-linea1 {
+	color: rgb(149,179,215);
+	font-size: 14px;
+}
+
+.header-texto-linea1-uns {	
+	font-weight: bold;
+}
+
+.header-texto-linea1-dpto {
+	font-style: italic;
+}
+
+.header-texto-linea2 {
+	color: white;
+	font-size: 24px;
+}
+
+.footer-texto-linea {
+	color: rgb(149,179,215);
+	font-size: 14px;
+	font-style: italic;
+}
+
+.footer-texto-linea > a,
+.footer-texto-linea > a:hover {
+	color: #F8F8F8;
+	font-size: 14px;
+}
+
+/* NAVBAR */
+
+.navbar {
+	margin-bottom: 0px;
+	box-shadow: 0px 3px 10px 0px #848484;
+}
+
+.header-sombra {
+
+	position: relative;
+	height: 2px;
+	box-shadow: 0px 3px 10px 0px #000000;
+	z-index: 1;
+	background-color: #142543;
+	top: 100px;
+	width: 100%;
+}
+
+/* LOGO */
+
+.logo-uns {
+	background: url(../img/logo_uns_v1.png) no-repeat top left;
+}
+
+.logo-dcs {
+	background: url(../img/logo_dcs.png) no-repeat top left;
+}
+
+/* TITULO */ 
+
+.div-titulo {
+	text-align: left;
+}
+
+.div-titulo > label{
+	font-size: 24px;
+	font-weight: 500;
+}
+
+/* CONTENT */
+
+.outer-content {
+
+	background: -moz-linear-gradient(left, rgba(15,15,15,0.04) 0%, rgba(178,178,178,1) 50%, rgba(15,15,15,0.04) 100%),
+	url(../img/textura.jpg) repeat top left; /* FF3.6+ */
+
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(15,15,15,0.04)), color-stop(50%,rgba(178,178,178,1)), color-stop(100%,rgba(15,15,15,0.04))),
+	url(../img/textura.jpg) repeat top left; /* Chrome,Safari4+ */
+
+	background: -webkit-linear-gradient(left, rgba(15,15,15,0.04) 0%,rgba(178,178,178,1) 50%,rgba(15,15,15,0.04) 100%),
+	url(../img/textura.jpg) repeat top left; /* Chrome10+,Safari5.1+ */
+
+	background: -o-linear-gradient(left, rgba(15,15,15,0.04) 0%,rgba(178,178,178,1) 50%,rgba(15,15,15,0.04) 100%),
+	url(../img/textura.jpg) repeat top left; /* Opera 11.10+ */
+
+	background: -ms-linear-gradient(left, rgba(15,15,15,0.04) 0%,rgba(178,178,178,1) 50%,rgba(15,15,15,0.04) 100%),
+	url(../img/textura.jpg) repeat top left; /* IE10+ */
+
+	background: linear-gradient(to right, rgba(15,15,15,0.04) 0%,rgba(178,178,178,1) 50%,rgba(15,15,15,0.04) 100%),
+	url(../img/textura.jpg) repeat top left; /* W3C */
+
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0aD9D9D9', endColorstr='#0aD9D9D9',GradientType=1 ); /* IE6-9 */
+}
+
+.inner-content {
+	background-color: rgb(255, 255, 255);
+	border: 1px solid #000000;
+	border-top: 0px;
+	border-bottom: 0px;
+	padding: 20px;
+}
+
+.div-container {
+	max-width: 290px;
+	margin: 0px auto;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1003px) {
+
+	.header-texto-linea1, 
+	.footer-texto-linea, 
+	.footer-texto-linea > a, 
+	.footer-texto-linea > a:hover {
+		font-size: 13px;
+	}
+
+	.header-texto-linea2 {
+		font-size: 20px;
+	}
+
+	.header-image {
+		background-size: cover;
+	}
+}
+
+@media (max-width: 886px) {
+
+	.header-texto-linea1 {
+		font-size: 12px;
+	}
+
+	.header-texto-linea2 {
+		font-size: 16px;
+	}	
+}
+
+@media (max-width: 823px) {
+
+	.header-texto-linea1 {
+		font-size: 10px;
+	}
+}
+
+@media (max-width: 767px) {
+
+	.header-texto-linea1 {
+		font-size: 12px;
+	}
+
+	.header-texto-linea2 {
+		font-size: 19px;
+	}
+
+	.inner-content {
+		border: 0px ;
+	}
+}
+
+@media (max-width: 726px) {
+
+	.logo-uns, .logo-dcs {
+		display: none;
+	}
+
+	.header-texto-linea1, .header-texto-linea2, .footer-texto-linea{
+		text-align: center;
+	}
+}
+
+@media (max-width: 545px) {
+
+	.header-texto-linea1 {
+		font-size: 10px;
+	}
+
+	.header-texto-linea2 {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 545px) {
+
+	.header-texto-linea1, 
+	.footer-texto-linea, 
+	.footer-texto-linea > a, 
+	.footer-texto-linea > a:hover {
+		font-size: 10px;
+	}
+
+	.header-texto-linea2 {
+		font-size: 16px;
+	}
+}
+
+.select-mobile {
+	height: 34px;
+	padding: 0 0 0 8px;
+	border: 1px solid #aaa;
+	white-space: nowrap;
+	line-height: 26px;
+	color: #444;
+	text-decoration: none;
+	border-radius: 4px;
+	background-color: #fff;
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee), color-stop(0.5, #fff));
+	background-image: -webkit-linear-gradient(center bottom, #eee 0%, #fff 50%);
+	background-image: -moz-linear-gradient(center bottom, #eee 0%, #fff 50%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#eeeeee', GradientType = 0);
+	background-image: linear-gradient(to top, #eee 0%, #fff 50%);
+}
+
+.modal-footer {
+	margin-top: 0px;
+}
+
+.modal-body-content {
+	margin: 0px;
+}
+
+.modal-body-content-loadingbar {
+	margin-top: 18px;
+	margin-bottom: 18px;
+	font-weight: bold;
+}
+
+.bg-no-resp {
+	background-color: #EBECEC;
+}
+
+.input-deshabilitado[disabled] {
+	background-color: #FFFFFF;
+}
+
+.label-error {
+	text-align: left !Important;
+	color: #E60000 !Important;
+	width: 100% !Important;
+	font-weight: normal;
+	font-style: italic;
+}
+
+
+/*
+ * DIV-TABLES
+ */
+.tabla {
+	display: table;
+}
+
+.fila {
+	display: table-row;
+}
+
+.columna {
+	display: table-cell;
+}

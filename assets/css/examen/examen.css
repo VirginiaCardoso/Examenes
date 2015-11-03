@@ -1,0 +1,237 @@
+/*
+	generar.css
+	
+	AUTOR		Fernando Andrés Prieto
+	AUTOR		Diego Martín Schwindt
+	COPYRIGHT	Marzo, 2014 - Departamento de Ciencias e Ingeniería de la Computación - UNIVERSIDAD NACIONAL DEL SUR 
+*/
+
+body {
+	min-width: 720px !Important;
+}
+
+.tab-content {
+	padding: 10px;
+	padding-top: 25px;
+	padding-bottom: 0px;
+}
+
+.tab-pane {
+	margin: 0px auto;
+}
+
+.col-titulo-guia {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.col-subtitulo-guia {
+	font-size: 15px;
+	font-style: italic;
+	text-align: center;
+}
+
+.field-name { 
+	font-weight: bold;
+	width: 145px;
+}
+
+.barra-division {
+	margin-top: 15px;
+	margin-bottom: 20px;
+	border-top: 2px solid #285E8E;
+}
+
+.grupo-item {	
+	min-height: 40px;
+}
+
+.item {	
+	min-height: 40px;	
+}
+
+.item-texto {
+	margin-top: 9.5px;
+	overflow: hidden;
+	word-wrap: break-word;
+}
+
+.item-texto-padding {
+	padding-left: 20px;
+}
+
+.item-botonera {
+	margin-top: 2.5px;
+	margin-left: 10px;
+	width: 196px;
+}
+
+.item-suelto-botonera {
+	margin-top: -7px;
+}
+
+.item-value-titulo {
+	display: none;
+}
+.item-value-pond {
+	display: none;
+}
+.item-value {
+	font-weight: bold;
+	font-size: 16px;
+	text-transform: uppercase;
+	display:none;
+}
+
+.item-value-botonera-calificar {
+	margin-top: 9.5px;
+	text-align: right;
+	padding-right: 20px;
+}
+
+.item-value-si {
+	color: #47A447;
+}
+
+.item-value-no {
+	color: #D2322D;
+}
+
+.sangria {
+	margin-left: 20px;
+}
+
+.numero {
+	color: #999999;
+}
+
+.div-checkbox {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.item-checkbox {
+	width: 23px;
+	height: 20px;
+	margin-top: 0px;
+}
+
+.seccion {
+	font-weight: bold;
+	font-style: italic;	
+	text-transform: uppercase;
+	margin-bottom: 5px;
+}
+
+.borde-item {
+	border-top: 1px solid #DDDDDD; 
+}
+
+.borde-grupoitem {
+	border-top: 1px solid #000000;
+}
+
+.borde-final {
+	margin-bottom: 30px;
+}
+
+.item-obs {
+	resize: none;
+}
+
+.item-obs-container {
+	padding: 10px 20px 15px;
+	display: none;
+}
+
+.examen-obs {
+	margin-bottom: 10px;
+	resize: none;
+}
+
+.botonera {
+	text-align: center;
+}
+
+.container-calificacion {
+	display: none;
+}
+
+.examen-calificacion {
+	margin-top: 25px;
+}
+
+.opciones-calificacion {
+	margin-left: 50px;
+}
+
+input[type="radio"] {
+	cursor: pointer;
+}
+
+.label-obs { 
+	background-color: #F9F9F9; 
+	border-radius: 4px; 
+	padding: 4px 6px;
+	word-break: break-word;
+	border: 1px solid #D6D6D6;
+	display: none;
+}
+
+.label-obs-gral {
+	margin-bottom: 10px;
+}
+
+.fila-spacing {
+	border-spacing: 0px 10px;
+}
+
+.div-descripcion-titulo {
+	width: 180px;	
+	font-weight: bold;	
+}
+
+.div-num {
+	width: 20px;	
+	font-weight: bold;	
+}
+
+.titulo-revision {
+	display: none;
+	color: #285E8E;
+}
+
+.span-calif-obsGral {
+	font-size: 18px;
+	font-weight: 500;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.span-calificacion {
+	color: #E60000;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.adquirida {
+	color: #339933 ;
+}
+
+.no-adquirida {
+	color: #E60000 ;
+}
+
+.medianamente-adquirida {
+	color: #CCCC00 ;
+}
+
+.ul-item-estudiante {
+	list-style-type: square;
+}
+
+.ul-item-estudiante > li {
+	margin-bottom: 10px;
+}

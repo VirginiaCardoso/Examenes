@@ -1,0 +1,35 @@
+div.lista {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+body {
+	min-width: 600px !Important;
+}
+
+span.glyphicon.grande {
+    font-size: 1.3em;
+
+}
+
+div.icon-calif{
+	width:25%;
+	margin-top: 3px;
+	float:left;	
+}
+div.boton-pdf{
+	width:75%;
+	float:right;	
+}
+
+.verde {
+	color: #339933 ;
+}
+
+.rojo {
+	color: #E60000 ;
+}
+
+.amarillo {
+	color: #CCCC00 ;
+}

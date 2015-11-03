@@ -1,0 +1,24 @@
+.row-botonera {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+.row-botonera-fila1 {
+	margin-bottom: 20px;
+}
+
+.col-boton {
+	padding: 0px;	
+}
+
+@media (max-width: 768px) {
+
+	.col-primer-boton {
+		margin-bottom: 10px;
+	}
+	
+}
+
+.label-error {
+	margin-top: 10px;
+}

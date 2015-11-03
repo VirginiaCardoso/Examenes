@@ -1,0 +1,14 @@
+CREACION DE BD Y CARGA DE DATOS
+	Importar en MySql los archivos 
+		/Recursos/db/database.sql  (crea BD, estructura tablas y usuario dcs_lab)
+		/Recursos/db/datos.sql  (Carga datos: alumnos, profesores, relaciones y algunos examenes)
+	
+	
+USUARIOS (legajo password):
+		5201 hola
+		123 admin
+		7865 7865
+		10325 123456
+		12198 stepanosky    //Admin (no Super Admin). //Asociada a Fundamentos II con permiso total
+		12821 coronel  //Asociado a Familiar I con permiso total
+		12179 steel  //Asociada a Familiar III con permiso total. A familiar I y II con permiso ver (no evaluar)

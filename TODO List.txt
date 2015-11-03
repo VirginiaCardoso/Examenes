@@ -1,0 +1,69 @@
+***********SUGERENCIAS REUNION******************************
+
+* ITEMS: Poder elegir entre calificar con SI/NO o CALIFICACION NUMERICA. PONDERACION DE PUNTAJE (modif a la BD: 2 campos nuevos)
+
+* LOCAL STORAGE mientras se evalúa examen - Si la conexión no funciona que se guarde, y más adelante poder guardarlo con el mismo dispositivo.
+		- En cada request verificar si hay algo guardado en localStorage y avisar para guardar en server?
+			o
+		- Botón en menú principal que se habilite si hay examanes guardados sólo localmente?
+
+* ESTADISTICAS 
+		- cuántas veces rindió un alumno una guía.
+
+* ALUMNOS por SIU GUARANÍ??
+
+********To Do's *******************************
+
+==> Acomodar htmls: Poner todos los css en el header - js al final de la pág, después del footer (usar container general para eso??)
+
+--> NO MOSTRAR CONTENIDO HASTA QUE NO SE CARGAN Y EJECUTAN LOS JS (así no se ve temporalmente feo)
+
+- LISTA ALUMNOS ORDENADA POR APELLIDO, NO POR LU  (Apellido nombre (LU))
+
+- Nombre PDF: apellido alumno
+
+- Tabla, al hacer responsive, queda desacomodado ver cant examenes y buscar.
+
+--> RESPONSIVE (bordes grises) con mayor resolucion
+  
+--> VER RESPONSIVE DESIGN CON TABLET DE ALTA RESOLUCION (letras chiquitas... pensar en el dpi? )
+	http://alistapart.com/article/a-pixel-identity-crisis
+	
+-> Font size 16 o 18px, menos font-weight... otro font-family?  // USAR REM PARA FONT-SIZE
+
+ 
+ - VALIDACIONES
+	En controller Login/loguear_usuario() controlar $legajo sea numero (hecho con form_validation)
+	Mensajes de error con js
+
+ - LOGIN:
+	Aplicar estilo a los errores de validacion y de error al loguearse
+  
+  xss_clean
+
+******* PUESTA EN PRODUCCION ************************
+  - Revisar CodeIgniter / Instrucciones de instalación (HTML)
+  - Deshabilitar errores PHP
+  - Deshabilitar errores MySQL
+  - Cambiar nombre, usuario y pass de la BD
+  - Unificar y minificar css y js
+  - favicon
+  
+   
+  - poner $config['sess_encrypt_cookie']= TRUE; (ahora esta en false para poder analizar las cookies)
+
+  - REVISAR SEGURIDAD (XSS):
+	En application/config/config.php:
+		$config['global_xss_filtering'] = TRUE;
+		$config['sess_encrypt_cookie']	= TRUE;
+
+  - REVISAR EXPRIRAR SESION ON CLOSE (no esta andando)
+	$config['sess_expire_on_close']	= TRUE;
+	
+	SEGURIDAD: http://www.websec.mx/blog/ver/inseguridad-datos-sesion-codeigniter
+
+
+
+	
+
+	
