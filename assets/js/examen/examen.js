@@ -373,7 +373,9 @@ function revisar_items(evaluando) {
 				}
 			}					
 		});
+
 	}
+	
 
 	var porcentaje_correcto = 0;
 
