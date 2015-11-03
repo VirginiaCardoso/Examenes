@@ -172,6 +172,7 @@ class Crear_nueva_guia extends CI_Controller {
     }
 
 
+
     /**
      * Controlador de la pagina de muestra para creacion de guias
      * En POST se reciben las opciones seleccionadas:
@@ -214,9 +215,7 @@ class Crear_nueva_guia extends CI_Controller {
 
         $this->usuario->set_actividad_actual('agregar_items_guia'); 
         
-        // $grupositems= $this->_grupositems(); 
-        // $this->view_data['grupositems']['list']=$grupositems; //en la view: $grupositems['list'][indice]['id_grupoitem'].
-
+        
          $items = $this->_itemsOrderByNom();  
          $this->view_data['items']['list']=$items; //en la view: $items['list'][indice]['id_item'].
          $this->view_data['items']['selected'] = 0;
@@ -264,7 +263,6 @@ class Crear_nueva_guia extends CI_Controller {
             {
                 $this->load->library('form_validation');
                //verifico inputs
-              //  $this->form_validation->set_rules('input-cod-carr', 'input-cod-carr', 'required');
                 $this->form_validation->set_rules('input-cod-cat', 'input-cod-cat', 'required');
                 $this->form_validation->set_rules('input-nro-guia', 'input-nro-guia', 'required');
                 $this->form_validation->set_rules('input-tit-guia', 'input-tit-guia', 'required');
