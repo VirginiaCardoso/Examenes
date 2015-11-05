@@ -289,6 +289,7 @@ function handler_formulario() {
 	});	
 }
 
+
 function set_estilos_revision(agregar) {
 
 	if(agregar) {
@@ -325,7 +326,7 @@ function revisar_items(evaluando) {
 				rta_respondidas ++;
 				
 				$(this).parent().addClass('bg-success');
-				var p =  parseInt($(this).next('.item-pond').val());
+				var p =  parseFloat($(this).next('.item-pond').val());
 				pond = pond+p;
 				
 				manage_observacion(true, $(this).nextAll('.item-obs-container'));
@@ -355,7 +356,7 @@ function revisar_items(evaluando) {
 				rta_correctas ++;
 				rta_respondidas ++;
 				
-				var p = parseInt($(this).next('.item-pond').val());
+				var p = parseFloat($(this).next('.item-pond').val());
 				pond = pond+p;
 				$(this).parent().parent().addClass('bg-success');
 				$(this).html('sí').addClass('item-value-si');
@@ -375,7 +376,7 @@ function revisar_items(evaluando) {
 		});
 
 	}
-	
+
 
 	var porcentaje_correcto = 0;
 
@@ -384,7 +385,9 @@ function revisar_items(evaluando) {
 		porcentaje_correcto = porcentaje_correcto.toFixed(2);
 	}
 	$('#porcentaje-realizado').html(porcentaje_correcto + "%  - ("+rta_correctas+" / "+rta_respondidas+") ");
-	$('#ponderacion-realizado').html(pond + "%  /  100%");
+	$('#ponderacion-realizado').html(pond + "%");
+	document.getElementById('examen-pond').value = pond;
+
 }
 
 /*

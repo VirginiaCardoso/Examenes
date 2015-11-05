@@ -424,7 +424,7 @@ function delRow(nroFila) {
     function clicItem(){
       ingresandoGrupo =false;
       document.getElementById("div_grupo").style.visibility = "hidden"; 
-       document.getElementById("div_items_grupo").style.visibility = "hidden";
+      document.getElementById("div_items_grupo").style.visibility = "hidden";
       document.getElementById("div_items").style.visibility = "visible";
 
     }

@@ -32,6 +32,15 @@
 	
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 
+<script language="JavaScript"> 
+	
+	function pregunta(args){ 
+    if (confirm('¿Está seguro que desea guardar esta Guía?')){ 
+    } 
+    else
+         return false;
+} 
+</script>
 
 	<div id="div" class="container">
 
@@ -73,13 +82,32 @@
 
 							<a id="btn-cancelar" href="<?php echo site_url('crear_nueva_guia/crear');?>" class="btn btn-default ">Cancelar</a>
 						<!-- 	<a id="btn-guardar" data-target="#" class="btn btn-primary btn-lg">Guardar</a> -->
-							<button id="btn-guardar" name="boton" class="btn btn-primary " type="submit" >Guardar</button>
+							<button id="btn-guardar" name="boton" class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#myModal">Guardar</button>
 						</div>
 
 					 </form> 
 				</div>
-						 
-
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Guardar Guía</h4>
+				      </div>
+				      <div class="modal-body">
+				        <div id="alert-warning-save" class="alert alert-warning modal-body-content">
+							<strong>ATENCIÓN!</strong> ¿Está realmente seguro de que desea guardar esta Guía? <br/> La misma, una vez creada, no podrá ser modificada.
+						</div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				        <button  id="btn-modal-save" type="button" class="btn btn-primary success">Si, Guardar</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>		 
+				<!-- Fin Modal -->
 		<div class="forms_items " >
 
 			<div class="form-group form-radio">
@@ -108,15 +136,7 @@
 					</div>
 							
 				</div> 
-				<!-- <div class=" row row_items" >			
-					<div class="col-xs-10 input_item" id="selecttituloGrupo" >
-				 			 <label for="item" class="control-label">Nombre</label> -->
-										<!-- <input type="text" class="form-control " id="input-tit-grupo" name="input-tit-grupo" value="" placeholder="Ingrese texto del item" /> -->
-					<!-- </div>
-					<div class="col-xs-2 add" id="botonselecttituloGrupo">
-					  <button id="btn-submit-grupo" name="boton" class="btn btn-primary" type="submit" onclick=""> + </button>
-								 	</div>
-				  </div> -->
+				
 			</div> <!-- div grupo -->
 
 			<!-- div Items para grupo -->
@@ -134,10 +154,6 @@
 									<!-- <label for="item" class="control-label">Nombre</label> -->
 									<input type="text" class="form-control " id="pond_item1_grupo" name="pond_item1_grupo" value="" placeholder="%"  />
 							</div>
-							<!-- <div class=" porc">
-								<b>% </b>
-							</div>
-							 -->
 							<div class="col-xs-2 add_grupo">
 									<button id="btn-submit_grupo" name="boton" class="btn btn-primary" type="submit" onclick="addItemGrupo1();"> + </button>
 							</div>

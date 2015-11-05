@@ -51,7 +51,7 @@
 							</div>";
 			}
 
-			$botonera =	$botonera."<span class='item-value-titulo calificacion'>Respuesta: </span><span class='item-value calificacion' {$value}>-</span> ";
+			$botonera =	$botonera."<span class='item-value-titulo calificacion'>Respuesta: </span><span class='item-value calificacion' {$value}>-</span> <input type='hidden' name='item-pond[]' class='item-pond' id='pond-item-{$item['id']}' value='{$item['pon']}'/>";
 			// <span class='item-value-pond ponderacion calificacion'>{$item['pon']}</span>";
 		}
 		else 
@@ -424,10 +424,10 @@
 				<?php endif; ?>
 
 				<div class="calificacion container-calificacion">
-				 	Porcentaje correctas: <span id="porcentaje-realizado">porcentaje</span>
+				 	Porcentaje respuestas correctas: <span id="porcentaje-realizado">porcentaje</span>
 				 	<br>
 				 	Porcentaje ponderación: <span id="ponderacion-realizado">ponderacion</span>
-				 	<input type="hidden" name="examen-porc" id="examen-porc" value="-1">
+				 	<input type="hidden" name="examen-pond" id="examen-pond" value="-1">
 
 				 	<div class="examen-calificacion">
 					 	<span class="span-calif-obsGral">CALIFICACION: </span>

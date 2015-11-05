@@ -467,7 +467,7 @@ class Crear_nueva_guia extends CI_Controller {
                         for($j = 0; $j < count($arreglo_items); $j++){
                             try {
                                                                                                                 //$arreglo_items[$j]['pond_item'],
-                             $this->guias_model->vincular_item_guia($arreglo_items[$j]['id_item'], $guia_id,$arreglo_items[$j]['pos_item'],$arreglo_items[$j]['pond_item'],$arreglo_items[$j]['nro_item'],$arreglo_items[$j]['id_grupoitem']);
+                             $this->guias_model->vincular_item_guia($arreglo_items[$j]['id_item'],$guia_id,$arreglo_items[$j]['pos_item'],$arreglo_items[$j]['pond_item'],$arreglo_items[$j]['nro_item'],$arreglo_items[$j]['id_grupoitem']);
                       
                             } catch (Exception $e) {
 
