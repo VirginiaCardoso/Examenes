@@ -87,9 +87,6 @@ $(document).ready(function() {
         });
 });
 
-
-
-
     // Sortable Code
     var fixHelperModified = function(e, tr) {
         var $originals = tr.children();
@@ -339,10 +336,23 @@ function addRow2(tableID) {
 }
 
 function delRow(nroFila) {
-     nroItems--;
-     posicItems--;
+
+    var esDeGrupo = false;
+    var grupoElim = 0;
+     
      var table = document.getElementById('lista_items_guia');
      table.deleteRow(nroFila); //elimino la fila de la tabla
+
+     posicItems--;
+     if ((document.getElementById("input-tipo-"+nroFila).value=="item-nuevo") || (document.getElementById("input-tipo-"+nroFila).value=="item-bd"))
+        {
+          nroItems--;
+
+        }
+        else {
+          esDeGrupo = true;
+          grupoElim = document.getElementById("input-grupo-"+nroFila).value;
+        }
 
      //elimino los input de esa fila
      var inputtipo = document.getElementById("input-tipo-"+nroFila);
@@ -359,6 +369,7 @@ function delRow(nroFila) {
      inputnro.parentNode.removeChild(inputnro);
      var inputgrupo = document.getElementById("input-grupo-"+nroFila);
      inputgrupo.parentNode.removeChild(inputgrupo);
+    
 
      //actualizar nro item
 
@@ -369,20 +380,24 @@ function delRow(nroFila) {
             
             table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRow("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
 
-           // n=i+1;
-            var inputtipo3 = document.getElementById("input-tipo-"+i);
-            if ((inputtipo3.value=="item-grupo-nuevo") || (inputtipo3.value=="item-grupo-bd")  ){
+           var n=i+1;
+            var inputtipo3 = document.getElementById("input-tipo-"+n);
+            if ( ((inputtipo3.value=="item-grupo-nuevo") || (inputtipo3.value=="item-grupo-bd")) && esDeGrupo && (grupoElim==document.getElementById("input-grupo-"+n).value) )
+            {
                 var elem = table.rows[i].cells[0].innerHTML.split(' - ');
                 nrog = elem[0];
                 nroi = elem[1];
-                nrog--;
+                nroi--;
                 table.rows[i].cells[0].innerHTML =  nrog+" - "+nroi;
+                contItemsGrupo--;
 
             }
             else {
               table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
+              
+              
             }
-     
+            
           // }
     }
 
@@ -407,7 +422,11 @@ function delRow(nroFila) {
 
       var inputnro2 = document.getElementById("input-nro-"+j);
       inputnro2.id="input-nro-"+k;
-      inputnro2.value=inputnro2.value-1;     
+
+      if ((inputtipo2.value=="item-grupo-nuevo") || (inputtipo2.value=="item-grupo-bd")) 
+        inputnro2.value=inputnro2.value; // mantiene el mismo nr dentro del grupo
+      else
+        inputnro2.value=inputnro2.value-1;     
 
       var inputgrupo2 = document.getElementById("input-grupo-"+j);
       inputgrupo2.id="input-grupo-"+k;
@@ -416,16 +435,23 @@ function delRow(nroFila) {
 
     function clicGrupo(){
       ingresandoGrupo = true;
-      document.getElementById("div_grupo").style.visibility = "visible"; 
+       document.getElementById("div_grupo").style.visibility = "visible"; 
+       document.getElementById("div_grupo").innerHTML = " <div class='row row_items' >  <div class='col-xs-10 input_item' id='tituloGrupo' ><label for='item' class='control-label'>Ingrese nuevo o elija un titulo para el grupo</label><input type='text' class='form-control ' id='input-tit-grupo' name='input-tit-grupo' value='' placeholder='Ingrese titulo para el grupo' /></div><div class='col-xs-2 add id='botontituloGrupo'><button id='btn-submit-grupo' name='boton' class='btn btn-primary' type='submit' onclick='addTitulo();'> + </button></div> </div>";
+
       document.getElementById("div_items").style.visibility = "hidden";
+      document.getElementById("div_items").innerHTML = "";
        }
 
 
     function clicItem(){
       ingresandoGrupo =false;
       document.getElementById("div_grupo").style.visibility = "hidden"; 
+      document.getElementById("div_grupo").innerHTML = "";
+        
       document.getElementById("div_items_grupo").style.visibility = "hidden";
+
       document.getElementById("div_items").style.visibility = "visible";
+      document.getElementById("div_items").innerHTML = "<div class='row row_items'> <div class='col-xs-8 input_item'><input type='text' class='form-control ' id='item' name='item' value='' placeholder='Ingrese texto del item' /> </div><div class='col-xs-2 input_pond'><input type='text' class='form-control ' id='pond_item1' name='pond_item1' value='' placeholder='%'  /></div> <div class='col-xs-2 add'><button id='btn-submit' name='boton' class='btn btn-primary' type='submit' onclick='addRow('lista_items_guia');'> + </button> </div> </div> <div class=' row row_items'><div class='col-xs-8 input_item'><?php if(!isset($items)) // si no existen items { echo  '<select id='select-item' name='select-item' class='select form-control' disabled></select>';} else {   echo '<select id='select-item' name='select-item' class='select form-control select-i'>'; foreach ($items['list'] as $indice => $item):    if($indice == $items['selected']){ echo '<option value=''.$item['id_item'].'' selected = 'selected'>'.$item['nom_item'].'</option>'; }   else  { echo '<option value=''.$item['id_item'].''>'.$item['nom_item'].'</option>';  }  endforeach;echo '</select>'; }   ?> </div>  <div class='col-xs-2 input_pond'> <input type='text' class='form-control ' id='pond_item2' name='pond_item2' value=' placeholder='%'  /> </div> <div class='col-xs-2 add'><button id='btn-submit2' name='boton' class='btn btn-primary' type='submit' onclick='addRow2('lista_items_guia');''> + </button> </div>";
 
     }
 
@@ -514,7 +540,65 @@ function delRow(nroFila) {
 
       document.getElementById('nro_grupo').innerHTML="";
       document.getElementById('nro_grupo').innerHTML=cell0.innerHTML;
+
       document.getElementById("div_items_grupo").style.visibility = "visible"; 
+      //  document.getElementById("div_items_grupo").innerHTML =" 
+      // <label class='control-label'>Ingrese o elija items para el grupo </label> <label id='nro_grupo'>  </label>
+                    
+    
+      //     <div class='row row_items_grupo'>              <div class='col-xs-8 input_item_grupo'>      
+      //             <input type='text' class='form-control ' id='item_grupo' name='item_grupo' value='' placeholder='Ingrese texto del item' />
+      //         </div>
+      //         <div class='col-xs-2 input_pond_grupo'>
+                  
+      //             <input type='text' class='form-control ' id='pond_item1_grupo' name='pond_item1_grupo' value='' placeholder='%'  />
+      //         </div>
+      //         <div class="col-xs-2 add_grupo">                  <button id="btn-submit_grupo" name="boton" class="btn btn-primary" type="submit" onclick="addItemGrupo1();"> + </button>
+      //         </div>          </div> 
+
+        
+
+      //   <div class=" row row_items_grupo">
+          
+      //     <div class="col-xs-8 input_item_grupo">
+
+      //       <?php
+
+      //       /* SELECT DE items */
+
+      //       if(!isset($items)) // si no existen items
+      //       {
+      //         echo  '<select id="select-item-grupo" name="select-item-grupo" class="select form-control" disabled></select>';
+      //       }
+      //       else
+      //       { 
+      //         echo '<select id="select-item-grupo" name="select-item-grupo" class="select form-control select-i">';
+
+      //         foreach ($items['list'] as $indice => $item): 
+
+      //           if($indice == $items['selected'])
+      //           {
+      //             echo '<option value="'.$item['id_item'].'" selected = "selected">'.$item['nom_item'].'</option>';
+      //           }
+      //           else
+      //           {
+      //             echo '<option value="'.$item['id_item'].'">'.$item['nom_item'].'</option>';
+      //           }
+
+      //         endforeach;
+
+      //         echo '</select>';
+      //       }
+      //       ?>
+      //     </div>  
+      //     <div class="col-xs-2 input_pond">
+      //             <!-- <label for="item" class="control-label">Nombre</label> -->
+      //             <input type="text" class="form-control " id="pond_item2_grupo" name="pond_item2_grupo" value="" placeholder="%"  />
+      //         </div>
+      //     <div class="col-xs-2 add">
+      //       <button id="btn-submit2_grupo" name="boton" class="btn btn-primary" type="submit" onclick="addItemGrupo2();"> + </button>
+      //     </div>
+      //   </div>
 
 }
 
