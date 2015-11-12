@@ -452,7 +452,7 @@ function delRow(nroFila) {
     }
 
     function addTitulo() {
-     var table = document.getElementById('lista_items_guia');
+      var table = document.getElementById('lista_items_guia');
      var rowCount = table.rows.length;
      var row = table.insertRow(rowCount);
      var text =  document.getElementById("input-tit-grupo");
@@ -597,6 +597,129 @@ function delRow(nroFila) {
       //   </div>
 
 }
+
+function delRowTitulo(nroFila) {
+
+    if (!ingresandoGrupo){ //por ahora si esta ingresando el grupo no se lo dejo borrar 
+
+   
+
+     var table = document.getElementById('lista_items_guia');
+     table.deleteRow(nroFila); //elimino la fila de la tabla
+
+     posicItems--;
+     nroItems--;
+
+     //elimino los input de esa fila
+     var inputtipo = document.getElementById("input-tipo-"+nroFila);
+     inputtipo.parentNode.removeChild(inputtipo);
+     var inputid = document.getElementById("input-id-"+nroFila);
+     inputid.parentNode.removeChild(inputid);
+     var inputtexto = document.getElementById("input-texto-"+nroFila);
+     inputtexto.parentNode.removeChild(inputtexto);
+     var inputpond = document.getElementById("input-pond-"+nroFila);
+     inputpond.parentNode.removeChild(inputpond);
+     var inputposic = document.getElementById("input-posic-"+nroFila);
+     inputposic.parentNode.removeChild(inputposic);
+     var inputnro = document.getElementById("input-nro-"+nroFila);
+     inputnro.parentNode.removeChild(inputnro);
+     var inputgrupo = document.getElementById("input-grupo-"+nroFila);
+     var nroGrupo = inputgrupo.value;
+     inputgrupo.parentNode.removeChild(inputgrupo);
+    
+    var cantEliminados=0;
+     var rowCount = table.rows.length;
+     //borrar los items del grupo que borre el titulo
+     var k=nroFila;
+     var termino = false;
+     while ((k<=rowCount) && !termino)  {
+      //if ( ((inputtipoi.value=="item-grupo-nuevo") || (inputtipoi.value=="item-grupo-bd") ) && (document.getElementById("input-grupo-"+j).value==nroGrupo) ) {
+                var n = k+1+cantEliminados;
+                if (document.getElementById("input-grupo-"+n).value==nroGrupo) {
+                  table.deleteRow(k);
+                  
+                  inputtipo = document.getElementById("input-tipo-"+n);
+                  inputtipo.parentNode.removeChild(inputtipo);
+                  inputid = document.getElementById("input-id-"+n);
+                   inputid.parentNode.removeChild(inputid);
+                  inputtexto = document.getElementById("input-texto-"+n);
+                   inputtexto.parentNode.removeChild(inputtexto);
+                  inputpond = document.getElementById("input-pond-"+n);
+                   inputpond.parentNode.removeChild(inputpond);
+                   inputposic = document.getElementById("input-posic-"+n);
+                   inputposic.parentNode.removeChild(inputposic);
+                   inputnro = document.getElementById("input-nro-"+n);
+                   inputnro.parentNode.removeChild(inputnro);
+                   inputgrupo = document.getElementById("input-grupo-"+n);
+                   inputgrupo.parentNode.removeChild(inputgrupo);
+                   cantEliminados++;
+                  posicItems--;
+              }
+              else { termino= true;}
+              
+     }
+
+    //actualizar nro item restantes
+      var ultNroGrupo =0;
+      var nroGrupoAnt = 0;
+     var rowCount = table.rows.length;
+    for (i = nroFila; i < rowCount; i++) {
+        
+            var j=i+1+cantEliminados;
+            var inputtipoi = document.getElementById("input-tipo-"+j);
+
+            if ( (inputtipoi.value=="item-grupo-nuevo") || (inputtipoi.value=="item-grupo-bd")){
+                table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRowGrupo("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+                if (document.getElementById("input-grupo-"+j).value==nroGrupoAnt){
+                    document.getElementById("input-grupo-"+j).value = ultNroGrupo; 
+                  table.rows[i].cells[0].innerHTML = ultNroGrupo + " - "+ document.getElementById("input-nro-"+j).value;
+              }
+
+              
+             }
+              else {
+                if (inputtipoi.value=="titulo-grupo-nuevo"){
+                    table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRowTitulo("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+                    table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
+                    nroGrupoAnt = document.getElementById("input-grupo-"+j).value;
+                    document.getElementById("input-grupo-"+j).value = table.rows[i].cells[0].innerHTML;
+                    ultNroGrupo = document.getElementById("input-grupo-"+j).value;
+               }
+                else {
+                  table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRow("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+                  table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
+                }
+
+              }
+              // table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
+              //------------------
+              inputtipoi.id="input-tipo-"+i;
+        
+              document.getElementById("input-id-"+j).id="input-id-"+i;
+    
+              document.getElementById("input-texto-"+j).id="input-texto-"+i;
+
+              document.getElementById("input-pond-"+j).id="input-pond-"+i;
+
+              document.getElementById("input-posic-"+j).value = document.getElementById("input-posic-"+j).value -cantEliminados ;
+              document.getElementById("input-posic-"+j).id="input-posic-"+i;
+              document.getElementById("input-nro-"+j).id="input-nro-"+i;
+
+              // if ((inputtipoi.value=="item-grupo-nuevo") || (inputtipoi.value=="item-grupo-bd")) 
+              //   inputnroi.value=inputnroi.value; // mantiene el mismo nr dentro del grupo
+              // else
+              //   inputnroi.value=inputnroi.value-1;     
+
+              document.getElementById("input-grupo-"+j).id="input-grupo-"+i;
+                      //-----------------------
+
+          
+    }
+     }
+
+   
+    
+  }
 
 function addItemGrupo1(){
 
@@ -775,6 +898,11 @@ function addItemGrupo2(){
 
 function delRowGrupo(nroFila) {
 
+    if (ingresandoGrupo)
+    {
+      contItemsGrupo--;
+    }
+
      var table = document.getElementById('lista_items_guia');
      table.deleteRow(nroFila); //elimino la fila de la tabla
 
@@ -866,5 +994,6 @@ function delRowGrupo(nroFila) {
       var inputgrupo2 = document.getElementById("input-grupo-"+j);
       inputgrupo2.id="input-grupo-"+k;
     }
+
   }
 
