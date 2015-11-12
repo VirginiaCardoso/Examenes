@@ -3,4 +3,4 @@ FALTA
 2.superAdmin tiene que poder ver todos los examenes de las cátedras tomados por distintos usuarios
 3.pueden exisitir examenes que se realizan en mas de una cátedra
 5.quien puede modificar la cátedra
-7.ver como utilizamos la ponderación con el calculo de la calificación
+6.Estadísticas

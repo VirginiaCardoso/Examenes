@@ -32,15 +32,7 @@
 	
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 
-<script language="JavaScript"> 
-	
-	function pregunta(args){ 
-    if (confirm('¿Está seguro que desea guardar esta Guía?')){ 
-    } 
-    else
-         return false;
-} 
-</script>
+
 
 	<div id="div" class="container">
 
@@ -80,34 +72,55 @@
 						<input type="hidden" name="input-tit-guia" id="input-tit-guia" value="<?php echo $tit_guia; ?>"/>
 					 	<div class="guardar-guia form-group-buttons botonera">
 
-							<a id="btn-cancelar" href="<?php echo site_url('crear_nueva_guia/crear');?>" class="btn btn-default ">Cancelar</a>
+							<!-- <a id="btn-cancelar" href="<?php echo site_url('crear_nueva_guia/crear');?>" class="btn btn-default ">Cancelar</a> -->
 						<!-- 	<a id="btn-guardar" data-target="#" class="btn btn-primary btn-lg">Guardar</a> -->
-							<button id="btn-guardar" name="boton" class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#myModal">Guardar</button>
+							<button id="btn-cancelar" name="boton" class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#cGuia">Cancelar</button>
+							<button id="btn-guardar" name="boton" class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#gGuia">Guardar</button>
 						</div>
+					<!-- Modal -->
+									<div class="modal fade" id="gGuia" tabindex="-1" role="dialog" aria-labelledby="gGuiaLabel">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									        <h4 class="modal-title" id="gGuiaLabel">Guardar Guía</h4>
+									      </div>
+									      <div class="modal-body">
+									        <div id="alert-warning-save" class="alert alert-warning modal-body-content">
+												<strong>ATENCIÓN!</strong> ¿Está realmente seguro de que desea guardar esta Guía? <br/> La misma, una vez creada, no podrá ser modificada.
+											</div>
+									      </div>
+									      <div class="modal-footer">
+									        <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+									        <button  type="submit" id="btn-modal-save" class="btn btn-primary success">Si, Guardar</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
 
+									<div class="modal fade" id="cGuia" tabindex="-1" role="dialog" aria-labelledby="cGuiaLabel">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									        <h4 class="modal-title" id="cGuiaLabel">Cancelar Guía</h4>
+									      </div>
+									      <div class="modal-body">
+									        <div id="alert-warning-save" class="alert alert-warning modal-body-content">
+												<strong>ATENCIÓN!</strong> Usted está por abandonar la creación de una Guía. Si continúa perderá los datos y deberá generar la guía nuevamente.
+											</div>
+									      </div>
+									      <div class="modal-footer">
+									        <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+									        <a  id="btn-modal-save" href="<?php echo site_url('home');?>" type="button" class="btn btn-primary success">Salir</a>
+									      </div>
+									    </div>
+									  </div>
+									</div>		 
+									<!-- Fin Modal -->
 					 </form> 
 				</div>
-				<!-- Modal -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title" id="myModalLabel">Guardar Guía</h4>
-				      </div>
-				      <div class="modal-body">
-				        <div id="alert-warning-save" class="alert alert-warning modal-body-content">
-							<strong>ATENCIÓN!</strong> ¿Está realmente seguro de que desea guardar esta Guía? <br/> La misma, una vez creada, no podrá ser modificada.
-						</div>
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				        <button  id="btn-modal-save" type="button" class="btn btn-primary success">Si, Guardar</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>		 
-				<!-- Fin Modal -->
+				
 		<div class="forms_items " >
 
 			<div class="form-group form-radio">
@@ -121,7 +134,7 @@
 				</div>
 			</div>
 			<div id="div_grupo" style="visibility: hidden;">
-				<<!-- div class="row row_items" > 
+				<div class="row row_items" > 
 								
 					<div class="col-xs-10 input_item" id="tituloGrupo" >
 										<label for="item" class="control-label">Ingrese nuevo o elija un titulo para el grupo</label>
@@ -132,13 +145,13 @@
 								
 					</div>
 							
-				</div>  -->
+				</div> 
 				
 			</div> <!-- div grupo -->
 
 			<!-- div Items para grupo -->
 			<div id="div_items_grupo" style="visibility: hidden;">
-				<!-- <label class="control-label">Ingrese o elija items para el grupo </label> <label id="nro_grupo">  </label>
+				<label class="control-label">Ingrese o elija items para el grupo </label> <label id="nro_grupo">  </label>
 										
 		
 					<div class="row row_items_grupo"> 
@@ -165,31 +178,31 @@
 
 						<?php
 
-						// /* SELECT DE items */
+						/* SELECT DE items */
 
-						// if(!isset($items)) // si no existen items
-						// {
-						// 	echo 	'<select id="select-item-grupo" name="select-item-grupo" class="select form-control" disabled></select>';
-						// }
-						// else
-						// { 
-						// 	echo '<select id="select-item-grupo" name="select-item-grupo" class="select form-control select-i">';
+						if(!isset($items)) // si no existen items
+						{
+							echo 	'<select id="select-item-grupo" name="select-item-grupo" class="select form-control" disabled></select>';
+						}
+						else
+						{ 
+							echo '<select id="select-item-grupo" name="select-item-grupo" class="select form-control select-i">';
 
-						// 	foreach ($items['list'] as $indice => $item): 
+							foreach ($items['list'] as $indice => $item): 
 
-						// 		if($indice == $items['selected'])
-						// 		{
-						// 			echo '<option value="'.$item['id_item'].'" selected = "selected">'.$item['nom_item'].'</option>';
-						// 		}
-						// 		else
-						// 		{
-						// 			echo '<option value="'.$item['id_item'].'">'.$item['nom_item'].'</option>';
-						// 		}
+								if($indice == $items['selected'])
+								{
+									echo '<option value="'.$item['id_item'].'" selected = "selected">'.$item['nom_item'].'</option>';
+								}
+								else
+								{
+									echo '<option value="'.$item['id_item'].'">'.$item['nom_item'].'</option>';
+								}
 
-						// 	endforeach;
+							endforeach;
 
-						// 	echo '</select>';
-						// }
+							echo '</select>';
+						}
 						?>
 					</div>	
 					<div class="col-xs-2 input_pond">
@@ -199,7 +212,7 @@
 					<div class="col-xs-2 add">
 						<button id="btn-submit2_grupo" name="boton" class="btn btn-primary" type="submit" onclick="addItemGrupo2();"> + </button>
 					</div>
-				</div> -->
+				</div >
 			</div><!--  div items grupo -->
 
 			<!-- div Items -->

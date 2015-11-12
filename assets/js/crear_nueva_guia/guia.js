@@ -337,22 +337,13 @@ function addRow2(tableID) {
 
 function delRow(nroFila) {
 
-    var esDeGrupo = false;
-    var grupoElim = 0;
-     
      var table = document.getElementById('lista_items_guia');
      table.deleteRow(nroFila); //elimino la fila de la tabla
 
      posicItems--;
-     if ((document.getElementById("input-tipo-"+nroFila).value=="item-nuevo") || (document.getElementById("input-tipo-"+nroFila).value=="item-bd"))
-        {
-          nroItems--;
+     nroItems--;
 
-        }
-        else {
-          esDeGrupo = true;
-          grupoElim = document.getElementById("input-grupo-"+nroFila).value;
-        }
+
 
      //elimino los input de esa fila
      var inputtipo = document.getElementById("input-tipo-"+nroFila);
@@ -372,33 +363,38 @@ function delRow(nroFila) {
     
 
      //actualizar nro item
-
+      var ultNroGrupo =0;
+      var nroGrupoAnt = 0;
      var rowCount = table.rows.length;
     for (i = nroFila; i < rowCount; i++) {
-        // document.getElementById("myTable").rows[0].cells[0].innerHTML ="hi";
-        // if(i!=0){
-            
-            table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRow("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+        
+            var j=i+1;
+            var inputtipoi = document.getElementById("input-tipo-"+j);
 
-           var n=i+1;
-            var inputtipo3 = document.getElementById("input-tipo-"+n);
-            if ( ((inputtipo3.value=="item-grupo-nuevo") || (inputtipo3.value=="item-grupo-bd")) && esDeGrupo && (grupoElim==document.getElementById("input-grupo-"+n).value) )
-            {
-                var elem = table.rows[i].cells[0].innerHTML.split(' - ');
-                nrog = elem[0];
-                nroi = elem[1];
-                nroi--;
-                table.rows[i].cells[0].innerHTML =  nrog+" - "+nroi;
-                contItemsGrupo--;
+            if ( (inputtipoi.value=="item-grupo-nuevo") || (inputtipoi.value=="item-grupo-bd")){
+                table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRowGrupo("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+                if (document.getElementById("input-grupo-"+j).value==nroGrupoAnt){
+                    document.getElementById("input-grupo-"+j).value = ultNroGrupo; 
+                  table.rows[i].cells[0].innerHTML = ultNroGrupo + " - "+ document.getElementById("input-nro-"+j).value;
+              }
+             }
+              else {
+                if (inputtipoi.value=="titulo-grupo-nuevo"){
+                    table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRowTitulo("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+                    table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
+                    nroGrupoAnt = document.getElementById("input-grupo-"+j).value;
+                    document.getElementById("input-grupo-"+j).value = table.rows[i].cells[0].innerHTML;
+                    ultNroGrupo = document.getElementById("input-grupo-"+j).value;
+               }
+                else {
+                  table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRow("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+                  table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
+                }
 
-            }
-            else {
-              table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
-              
-              
-            }
-            
-          // }
+              }
+              // table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
+
+          
     }
 
     //actualizar nombre de los input hiden
@@ -436,22 +432,22 @@ function delRow(nroFila) {
     function clicGrupo(){
       ingresandoGrupo = true;
        document.getElementById("div_grupo").style.visibility = "visible"; 
-       document.getElementById("div_grupo").innerHTML = " <div class='row row_items' >  <div class='col-xs-10 input_item' id='tituloGrupo' ><label for='item' class='control-label'>Ingrese nuevo o elija un titulo para el grupo</label><input type='text' class='form-control ' id='input-tit-grupo' name='input-tit-grupo' value='' placeholder='Ingrese titulo para el grupo' /></div><div class='col-xs-2 add id='botontituloGrupo'><button id='btn-submit-grupo' name='boton' class='btn btn-primary' type='submit' onclick='addTitulo();'> + </button></div> </div>";
+    //   document.getElementById("div_grupo").innerHTML = " <div class='row row_items' >  <div class='col-xs-10 input_item' id='tituloGrupo' ><label for='item' class='control-label'>Ingrese nuevo o elija un titulo para el grupo</label><input type='text' class='form-control ' id='input-tit-grupo' name='input-tit-grupo' value='' placeholder='Ingrese titulo para el grupo' /></div><div class='col-xs-2 add id='botontituloGrupo'><button id='btn-submit-grupo' name='boton' class='btn btn-primary' type='submit' onclick='addTitulo();'> + </button></div> </div>";
 
       document.getElementById("div_items").style.visibility = "hidden";
-      document.getElementById("div_items").innerHTML = "";
+    //  document.getElementById("div_items").innerHTML = "";
        }
 
 
     function clicItem(){
       ingresandoGrupo =false;
       document.getElementById("div_grupo").style.visibility = "hidden"; 
-      document.getElementById("div_grupo").innerHTML = "";
+    //  document.getElementById("div_grupo").innerHTML = "";
         
       document.getElementById("div_items_grupo").style.visibility = "hidden";
 
       document.getElementById("div_items").style.visibility = "visible";
-      document.getElementById("div_items").innerHTML = "<div class='row row_items'> <div class='col-xs-8 input_item'><input type='text' class='form-control ' id='item' name='item' value='' placeholder='Ingrese texto del item' /> </div><div class='col-xs-2 input_pond'><input type='text' class='form-control ' id='pond_item1' name='pond_item1' value='' placeholder='%'  /></div> <div class='col-xs-2 add'><button id='btn-submit' name='boton' class='btn btn-primary' type='submit' onclick='addRow('lista_items_guia');'> + </button> </div> </div> <div class=' row row_items'><div class='col-xs-8 input_item'><?php if(!isset($items)) // si no existen items { echo  '<select id='select-item' name='select-item' class='select form-control' disabled></select>';} else {   echo '<select id='select-item' name='select-item' class='select form-control select-i'>'; foreach ($items['list'] as $indice => $item):    if($indice == $items['selected']){ echo '<option value=''.$item['id_item'].'' selected = 'selected'>'.$item['nom_item'].'</option>'; }   else  { echo '<option value=''.$item['id_item'].''>'.$item['nom_item'].'</option>';  }  endforeach;echo '</select>'; }   ?> </div>  <div class='col-xs-2 input_pond'> <input type='text' class='form-control ' id='pond_item2' name='pond_item2' value=' placeholder='%'  /> </div> <div class='col-xs-2 add'><button id='btn-submit2' name='boton' class='btn btn-primary' type='submit' onclick='addRow2('lista_items_guia');''> + </button> </div>";
+     // document.getElementById("div_items").innerHTML = "<div class='row row_items'> <div class='col-xs-8 input_item'><input type='text' class='form-control ' id='item' name='item' value='' placeholder='Ingrese texto del item' /> </div><div class='col-xs-2 input_pond'><input type='text' class='form-control ' id='pond_item1' name='pond_item1' value='' placeholder='%'  /></div> <div class='col-xs-2 add'><button id='btn-submit' name='boton' class='btn btn-primary' type='submit' onclick='addRow('lista_items_guia');'> + </button> </div> </div> <div class=' row row_items'><div class='col-xs-8 input_item'><?php if(!isset($items)) { echo  '<select id='select-item' name='select-item' class='select form-control' disabled></select>';} else {   echo '<select id='select-item' name='select-item' class='select form-control select-i'>'; foreach ($items['list'] as $indice => $item):    if($indice == $items['selected']){ echo '<option value=''.$item['id_item'].'' selected = 'selected'>'.$item['nom_item'].'</option>'; }   else  { echo '<option value=''.$item['id_item'].''>'.$item['nom_item'].'</option>';  }  endforeach; echo '</select>'; }   ?> </div>  <div class='col-xs-2 input_pond'> <input type='text' class='form-control ' id='pond_item2' name='pond_item2' value='' placeholder='%'  /> </div> <div class='col-xs-2 add'><button id='btn-submit2' name='boton' class='btn btn-primary' type='submit' onclick='addRow2('lista_items_guia');'> + </button> </div>";
 
     }
 
@@ -479,7 +475,7 @@ function delRow(nroFila) {
 
       var cell3 = row.insertCell(3);
      // cell3.innerHTML =" ";
-       cell3.innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRow("+rowCount+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+       cell3.innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRowTitulo("+rowCount+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
 
       var formulario = document.getElementById("form-crear-guia");
 
@@ -629,7 +625,7 @@ function addItemGrupo1(){
   cell2.innerHTML = ponderacion.value;
 
   var cell3 = row.insertCell(3);
-  cell3.innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRow("+rowCount+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+  cell3.innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRowGrupo("+rowCount+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
 
   var formulario = document.getElementById("form-crear-guia");
 
@@ -718,9 +714,9 @@ function addItemGrupo2(){
   cell2.innerHTML = ponderacion.value;
 
   var cell3 = row.insertCell(3);
-  cell3.innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRow("+rowCount+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+  cell3.innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRowGrupo("+rowCount+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
 
-   var formulario = document.getElementById("form-crear-guia");
+  var formulario = document.getElementById("form-crear-guia");
 
   var x = document.createElement("INPUT");
   x.setAttribute("type", "hidden"); 
@@ -776,4 +772,99 @@ function addItemGrupo2(){
   ponderacion.placeholder = " % ";
 
 }
+
+function delRowGrupo(nroFila) {
+
+     var table = document.getElementById('lista_items_guia');
+     table.deleteRow(nroFila); //elimino la fila de la tabla
+
+     posicItems--;
+    // nroItems--;
+
+     //elimino los input de esa fila
+     var inputtipo = document.getElementById("input-tipo-"+nroFila);
+     inputtipo.parentNode.removeChild(inputtipo);
+     var inputid = document.getElementById("input-id-"+nroFila);
+     inputid.parentNode.removeChild(inputid);
+     var inputtexto = document.getElementById("input-texto-"+nroFila);
+     inputtexto.parentNode.removeChild(inputtexto);
+     var inputpond = document.getElementById("input-pond-"+nroFila);
+     inputpond.parentNode.removeChild(inputpond);
+     var inputposic = document.getElementById("input-posic-"+nroFila);
+     inputposic.parentNode.removeChild(inputposic);
+     var inputnro = document.getElementById("input-nro-"+nroFila);
+     // var nroItemGrupo= inputnro.value;
+     inputnro.parentNode.removeChild(inputnro);
+     var inputgrupo = document.getElementById("input-grupo-"+nroFila);
+     var nroGrupo = inputgrupo.value;
+     inputgrupo.parentNode.removeChild(inputgrupo);
+    
+     // //actualizar nro item
+     //  var ultNroGrupo =0;
+     //  var nroGrupoAnt = 0;
+     var rowCount = table.rows.length;
+    for (i = nroFila; i < rowCount; i++) {
+        
+            var j=i+1;
+            var inputtipoi = document.getElementById("input-tipo-"+j);
+
+            if ( (inputtipoi.value=="item-grupo-nuevo") || (inputtipoi.value=="item-grupo-bd") ){
+                table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRowGrupo("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+                //si es el mismo grupo modifico el nro que tiene el item
+                if (document.getElementById("input-grupo-"+j).value==nroGrupo){
+                  var inputitemgrupo = document.getElementById("input-nro-"+j);
+                  inputitemgrupo.value = inputitemgrupo.value-1; 
+                  table.rows[i].cells[0].innerHTML = document.getElementById("input-grupo-"+j).value + " - "+ inputitemgrupo.value;
+              }
+             }
+              else {
+                if (inputtipoi.value=="titulo-grupo-nuevo"){
+                    table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRowTitulo("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+                    // table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
+                    // nroGrupoAnt = document.getElementById("input-grupo-"+j).value;
+                    // document.getElementById("input-grupo-"+j).value = table.rows[i].cells[0].innerHTML;
+                    // ultNroGrupo = document.getElementById("input-grupo-"+j).value;
+               }
+                else {
+                  table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRow("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
+                  // table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
+                }
+
+              }
+              // table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
+
+          
+    }
+
+    //actualizar nombre de los input hiden
+    for (j=nroFila+1; j<=rowCount; j++){
+      k=j-1;
+      var inputtipo2 = document.getElementById("input-tipo-"+j);
+      inputtipo2.id="input-tipo-"+k;
+        
+      var inputid2 = document.getElementById("input-id-"+j);
+      inputid2.id="input-id-"+k;
+    
+      var inputtexto2 = document.getElementById("input-texto-"+j);
+      inputtexto2.id="input-texto-"+k;
+
+       var inputpond2 = document.getElementById("input-pond-"+j);
+      inputpond2.id="input-pond-"+k;
+
+      var inputposic2 = document.getElementById("input-posic-"+j);
+      inputposic2.id="input-posic-"+k;
+      inputposic2.value = inputposic2.value-1;
+
+      var inputnro2 = document.getElementById("input-nro-"+j);
+      inputnro2.id="input-nro-"+k;
+
+      if ((inputtipo2.value=="item-grupo-nuevo") || (inputtipo2.value=="item-grupo-bd")) 
+        inputnro2.value=inputnro2.value; // mantiene el mismo nr dentro del grupo
+      else
+        inputnro2.value=inputnro2.value-1;     
+
+      var inputgrupo2 = document.getElementById("input-grupo-"+j);
+      inputgrupo2.id="input-grupo-"+k;
+    }
+  }
 

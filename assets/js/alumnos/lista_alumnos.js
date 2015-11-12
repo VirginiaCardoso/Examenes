@@ -33,10 +33,10 @@ function crearDataTable() {
      
   					 newData += '<div class="contenedor-botones">'; 
   					 newData += '<div class="boton-modificar"><a href="'+rowData[5]+'" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="bottom" title="Modificar datos" ><span class="glyphicon glyphicon-pencil grande"></span> </a></div>';
-  					 newData += '<div class="boton-eliminar"><a href="'+rowData[6]+'" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Eliminar"><span class="glyphicon glyphicon-trash grande"></span> </a></div>';	
-						newData += '</div>'; 
-  					$(td).html(newData);
-  					$(td).css("text-align","center");	
+  					 newData += '<div class="boton-eliminar"><a href="'+rowData[6]+'" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delAlu" data-placement="bottom" title="Eliminar"><span class="glyphicon glyphicon-trash grande"></span> </a></div>';	
+					 newData += '</div>'; 
+  					 $(td).html(newData);
+  					 $(td).css("text-align","center");	
     			}
             }
         ],
@@ -73,10 +73,10 @@ function crearDataTable() {
 	var table = $('#lista_alumnos').DataTable();
  
 	$('#lista_alumnos tbody tr').click(
-		function () {
-    		//$( this ).addClass( "active" );	
-    		document.location = table.row(this).data()[5];
-		} 
+		// function () {
+  //   		//$( this ).addClass( "active" );	
+  //   		document.location = table.row(this).data()[5];
+		// } 
 	)
 	.css( 'cursor', 'pointer' )
 	.hover(
