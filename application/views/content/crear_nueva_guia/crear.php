@@ -104,7 +104,7 @@
 						<div class="row"> 
 							<div class="col-xs-12">
 			    				<label for="nro">Número de Guía</label>
-			    				<input type="text" class="form-control" id="nro" name="nro" placeholder="Ingrese el Número de Guía">
+			    				<input type="number" class="form-control" id="nro" name="nro" placeholder="Ingrese el Número de Guía" required title="Ingrese un Número de Guía">
 			    			</div>
 			    		</div>
 			  		</div>
@@ -112,7 +112,7 @@
 						<div class="row"> 
 							<div class="col-xs-12">
 			    				<label for="guia">Título de Guía</label>
-			    				<input type="text" class="form-control" id="guia" name="guia" placeholder="Ingrese el Título de la Guía">
+			    				<input type="text" class="form-control" id="guia" name="guia" placeholder="Ingrese el Título de la Guía" required title="Ingrese un Título para la Guía">
 			    				<!-- value="<? echo set_value('guia');?>" ESTE PARAMETRO SIRVE POR SI INGRESO MAL UN DATO, NO VOLVER A CARGARLO, TODAVIA NO ANDA
 			    				<? echo form_error('guia');?> MUESTRAR EL ERROR DEL CAMPO -->
 			    			</div>

@@ -42,7 +42,7 @@
 						<div class="row"> 
 							<div class="col-xs-4">
 								<label for="legajo" class="control-label">Legajo</label>
-								<input type="text" class="form-control " id="legajo" name="legajo" value="" placeholder="Ingrese legajo" />
+								<input type="number" class="form-control " id="legajo" name="legajo" value="" placeholder="Ingrese legajo" required title="Ingrese un Legajo"/>
 							</div>
 						</div>
 					</div>
@@ -50,11 +50,11 @@
 						<div class="row"> 
 							<div class="col-xs-6">
 									<label for="apellido" class="control-label">Apellido</label>
-									<input type="text" class="form-control" id="apellido" name="apellido" value=""  placeholder="Ingrese apellido"/>
+									<input type="text" class="form-control" id="apellido" name="apellido" value=""  placeholder="Ingrese apellido" required title="Ingrese Apellido"/>
 							</div>
 							<div class="col-xs-6">
 									<label for="nombre" class="control-label">Nombre</label>
-									<input type="text" class="form-control" id="nombre" name="nombre" value=""  placeholder="Ingrese nombre"/>
+									<input type="text" class="form-control" id="nombre" name="nombre" value=""  placeholder="Ingrese nombre" required title="Ingrese Nombre"/>
 							</div>
 						</div>
 					</div>
@@ -62,7 +62,7 @@
 						<div class="row"> 
 							<div class="col-xs-6">
 									<label for="dni" class="control-label">DNI</label>
-									<input type="text" class="form-control" id="dni" name="dni" value=""  placeholder="Ingrese número de documento"/>
+									<input type="number" class="form-control" id="dni" name="dni" value=""  placeholder="Ingrese número de documento" title="Ingrese DNI"/>
 							</div>
 						</div>
 					</div>

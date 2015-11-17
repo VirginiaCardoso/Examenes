@@ -14,7 +14,7 @@
 <script type="text/javascript"  src="<?php echo base_url('assets/js/alumnos/alumnos.js'); ?>"></script>
 
  <script>
-        $('#delAlu').on('show.bs.modal', function(e) {
+        $('#delAlu').on('btn-modal-save', function(e) {
             $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
             
             $('.debug-url').html('Delete URL: <strong>' + $(this).find('.success').attr('href') + '</strong>');
@@ -67,7 +67,7 @@
 									      </div>
 									      <div class="modal-footer">
 									        <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-									        <a  type="button" id="btn-modal-save" class="btn btn-primary success">Eliminar</a>
+									        <a  type="button" id="confirm" class="btn btn-primary btn-ok">Eliminar</a>
 									      </div>
 									    </div>
 									  </div>

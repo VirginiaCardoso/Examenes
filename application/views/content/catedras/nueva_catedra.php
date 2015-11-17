@@ -59,7 +59,7 @@
 						<div class="row"> 
 							<div class="col-xs-4">
 								<label for="codigo" class="control-label">Código</label>
-								<input type="text" class="form-control" id="codigo" name="codigo" value=""  />
+								<input type="number" class="form-control" id="codigo" name="codigo" value="" required title="Ingrese un Código"/>
 							</div>
 						</div>
 					</div>
@@ -67,7 +67,7 @@
 						<div class="row"> 
 							<div class="col-xs-4">
 									<label for="nombre" class="control-label">Nombre</label>
-									<input type="text" class="form-control" id="nombre" name="nombre" value=""/>
+									<input type="text" class="form-control" id="nombre" name="nombre" value="" required title="Ingrese Nombre"/>
 							</div>
 						</div>
 					</div>
