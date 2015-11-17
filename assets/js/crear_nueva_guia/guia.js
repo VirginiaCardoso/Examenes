@@ -15,6 +15,8 @@ var ingresandoGrupo= false;
 var nroGrupo=0;
 var contItemsGrupo=0;
 
+ // var cadenaDivGrupo = "<label class='control-label'>Ingrese o elija items para el grupo </label> <label id='nro_grupo'>  </label> <div class='row row_items_grupo'> <div class='col-xs-8 input_item_grupo'> <input type='text' class='form-control ' id='item_grupo' name='item_grupo' value='' placeholder='Ingrese texto del item' /></div>  <div class='col-xs-2 input_pond_grupo'><input type='text' class='form-control ' id='pond_item1_grupo' name='pond_item1_grupo' value='' placeholder=' %'   /> </div><div class=' col-xs-2 add_grupo' ><button id=' btn-submit_grupo'  name=' boton'  class=' btn btn-primary'  type=' submit' onclick='addItemGrupo1();'> + </button>  </div></div> <div class=' row row_items_grupo'> <div class='col-xs-8 input_item_grupo'> <?php  if(!isset($items)) { echo  "<select id='select-item-grupo' name='select-item-grupo' class='select form-control' disabled></select>"; } else  { echo '<select id='select-item-grupo' name='select-item-grupo' class='select form-control select-i'>'; foreach ($items['list'] as $indice => $item):  if($indice == $items['selected']) { echo '<option value=''.$item['id_item'].'' selected = 'selected'>'.$item['nom_item'].'</option>';  } else { echo '<option value=''.$item['id_item'].''>'.$item['nom_item'].'</option>'; }  endforeach;echo '</select>'; }?> </div>   <div class='col-xs-2 input_pond'> <input type='text' class='form-control ' id='pond_item2_grupo' name='pond_item2_grupo' value='' placeholder='%'  />  <div class='col-xs-2 add'>   <button id='btn-submit2_grupo' name='boton' class='btn btn-primary' type='submit' onclick='addItemGrupo2();'> + </button>  </div >";
+
 
 $(document).ready(function() {
     crearDataTable();
@@ -272,13 +274,6 @@ function addRow2(tableID) {
 
                 var formulario = document.getElementById("form-crear-guia");
 
-                // var x = document.createElement("INPUT");
-                // x.setAttribute("type", "hidden"); 
-                // x.name="item-id[]";
-                // x.id ="input-item-"+select.value;
-                // x.value=select.value;
-                // formulario.appendChild(x);
-
                 var x = document.createElement("INPUT");
                 x.setAttribute("type", "hidden"); 
                 x.name="item-tipo[]";
@@ -331,8 +326,6 @@ function addRow2(tableID) {
                 ponderacion.value= "";
                 ponderacion.placeholder = " % ";
 
-                // <input type='hidden' name='item-id[]' id='input-item-{$item['id']}' value='{$item['id']}'/>
-
 }
 
 function delRow(nroFila) {
@@ -342,8 +335,6 @@ function delRow(nroFila) {
 
      posicItems--;
      nroItems--;
-
-
 
      //elimino los input de esa fila
      var inputtipo = document.getElementById("input-tipo-"+nroFila);
@@ -391,10 +382,7 @@ function delRow(nroFila) {
                   table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
                 }
 
-              }
-              // table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
-
-          
+              }          
     }
 
     //actualizar nombre de los input hiden
@@ -431,26 +419,84 @@ function delRow(nroFila) {
 
     function clicGrupo(){
       ingresandoGrupo = true;
-       document.getElementById("div_grupo").style.visibility = "visible"; 
-    //   document.getElementById("div_grupo").innerHTML = " <div class='row row_items' >  <div class='col-xs-10 input_item' id='tituloGrupo' ><label for='item' class='control-label'>Ingrese nuevo o elija un titulo para el grupo</label><input type='text' class='form-control ' id='input-tit-grupo' name='input-tit-grupo' value='' placeholder='Ingrese titulo para el grupo' /></div><div class='col-xs-2 add id='botontituloGrupo'><button id='btn-submit-grupo' name='boton' class='btn btn-primary' type='submit' onclick='addTitulo();'> + </button></div> </div>";
 
-      document.getElementById("div_items").style.visibility = "hidden";
-    //  document.getElementById("div_items").innerHTML = "";
+      var padre = document.getElementById("forms_items");
+
+      padre.insertBefore( document.getElementById("div_grupo"), document.getElementById("limite1") );
+
+        document.getElementById("div_grupo").style.visibility = "visible"; 
+       // mostrarDivGrupo();
+
+       document.getElementById("div_items").style.visibility = "hidden";
+      padre.insertBefore( document.getElementById("div_items"), document.getElementById("limite2") );
        }
 
 
     function clicItem(){
       ingresandoGrupo =false;
+      var padre = document.getElementById("forms_items");
+
       document.getElementById("div_grupo").style.visibility = "hidden"; 
-    //  document.getElementById("div_grupo").innerHTML = "";
-        
+      padre.insertBefore( document.getElementById("div_grupo"), document.getElementById("limite2") );
       document.getElementById("div_items_grupo").style.visibility = "hidden";
+      padre.insertBefore( document.getElementById("div_items_grupo"), document.getElementById("limite2") );
+      // document.getElementById("div_items_grupo").innerHTML = "";
+      // cadenaDivGrupo
+      
+      padre.insertBefore( document.getElementById("div_items"), document.getElementById("limite1") );
 
       document.getElementById("div_items").style.visibility = "visible";
-     // document.getElementById("div_items").innerHTML = "<div class='row row_items'> <div class='col-xs-8 input_item'><input type='text' class='form-control ' id='item' name='item' value='' placeholder='Ingrese texto del item' /> </div><div class='col-xs-2 input_pond'><input type='text' class='form-control ' id='pond_item1' name='pond_item1' value='' placeholder='%'  /></div> <div class='col-xs-2 add'><button id='btn-submit' name='boton' class='btn btn-primary' type='submit' onclick='addRow('lista_items_guia');'> + </button> </div> </div> <div class=' row row_items'><div class='col-xs-8 input_item'><?php if(!isset($items)) { echo  '<select id='select-item' name='select-item' class='select form-control' disabled></select>';} else {   echo '<select id='select-item' name='select-item' class='select form-control select-i'>'; foreach ($items['list'] as $indice => $item):    if($indice == $items['selected']){ echo '<option value=''.$item['id_item'].'' selected = 'selected'>'.$item['nom_item'].'</option>'; }   else  { echo '<option value=''.$item['id_item'].''>'.$item['nom_item'].'</option>';  }  endforeach; echo '</select>'; }   ?> </div>  <div class='col-xs-2 input_pond'> <input type='text' class='form-control ' id='pond_item2' name='pond_item2' value='' placeholder='%'  /> </div> <div class='col-xs-2 add'><button id='btn-submit2' name='boton' class='btn btn-primary' type='submit' onclick='addRow2('lista_items_guia');'> + </button> </div>";
-
     }
 
+function mostrarDivGrupo(){
+
+  var divFormItems = document.getElementById("forms_items");
+
+  var nuevoDiv  = document.createElement("DIV");
+  nuevoDiv.setAttribute("class", "row row_items");
+  
+  var nuevoDiv2  = document.createElement("DIV");
+  nuevoDiv2.setAttribute("class", "col-xs-10 input_item");
+  nuevoDiv2.id = "tituloGrupo";
+
+  var label2  = document.createElement("LABEL");
+  label2.setAttribute("class", "control-label");
+  label2.setAttribute("for", "input-tit-grupo");
+  label2.innerHTML = "Ingrese nuevo o elija un titulo para el grupo";
+  nuevoDiv2.appendChild(label2);
+
+  var input2  = document.createElement("INPUT");
+  input2.id = "input-tit-grupo";
+  input2.name = "input-tit-grupo";
+  input2.value = "";
+  input2.setAttribute("class", "form-control");
+  input2.setAttribute("type", "text");
+  input2.setAttribute("placeholder","Ingrese titulo para el grupo");
+  nuevoDiv2.appendChild(input2);
+
+  var nuevoDiv3  = document.createElement("DIV");
+  nuevoDiv3.setAttribute("class", "col-xs-2 add");
+  nuevoDiv3.id = "botontituloGrupo";
+
+  var button3  = document.createElement("BUTTON");
+  button3.id = "btn-submit-grupo";
+  button3.name = "boton";
+  button3.value = " + ";
+  button3.setAttribute("class", "btn btn-primary");
+  button3.setAttribute("type", "submit");
+  button3.setAttribute("onclick","addTitulo();");
+  nuevoDiv3.appendChild(button3);
+
+  nuevoDiv.appendChild(nuevoDiv2);
+  nuevoDiv.appendChild(nuevoDiv3);
+
+
+  var hijo2  = divFormItems.insertBefore(nuevoDiv, document.getElementById("div_items_grupo"));
+  
+              
+  
+}
+     
     function addTitulo() {
       var table = document.getElementById('lista_items_guia');
      var rowCount = table.rows.length;
@@ -458,11 +504,9 @@ function delRow(nroFila) {
      var text =  document.getElementById("input-tit-grupo");
 
      var cell0 = row.insertCell(0);
-     // cell0.innerHTML = rowCount;
      nroItems++;
      cell0.innerHTML = nroItems;
 
-     // nroGrupo = rowCount;
      nroGrupo = nroItems;
      contItemsGrupo = 0;
 
@@ -474,7 +518,6 @@ function delRow(nroFila) {
      cell2.innerHTML = 0;
 
       var cell3 = row.insertCell(3);
-     // cell3.innerHTML =" ";
        cell3.innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRowTitulo("+rowCount+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
 
       var formulario = document.getElementById("form-crear-guia");
@@ -531,70 +574,20 @@ function delRow(nroFila) {
       text.value= "";
       text.placeholder = "Ingrese titulo para el grupo";
 
-              
+      var padre = document.getElementById("forms_items");
+
       document.getElementById("div_grupo").style.visibility = "hidden"; 
+      padre.insertBefore( document.getElementById("div_grupo"), document.getElementById("limite2") );
 
-      document.getElementById('nro_grupo').innerHTML="";
-      document.getElementById('nro_grupo').innerHTML=cell0.innerHTML;
+      document.getElementById("nro_grupo").innerHTML="";
+      document.getElementById("nro_grupo").innerHTML=cell0.innerHTML;
+      
+      padre.insertBefore( document.getElementById("div_items_grupo"), document.getElementById("limite1") );
+      document.getElementById("div_items_grupo").style.visibility = "visible";
 
-      document.getElementById("div_items_grupo").style.visibility = "visible"; 
-      //  document.getElementById("div_items_grupo").innerHTML =" 
-      // <label class='control-label'>Ingrese o elija items para el grupo </label> <label id='nro_grupo'>  </label>
-                    
-    
-      //     <div class='row row_items_grupo'>              <div class='col-xs-8 input_item_grupo'>      
-      //             <input type='text' class='form-control ' id='item_grupo' name='item_grupo' value='' placeholder='Ingrese texto del item' />
-      //         </div>
-      //         <div class='col-xs-2 input_pond_grupo'>
-                  
-      //             <input type='text' class='form-control ' id='pond_item1_grupo' name='pond_item1_grupo' value='' placeholder='%'  />
-      //         </div>
-      //         <div class="col-xs-2 add_grupo">                  <button id="btn-submit_grupo" name="boton" class="btn btn-primary" type="submit" onclick="addItemGrupo1();"> + </button>
-      //         </div>          </div> 
-
-        
-
-      //   <div class=" row row_items_grupo">
-          
-      //     <div class="col-xs-8 input_item_grupo">
-
-      //       <?php
-
-      //       /* SELECT DE items */
-
-      //       if(!isset($items)) // si no existen items
-      //       {
-      //         echo  '<select id="select-item-grupo" name="select-item-grupo" class="select form-control" disabled></select>';
-      //       }
-      //       else
-      //       { 
-      //         echo '<select id="select-item-grupo" name="select-item-grupo" class="select form-control select-i">';
-
-      //         foreach ($items['list'] as $indice => $item): 
-
-      //           if($indice == $items['selected'])
-      //           {
-      //             echo '<option value="'.$item['id_item'].'" selected = "selected">'.$item['nom_item'].'</option>';
-      //           }
-      //           else
-      //           {
-      //             echo '<option value="'.$item['id_item'].'">'.$item['nom_item'].'</option>';
-      //           }
-
-      //         endforeach;
-
-      //         echo '</select>';
-      //       }
-      //       ?>
-      //     </div>  
-      //     <div class="col-xs-2 input_pond">
-      //             <!-- <label for="item" class="control-label">Nombre</label> -->
-      //             <input type="text" class="form-control " id="pond_item2_grupo" name="pond_item2_grupo" value="" placeholder="%"  />
-      //         </div>
-      //     <div class="col-xs-2 add">
-      //       <button id="btn-submit2_grupo" name="boton" class="btn btn-primary" type="submit" onclick="addItemGrupo2();"> + </button>
-      //     </div>
-      //   </div>
+      document.getElementById("nro_grupo").innerHTML="";
+      document.getElementById("nro_grupo").innerHTML=cell0.innerHTML; 
+       
 
 }
 
@@ -602,7 +595,6 @@ function delRowTitulo(nroFila) {
 
     if (!ingresandoGrupo){ //por ahora si esta ingresando el grupo no se lo dejo borrar 
 
-   
 
      var table = document.getElementById('lista_items_guia');
      table.deleteRow(nroFila); //elimino la fila de la tabla
@@ -633,7 +625,6 @@ function delRowTitulo(nroFila) {
      var k=nroFila;
      var termino = false;
      while ((k<=rowCount) && !termino)  {
-      //if ( ((inputtipoi.value=="item-grupo-nuevo") || (inputtipoi.value=="item-grupo-bd") ) && (document.getElementById("input-grupo-"+j).value==nroGrupo) ) {
                 var n = k+1+cantEliminados;
                 if (document.getElementById("input-grupo-"+n).value==nroGrupo) {
                   table.deleteRow(k);
@@ -691,8 +682,6 @@ function delRowTitulo(nroFila) {
                 }
 
               }
-              // table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
-              //------------------
               inputtipoi.id="input-tipo-"+i;
         
               document.getElementById("input-id-"+j).id="input-id-"+i;
@@ -705,12 +694,7 @@ function delRowTitulo(nroFila) {
               document.getElementById("input-posic-"+j).id="input-posic-"+i;
               document.getElementById("input-nro-"+j).id="input-nro-"+i;
 
-              // if ((inputtipoi.value=="item-grupo-nuevo") || (inputtipoi.value=="item-grupo-bd")) 
-              //   inputnroi.value=inputnroi.value; // mantiene el mismo nr dentro del grupo
-              // else
-              //   inputnroi.value=inputnroi.value-1;     
-
-              document.getElementById("input-grupo-"+j).id="input-grupo-"+i;
+             document.getElementById("input-grupo-"+j).id="input-grupo-"+i;
                       //-----------------------
 
           
@@ -723,8 +707,6 @@ function delRowTitulo(nroFila) {
 
 function addItemGrupo1(){
 
-  // var nroGrupo = document.getElementById('nro_grupo').innerHTML;
-
   var table = document.getElementById('lista_items_guia');
 
   var rowCount = table.rows.length;
@@ -734,8 +716,7 @@ function addItemGrupo1(){
   var text =  document.getElementById("item_grupo");
 
   var cell0 = row.insertCell(0);
-  //cell0.innerHTML = rowCount;
-  //contItems++;
+  
   posicItems++;
   contItemsGrupo++;
   cell0.innerHTML = nroGrupo + " - "+ contItemsGrupo;
@@ -810,28 +791,22 @@ function addItemGrupo1(){
 
 function addItemGrupo2(){
 
-  // var nroGrupo = document.getElementById('nro_grupo').innerHTML;
-
   var table = document.getElementById('lista_items_guia');
 
   var rowCount = table.rows.length;
 
   var row = table.insertRow(rowCount);
 
-  // var text =  document.getElementById("item_grupo");
   var cell0 = row.insertCell(0);
-  //cell0.innerHTML = rowCount;
-  //contItems++;
-  posicItems++;
+ 
+ posicItems++;
   contItemsGrupo++;
   cell0.innerHTML = nroGrupo + " - "+ contItemsGrupo;
 
   var select = document.getElementById("select-item-grupo");
   var cell1 = row.insertCell(1);
   cell1.innerHTML = select.options[select.selectedIndex].text;
-  // var cell1 = row.insertCell(1);
-  // cell1.innerHTML = text.value;
-
+  
   var ponderacion = document.getElementById("pond_item2_grupo");
   var cell2 = row.insertCell(2);
   cell2.innerHTML = ponderacion.value;
@@ -945,20 +920,13 @@ function delRowGrupo(nroFila) {
               else {
                 if (inputtipoi.value=="titulo-grupo-nuevo"){
                     table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRowTitulo("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
-                    // table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
-                    // nroGrupoAnt = document.getElementById("input-grupo-"+j).value;
-                    // document.getElementById("input-grupo-"+j).value = table.rows[i].cells[0].innerHTML;
-                    // ultNroGrupo = document.getElementById("input-grupo-"+j).value;
                }
                 else {
                   table.rows[i].cells[3].innerHTML = "<div class='boton-eliminar'><a class='btn btn-danger btn-xs' data-toggle='tooltip' data-placement='bottom' title='Eliminar'  onclick='delRow("+i+");'><span class='glyphicon glyphicon-trash grande'></span> </a></div>";
-                  // table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
                 }
 
               }
-              // table.rows[i].cells[0].innerHTML =  table.rows[i].cells[0].innerHTML-1;
-
-          
+              
     }
 
     //actualizar nombre de los input hiden

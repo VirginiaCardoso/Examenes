@@ -23,6 +23,7 @@
 
 <script type="text/javascript" src="<?php echo base_url('assets/js/examen/generar.js'); ?>"></script>
 
+
 <div id="div-form" class="form-container">
 
 	<div class="div-titulo">
@@ -104,7 +105,8 @@
 						<div class="row"> 
 							<div class="col-xs-12">
 			    				<label for="nro">Número de Guía</label>
-			    				<input type="number" class="form-control" id="nro" name="nro" placeholder="Ingrese el Número de Guía" required title="Ingrese un Número de Guía">
+			    				<input type="text" class="form-control" id="nro" name="nro" placeholder="Ingrese el Número de Guía" required title="Ingrese un Número de Guía">
+			    				<!-- <span id="errmsg"></span> -->
 			    			</div>
 			    		</div>
 			  		</div>
@@ -125,7 +127,19 @@
 		</div>
 
 	</form>
-
+<script>
+$(document).ready(function () {
+  //called when key is pressed in textbox
+  $("#nro").keypress(function (e) {
+     //if the letter is not digit then display error and don't type anything
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        //display error message
+        // $("#errmsg").html("Solo dígitos").show().fadeOut("fast");
+               return false;
+    }
+   });
+});
+</script>
 	<?php 
 		if(isset($error))
 			echo '<label id="error-server" class="label-error">'.$error .'</label> ';

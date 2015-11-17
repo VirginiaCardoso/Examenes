@@ -121,7 +121,7 @@
 					 </form> 
 				</div>
 				
-		<div class="forms_items " >
+		<div class="forms_items " id="forms_items" >
 
 			<div class="form-group form-radio">
 		    	<div>
@@ -133,89 +133,6 @@
 				    </label>
 				</div>
 			</div>
-			<div id="div_grupo" style="visibility: hidden;">
-				<div class="row row_items" > 
-								
-					<div class="col-xs-10 input_item" id="tituloGrupo" >
-										<label for="item" class="control-label">Ingrese nuevo o elija un titulo para el grupo</label>
-										<input type="text" class="form-control " id="input-tit-grupo" name="input-tit-grupo" value="" placeholder="Ingrese titulo para el grupo" />
-					</div>
-					<div class="col-xs-2 add" id="botontituloGrupo">
-										<button id="btn-submit-grupo" name="boton" class="btn btn-primary" type="submit" onclick="addTitulo();"> + </button>
-								
-					</div>
-							
-				</div> 
-				
-			</div> <!-- div grupo -->
-
-			<!-- div Items para grupo -->
-			<div id="div_items_grupo" style="visibility: hidden;">
-				<label class="control-label">Ingrese o elija items para el grupo </label> <label id="nro_grupo">  </label>
-										
-		
-					<div class="row row_items_grupo"> 
-							
-							<div class="col-xs-8 input_item_grupo">
-									
-									<input type="text" class="form-control " id="item_grupo" name="item_grupo" value="" placeholder="Ingrese texto del item" />
-							</div>
-							<div class="col-xs-2 input_pond_grupo">
-									
-									<input type="text" class="form-control " id="pond_item1_grupo" name="pond_item1_grupo" value="" placeholder="%"  />
-							</div>
-							<div class="col-xs-2 add_grupo">
-									<button id="btn-submit_grupo" name="boton" class="btn btn-primary" type="submit" onclick="addItemGrupo1();"> + </button>
-							</div>
-						
-					</div> 
-					
-
-				
-
-				<div class=" row row_items_grupo">
-					
-					<div class="col-xs-8 input_item_grupo">
-
-						<?php
-
-						/* SELECT DE items */
-
-						if(!isset($items)) // si no existen items
-						{
-							echo 	'<select id="select-item-grupo" name="select-item-grupo" class="select form-control" disabled></select>';
-						}
-						else
-						{ 
-							echo '<select id="select-item-grupo" name="select-item-grupo" class="select form-control select-i">';
-
-							foreach ($items['list'] as $indice => $item): 
-
-								if($indice == $items['selected'])
-								{
-									echo '<option value="'.$item['id_item'].'" selected = "selected">'.$item['nom_item'].'</option>';
-								}
-								else
-								{
-									echo '<option value="'.$item['id_item'].'">'.$item['nom_item'].'</option>';
-								}
-
-							endforeach;
-
-							echo '</select>';
-						}
-						?>
-					</div>	
-					<div class="col-xs-2 input_pond">
-									
-									<input type="text" class="form-control " id="pond_item2_grupo" name="pond_item2_grupo" value="" placeholder="%"  />
-							</div>
-					<div class="col-xs-2 add">
-						<button id="btn-submit2_grupo" name="boton" class="btn btn-primary" type="submit" onclick="addItemGrupo2();"> + </button>
-					</div>
-				</div >
-			</div><!--  div items grupo -->
-
 			<!-- div Items -->
 			<div id="div_items">
 					 <div class="row row_items"> 
@@ -279,6 +196,92 @@
 					</div>
 				</div> 
 			</div><!--  div items -->
+
+
+			<input type="hidden" id= "limite1"> </input>
+
+			 <div id="div_grupo" style="visibility: hidden;">
+				<div class="row row_items" > 
+								
+					<div class="col-xs-10 input_item" id="tituloGrupo" >
+										<label for="item" class="control-label">Ingrese nuevo o elija un titulo para el grupo</label>
+										<input type="text" class="form-control " id="input-tit-grupo" name="input-tit-grupo" value="" placeholder="Ingrese titulo para el grupo" />
+					</div>
+					<div class="col-xs-2 add" id="botontituloGrupo">
+										<button id="btn-submit-grupo" name="boton" class="btn btn-primary" type="submit" onclick="addTitulo();"> + </button>
+								
+					</div>
+							
+				</div> 
+				
+			</div> <!-- div grupo -->
+
+			<!-- div Items para grupo -->
+			<div id="div_items_grupo" style="visibility: hidden;">
+				<label class="control-label">Ingrese o elija items para el grupo </label> <label id="nro_grupo">  </label>
+										
+		
+					<div class="row row_items_grupo"> 
+							
+							<div class="col-xs-8 input_item_grupo">
+									
+									<input type="text" class="form-control " id="item_grupo" name="item_grupo" value="" placeholder="Ingrese texto del item" />
+							</div>
+							<div class="col-xs-2 input_pond_grupo">
+									
+									<input type="text" class="form-control " id="pond_item1_grupo" name="pond_item1_grupo" value="" placeholder="%"  />
+							</div>
+							<div class="col-xs-2 add_grupo">
+									<button id="btn-submit_grupo" name="boton" class="btn btn-primary" type="submit" onclick="addItemGrupo1();"> + </button>
+							</div>
+						
+					</div> 
+					
+
+				
+
+				<div class=" row row_items_grupo">
+					
+					<div class="col-xs-8 input_item_grupo">
+						 <?php
+
+						/* SELECT DE items */
+
+						if(!isset($items)) // si no existen items
+						{
+							echo 	'<select id="select-item-grupo" name="select-item-grupo" class="select form-control" disabled></select>';
+						}
+						else
+						{ 
+							echo '<select id="select-item-grupo" name="select-item-grupo" class="select form-control select-i">';
+
+							foreach ($items['list'] as $indice => $item): 
+
+								if($indice == $items['selected'])
+								{
+									echo '<option value="'.$item['id_item'].'" selected = "selected">'.$item['nom_item'].'</option>';
+								}
+								else
+								{
+									echo '<option value="'.$item['id_item'].'">'.$item['nom_item'].'</option>';
+								}
+
+							endforeach;
+
+							echo '</select>';
+						}
+						?>
+					</div>	
+					<div class="col-xs-2 input_pond">
+									
+									<input type="text" class="form-control " id="pond_item2_grupo" name="pond_item2_grupo" value="" placeholder="%"  />
+							</div>
+					<div class="col-xs-2 add">
+						<button id="btn-submit2_grupo" name="boton" class="btn btn-primary" type="submit" onclick="addItemGrupo2();"> + </button>
+					</div>
+				</div > 
+			</div><!--  div items grupo -->
+			<input type="hidden" id= "limite2"> </input>
 		</div>
 	</div>
 
