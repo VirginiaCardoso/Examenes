@@ -41,7 +41,7 @@
 						<div class="row"> 
 							<div class="col-xs-4">
 								<label for="legajo" class="control-label">Legajo</label>
-								<input type="text" class="form-control " id="legajo" name="legajo" value="" placeholder="Ingrese legajo" />
+								<input type="number" class="form-control " id="legajo" name="legajo" value="" placeholder="Ingrese legajo" required title="Ingrese un Legajo"/>
 							</div>
 						</div>
 					</div>
@@ -49,11 +49,11 @@
 						<div class="row"> 
 							<div class="col-xs-6">
 									<label for="pass" class="control-label">Contraseña</label>
-									<input type="password" class="form-control" id="pass" name="pass" value="" placeholder="Ingrese contraseña" />
+									<input type="password" class="form-control" id="pass" name="pass" value="" placeholder="Ingrese contraseña" required title="Ingrese la contraseña"/>
 							</div>
 							<div class="col-xs-6">
 									<label for="passconf" class="control-label">Confirmar Contraseña</label>
-									<input type="password" class="form-control" id="passconf" name="passconf" value=""  placeholder="Ingrese nuevamente la contraseña"/>
+									<input type="password" class="form-control" id="passconf" name="passconf" value=""  placeholder="Ingrese nuevamente la contraseña" required title="Vuelva a escribir la contraseña"/>
 							</div>
 						</div>
 					</div>
@@ -61,11 +61,11 @@
 						<div class="row"> 
 							<div class="col-xs-6">
 									<label for="apellido" class="control-label">Apellido</label>
-									<input type="text" class="form-control" id="apellido" name="apellido" value=""  placeholder="Ingrese apellido"/>
+									<input type="text" class="form-control" id="apellido" name="apellido" value=""  placeholder="Ingrese apellido" required title="Ingrese Apellido"/>
 							</div>
 							<div class="col-xs-6">
 									<label for="nombre" class="control-label">Nombre</label>
-									<input type="text" class="form-control" id="nombre" name="nombre" value=""  placeholder="Ingrese nombre"/>
+									<input type="text" class="form-control" id="nombre" name="nombre" value=""  placeholder="Ingrese nombre" required title="Ingrese Nombre"/>
 							</div>
 						</div>
 					</div>
@@ -73,7 +73,7 @@
 						<div class="row"> 
 							<div class="col-xs-6">
 									<label for="dni" class="control-label">DNI</label>
-									<input type="text" class="form-control" id="dni" name="dni" value=""  placeholder="Ingrese número de documento"/>
+									<input type="number" class="form-control" id="dni" name="dni" value=""  placeholder="Ingrese número de documento" title="Ingrese DNI"/>
 							</div>
 						</div>
 					</div>
@@ -81,12 +81,12 @@
 						<div class="row"> 
 							<div class="col-xs-6">
 			    				<label for="email">Email</label>
-			    				<input type="text" class="form-control" id="email" name="email" placeholder="Ingrese email">
+			    				<input type="text" class="form-control" id="email" name="email" placeholder="Ingrese email" title="Ingrese Email">
 			    			</div>
 			   
 			    			<div class="col-xs-6">
 									<label for="tel" class="control-label">Telefono</label>
-									<input type="text" class="form-control" id="tel" name="tel" value=""  placeholder="Ingrese número de telefono"/>
+									<input type="text" class="form-control" id="tel" name="tel" value=""  placeholder="Ingrese número de telefono" title="Ingrese Número de Teléfono"/>
 							</div>
 			    		</div>
 			  		</div>

@@ -6,7 +6,7 @@
  *@package      controllers
  *@author       Cardoso Virginia
  *@author       Matias Marzullo
- *@copyright    Septiembre, 2015 - Departamento de Ciencias e Ingeniería de la Computación - UNIVERSIDAD NACIONAL DEL SUR 
+ *@copyright    Noviembre, 2015 - Departamento de Ciencias e Ingeniería de la Computación - UNIVERSIDAD NACIONAL DEL SUR 
 */
 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
