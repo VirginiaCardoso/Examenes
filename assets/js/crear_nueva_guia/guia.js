@@ -907,8 +907,7 @@ function delRowGrupo(nroFila) {
      table.deleteRow(nroFila); //elimino la fila de la tabla
 
      posicItems--;
-    // nroItems--;
-
+    
      //elimino los input de esa fila
      var inputtipo = document.getElementById("input-tipo-"+nroFila);
      inputtipo.parentNode.removeChild(inputtipo);
@@ -928,8 +927,6 @@ function delRowGrupo(nroFila) {
      inputgrupo.parentNode.removeChild(inputgrupo);
     
      // //actualizar nro item
-     //  var ultNroGrupo =0;
-     //  var nroGrupoAnt = 0;
      var rowCount = table.rows.length;
     for (i = nroFila; i < rowCount; i++) {
         
