@@ -6,17 +6,17 @@
 
 <link type="text/css" href="<?php echo base_url('assets/css/datepicker/css/bootstrap-datetimepicker.min.css'); ?>" rel="stylesheet" media="screen"/>
 
-<link type="text/css" href="<?php echo base_url('assets/css/examen/generar.css'); ?>" rel="stylesheet" media="screen"/>
-
+ <link type="text/css" href="<?php echo base_url('assets/css/examen/generar.css'); ?>" rel="stylesheet" media="screen"/>
+ 
 <link type="text/css" href="<?php echo base_url('assets/css/select2.css'); ?>" rel="stylesheet" media="screen"/>
 <link type="text/css" href="<?php echo base_url('assets/css/select2-bootstrap.css'); ?>" rel="stylesheet" media="screen"/>	
-<link type="text/css" href="<?php echo base_url('assets/css/examen/examen.css'); ?>" rel="stylesheet" media="screen"/> 
+<link type="text/css" href="<?php echo base_url('assets/css/examen/examen.css'); ?>" rel="stylesheet" media="screen"/>  
 <link type="text/css" href="<?php echo base_url('assets/css/crear_nueva_guia/crear_nueva_guia.css'); ?>" rel="stylesheet" media="screen"/>
-<!--	<link type="text/css" href="<?php echo base_url('assets/css/bootstrap-select.css'); ?>" rel="stylesheet" media="screen"/>	-->
+ <link type="text/css" href="<?php echo base_url('assets/css/bootstrap-select.css'); ?>" rel="stylesheet" media="screen"/>	 
 		
 
-<!--<script type="text/javascript"  src="<?php echo base_url('assets/js/bootstrap-select.js'); ?>"></script> -->
-<!--<script type="text/javascript"  src="<?php echo base_url('assets/js/bootstrap-select-ES.js'); ?>"></script> -->
+<script type="text/javascript"  src="<?php echo base_url('assets/js/bootstrap-select.js'); ?>"></script> 
+<script type="text/javascript"  src="<?php echo base_url('assets/js/bootstrap-select-ES.js'); ?>"></script> 
 <script type="text/javascript"  src="<?php echo base_url('assets/js/select2.js'); ?>"></script>
 <script type="text/javascript"  src="<?php echo base_url('assets/js/select2_locale_es.js'); ?>"></script>
 	 		
@@ -37,14 +37,14 @@
 	<div id="div" class="container">
 
 		<div class="div-titulo">
-			<label>Agregar items a Guía </label>
+			<label>Agregar items a la guía: <?php echo $tit_guia.' ('.$nro_guia.')'; ?> </label>
 		</div>
 		<!-- obtengo los datos de la guía creada resientemente por medio de la session 	
 		<?php
 			$id = $this->session->flashdata('id');
 			$tit = $this->session->flashdata('tit');
 		?>-->
-		<div class="tabla">
+		<!-- <div class="tabla">
 			<div class="fila">	
 				<div class="columna field-name">
 				Guía:
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 					 		
-		</div>
+		 </div>-->
 
 
 	<div class="contenedor_guia container">
@@ -202,13 +202,14 @@
 
 			 <div id="div_grupo" style="visibility: hidden;">
 				<div class="row row_items" > 
-								
+					
+					<label for="input-tit-grupo" class="control-label">Titulo del grupo: </label>								
 					<div class="col-xs-10 input_item" id="tituloGrupo" >
-										<label for="item" class="control-label">Ingrese nuevo o elija un titulo para el grupo</label>
-										<input type="text" class="form-control " id="input-tit-grupo" name="input-tit-grupo" value="" placeholder="Ingrese titulo para el grupo" />
+						
+						<input type="text" class="form-control " id="input-tit-grupo" name="input-tit-grupo" value="" placeholder="Ingrese titulo para el grupo" />
 					</div>
 					<div class="col-xs-2 add" id="botontituloGrupo">
-										<button id="btn-submit-grupo" name="boton" class="btn btn-primary" type="submit" onclick="addTitulo();"> + </button>
+						<button id="btn-submit-grupo" name="boton" class="btn btn-primary" type="submit" onclick="addTitulo();"> + </button>
 								
 					</div>
 							
@@ -236,7 +237,6 @@
 							</div>
 						
 					</div> 
-					
 
 				
 
@@ -285,6 +285,9 @@
 		</div>
 	</div>
 
-	
+	<?php 
+		if(isset($error))
+			echo '<label id="error-server" class="label-error">'.$error .'</label> ';
+	?>
 
 </div>
