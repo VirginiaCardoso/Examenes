@@ -301,8 +301,33 @@ class Crear_nueva_guia extends CI_Controller {
                              $this->util->json_response(TRUE,STATUS_OK,$guia_id);
 
                     } catch (Exception $e) {
+                         switch ($e->getMessage()) {
+                                // case ERROR_REPETIDO:
+                                //     $id = $e->getCode();
+                                //     $error['error_msj'] = "El examen del alumno {$lu_alu} sobre la guía {$id_guia}, ya ha sido guardado en la base de datos hace menos de 3 minutos, con id: {$id}";
+                                //     $error['id_exam'] = $id;
+                                //     $this->util->json_response(FALSE,STATUS_REPEATED_POST,$error);
+                                //     break;
+                                // case ERROR_FALTA_ITEM:
+                                //     $error['error_msj'] = "Falta(n) item(s) de la guia. El examen no fue guardado en la base de datos";
+                                //     $this->util->json_response(FALSE,STATUS_INVALID_PARAM,$error);
+                                //     break;
+                                // case ERROR_NO_INSERT_EXAM:
+                                //     $error['error_msj'] = "El examen no pudo ser archivado en la base de datos";
+                                //     $this->util->json_response(FALSE,STATUS_NO_INSERT,$error);
+                                //     break;
+                                // case ERROR_NO_INSERT_ITEMEXAM:
+                                //     $error['error_msj'] = "Uno o más items no pudieron ser archivados en la base de datos. El examen no fue guardado";
+                                //     $this->util->json_response(FALSE,STATUS_NO_INSERT2,$error);
+                                //     break;
+
+                                default:
+                                    $error['error_msj'] = "La guia no fue guardada en la base de datos";
+                                    $this->util->json_response(FALSE,STATUS_UNKNOWN_ERROR,$error);
+                                    break;
 
                     }
+                }
                     
                     $input_errors = array(); 
                     //ITEMS: chequea que el array de id, texto y tipo items no sea vacio, y tengan el mismo tamaño
@@ -475,10 +500,10 @@ class Crear_nueva_guia extends CI_Controller {
                         }
                         
                         
-                        $this->view_data['title'] = "Agrego";
+                        $this->view_data['title'] = "Guia guardada";
 
                         $this->view_data['arreglo_items'] = $arreglo_items; 
-                        $this->view_data['mensaje'] = "Se creo correctamente la guia ".$guia_id."- ".$tit_guia;
+                        $this->view_data['mensaje'] = " Se guardo correctamente la guia ".$tit_guia. ".";
                         $this->load->view('template/header', $this->view_data);
 
                         $this->load->view('content/crear_nueva_guia/agregada', $this->view_data);

@@ -35,14 +35,27 @@
 	<link type="text/css" href="<?php echo base_url('assets/css/crear_nueva_guia/crear_nueva_guia.css'); ?>" rel="stylesheet" media="screen"/>
 
 
-	<div id="div" class="container">
+	<div id="div-guardada" class="div-container">
 
-		<div class="div-titulo">
+		<!-- <div class="div-titulo"> -->
+		<center>
 			<label><?php echo $mensaje; ?> </label>
+		</center>
 			<br>
-			<?php
-				print_r ($arreglo_items);
-			?>
-		</div>
+		<!--<?php
+				// print_r ($arreglo_items);
+			?>-->
+		<!-- </div> -->
+
+		<div class="form-group-buttons">
+			<!-- <div class="row row-botonera row-botonera-fila1">
+				<div class="col-xs-12 col-boton"> -->
+					<a id="btn-inicio" href="<?php echo site_url('home'); ?>" class="btn btn-default">Inicio</a>
+				<!-- </div>
+				<div class="col-xs-12 col-boton">	 -->
+					<a href="<?php echo site_url('guias/lista_guias');?>" class="btn btn-primary  " >Lista de Guias </a>
+				<!-- </div>	
+			</div> -->
+		</div>	
 
 	</div>
