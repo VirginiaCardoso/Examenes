@@ -243,8 +243,6 @@ function addRow(tableID) {
                 ponderacion.value= "";
                 ponderacion.placeholder = " % ";
 
-
-
 }
 
 function addRow2(tableID) {
@@ -352,7 +350,6 @@ function delRow(nroFila) {
      var inputgrupo = document.getElementById("input-grupo-"+nroFila);
      inputgrupo.parentNode.removeChild(inputgrupo);
     
-
      //actualizar nro item
       var ultNroGrupo =0;
       var nroGrupoAnt = 0;
@@ -384,7 +381,6 @@ function delRow(nroFila) {
 
               }          
     }
-
     //actualizar nombre de los input hiden
     for (j=nroFila+1; j<=rowCount; j++){
       k=j-1;
@@ -440,62 +436,13 @@ function delRow(nroFila) {
       padre.insertBefore( document.getElementById("div_grupo"), document.getElementById("limite2") );
       document.getElementById("div_items_grupo").style.visibility = "hidden";
       padre.insertBefore( document.getElementById("div_items_grupo"), document.getElementById("limite2") );
-      // document.getElementById("div_items_grupo").innerHTML = "";
-      // cadenaDivGrupo
       
       padre.insertBefore( document.getElementById("div_items"), document.getElementById("limite1") );
 
       document.getElementById("div_items").style.visibility = "visible";
     }
 
-function mostrarDivGrupo(){
 
-  var divFormItems = document.getElementById("forms_items");
-
-  var nuevoDiv  = document.createElement("DIV");
-  nuevoDiv.setAttribute("class", "row row_items");
-  
-  var nuevoDiv2  = document.createElement("DIV");
-  nuevoDiv2.setAttribute("class", "col-xs-10 input_item");
-  nuevoDiv2.id = "tituloGrupo";
-
-  var label2  = document.createElement("LABEL");
-  label2.setAttribute("class", "control-label");
-  label2.setAttribute("for", "input-tit-grupo");
-  label2.innerHTML = "Ingrese nuevo o elija un titulo para el grupo";
-  nuevoDiv2.appendChild(label2);
-
-  var input2  = document.createElement("INPUT");
-  input2.id = "input-tit-grupo";
-  input2.name = "input-tit-grupo";
-  input2.value = "";
-  input2.setAttribute("class", "form-control");
-  input2.setAttribute("type", "text");
-  input2.setAttribute("placeholder","Ingrese titulo para el grupo");
-  nuevoDiv2.appendChild(input2);
-
-  var nuevoDiv3  = document.createElement("DIV");
-  nuevoDiv3.setAttribute("class", "col-xs-2 add");
-  nuevoDiv3.id = "botontituloGrupo";
-
-  var button3  = document.createElement("BUTTON");
-  button3.id = "btn-submit-grupo";
-  button3.name = "boton";
-  button3.value = " + ";
-  button3.setAttribute("class", "btn btn-primary");
-  button3.setAttribute("type", "submit");
-  button3.setAttribute("onclick","addTitulo();");
-  nuevoDiv3.appendChild(button3);
-
-  nuevoDiv.appendChild(nuevoDiv2);
-  nuevoDiv.appendChild(nuevoDiv3);
-
-
-  var hijo2  = divFormItems.insertBefore(nuevoDiv, document.getElementById("div_items_grupo"));
-  
-              
-  
-}
      
     function addTitulo() {
       var table = document.getElementById('lista_items_guia');
@@ -695,9 +642,7 @@ function delRowTitulo(nroFila) {
               document.getElementById("input-nro-"+j).id="input-nro-"+i;
 
              document.getElementById("input-grupo-"+j).id="input-grupo-"+i;
-                      //-----------------------
-
-          
+           
     }
      }
 

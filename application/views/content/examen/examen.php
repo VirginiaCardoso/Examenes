@@ -424,10 +424,14 @@
 				<?php endif; ?>
 
 				<div class="calificacion container-calificacion">
-				 	Porcentaje respuestas correctas: <span id="porcentaje-realizado">porcentaje</span>
+				 	Respuestas correctas:  <span id="porcentaje-realizado">porcentaje</span>
 				 	<br>
 				 	Porcentaje ponderación: <span id="ponderacion-realizado">ponderacion</span>
 				 	<input type="hidden" name="examen-pond" id="examen-pond" value="-1">
+
+				 	<br>
+				 	<br>
+				 	Sugerencia calificación: <span id="sugerencia-calificacion">calificación</span>
 
 				 	<div class="examen-calificacion">
 					 	<span class="span-calif-obsGral">CALIFICACION: </span>

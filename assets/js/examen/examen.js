@@ -316,7 +316,8 @@ function revisar_items(evaluando) {
 	var rta_correctas = 0;
 	var nota = 0;
 	var rta_respondidas = 0;
-	var pond = 0;			
+	var pond = 0;
+	var preguntas = 0;			
 
 	if(evaluando) {			
 
@@ -345,7 +346,8 @@ function revisar_items(evaluando) {
 
 					manage_observacion(true, $(this).nextAll('.item-obs-container'));
 				}
-			}					
+			}
+			preguntas++;					
 		});
 	}
 
@@ -381,12 +383,27 @@ function revisar_items(evaluando) {
 	var porcentaje_correcto = 0;
 
 	if(rta_respondidas > 0) {
-		porcentaje_correcto = (rta_correctas * 100) / rta_respondidas;
+		// porcentaje_correcto = (rta_correctas * 100) / rta_respondidas;
+		porcentaje_correcto = (rta_correctas * 100) / preguntas;
 		porcentaje_correcto = porcentaje_correcto.toFixed(2);
 	}
-	$('#porcentaje-realizado').html(porcentaje_correcto + "%  - ("+rta_correctas+" / "+rta_respondidas+") ");
+	$('#porcentaje-realizado').html(rta_correctas+" de "+preguntas+" ("+ porcentaje_correcto + "% )");
+	// $('#porcentaje-realizado').html(porcentaje_correcto + "%  - ("+rta_correctas+" / "+rta_respondidas+") ");
 	$('#ponderacion-realizado').html(pond + "%");
 	//document.getElementById('examen-pond').value = pond;
+
+	if (pond<70){
+		$('#sugerencia-calificacion').html("Calificación no adquirida");
+	}
+	else {
+		if (pond<90){
+			$('#sugerencia-calificacion').html("Calificación medianamente adquirida");
+		}
+		else {
+			$('#sugerencia-calificacion').html("Calificación adquirida");	
+		}
+
+	}
 
 }
 
