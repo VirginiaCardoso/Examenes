@@ -394,13 +394,17 @@ function revisar_items(evaluando) {
 
 	if (pond<70){
 		$('#sugerencia-calificacion').html("Calificación no adquirida");
+		document.getElementById("calificacion0").checked = true;
 	}
 	else {
-		if (pond<90){
+		if (pond<85){
 			$('#sugerencia-calificacion').html("Calificación medianamente adquirida");
+			document.getElementById("calificacion1").checked = true;
 		}
 		else {
 			$('#sugerencia-calificacion').html("Calificación adquirida");	
+			//calificacion2
+			  document.getElementById("calificacion2").checked = true;
 		}
 
 	}

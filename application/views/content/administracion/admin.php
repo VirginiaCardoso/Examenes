@@ -38,7 +38,7 @@
 
 <div id="div-botonera" class="div-container">
 	<div class="div-titulo">
-		<label><!-- Administrar --><!--  (<?php echo $privilegio_user;?>) --> </label>
+		<label> Administrar<!--  (<?php echo $privilegio_user;?>) --> </label>
 	</div>
 	<div class="row row-botonera row-botonera-fila1">
 		<div class="col-xs-12 col-boton">

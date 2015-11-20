@@ -35,6 +35,9 @@
 							<a id="navbar-mis-examenes" href="<?php echo site_url('examenes/lista_docente'); ?>"><span class="glyphicon glyphicon-file"></span> Mis exámenes evaluados</a>
 						</li>
 						<li>
+							<a id="navbar-estadisticas" href="<?php echo site_url('estadisticas/menu'); ?>"><span class="glyphicon glyphicon-signal"></span> Estadísticas</a>
+						</li>
+						<li>
 							<a id="navbar-mis-datos" href="#" style="display:none;"><span class="glyphicon glyphicon-edit"></span> Mis Datos</a>
 						</li>
 					<?php endif; ?>
