@@ -20,3 +20,18 @@ function event_handlers_window() {
 	});
 
 }
+
+function mostrar_alumno(nro){
+	var divmostrar = document.getElementById("div-mostrar");
+	divmostrar.innerHTML= "";
+	divmostrar.innerHTML = "<br> Eligio al alumno LU:"+ nro;
+
+}
+
+
+function mostrar_catedra(nro){
+	var divmostrar = document.getElementById("div-mostrar");
+	divmostrar.innerHTML= "";
+	divmostrar.innerHTML = "<br> Eligio catedra nro "+ nro;
+
+}

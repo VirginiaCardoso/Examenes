@@ -105,7 +105,7 @@ class Estadisticas extends CI_Controller {
         else {
             $catedras = $this->_catedras();
         
-            if(count($alumnos)>0)  //si no hay guias no manda datos a la view
+            if(count($catedras)>0)  //si no hay guias no manda datos a la view
             {
                 $this->view_data['catedras']['list'] = $catedras;  //en la view: $alumnos['list'][indice]['lu_alu'].
             }  

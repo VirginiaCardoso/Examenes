@@ -45,11 +45,11 @@
 
 				if(!isset($alumnos)) // si no existen alumnos
 				{
-					echo '<select id="select-alumno" name="alumno" data-live-search="true" class="select" disabled></select>';
+					echo '<select id="select-alumno" name="alumno" data-live-search="true" class="select" disabled onchange="mostrar_alumno(this.value);"></select>';
 				}
 				else
 				{ 
-					echo "<select id='select-alumno' name='alumno' data-live-search='true'  class='select'>";
+					echo "<select id='select-alumno' name='alumno' data-live-search='true'  class='select' onchange='mostrar_alumno(this.value);'>";
 
 					foreach ($alumnos['list'] as $indice => $alumno): 
 						if($indice == $alumnos['selected'])
@@ -66,10 +66,33 @@
 				}
 			}
 			elseif ($mostrar==2) {
-				echo 'seleccionar catedra';
+				if(!isset($catedras)) // si no existen alumnos
+				{
+					echo '<select id="select-catedra" name="catedra" data-live-search="true" class="select" disabled onchange="mostrar_catedra(this.value);"></select>';
+				}
+				else
+				{ 
+					echo "<select id='select-catedra' name='catedra' data-live-search='true'  class='select' onchange='mostrar_catedra(this.value);'>";
+
+					foreach ($catedras['list'] as $indice => $catedra): 
+						if($indice == $catedra['selected'])
+						{
+							echo '<option value="'.$catedra['cod_cat'].'" selected = "selected">'.$catedra['cod_cat'].' - '.$catedra['nom_cat'].' ('.$catedra['nom_carr'].')</option>';
+						}
+						else
+						{
+							echo '<option value="'.$catedra['cod_cat'].'">'.$catedra['cod_cat'].' - '.$catedra['nom_cat'].' ('.$catedra['nom_carr'].')</option>';
+						}
+
+					endforeach; 
+					echo '</select>';
+				}
 			}
 
 		?>
+		<div id="div-mostrar" >
+
+		</div>
 	</div>
 	
 	
