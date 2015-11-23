@@ -286,6 +286,24 @@ class Alumnos_model extends CI_Model {
 		// }
 		
 	}	
+
+
+		/**
+	 *	Retorna todos los alumnos asociados a la catedra indicada 
+	 *
+	 * @access	public
+	 * @param 	$cod_catedra int codigo de la catedra
+	 * @return	array - datos de los alumnos asociados a la catedra
+	 *
+	 */
+	public function get_examenes_alumno($lu)
+	{
+		$query_string = "SELECT DISTINCT lu_alu,apellido_alu,nom_alu,id_guia,fecha,calificacion,porcentaje_exam FROM alumnos NATURAL JOIN examenes,guias 
+				WHERE lu_alu = ? ORDER BY fecha ASC";
+		$query = $this->db->query($query_string,array($lu));
+	
+		return $query->result_array();
+	}
 	
 }
 

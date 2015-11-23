@@ -427,7 +427,7 @@
 				 	Respuestas correctas:  <span id="porcentaje-realizado">porcentaje</span>
 				 	<br>
 				 	Porcentaje ponderación: <span id="ponderacion-realizado">ponderacion</span>
-				 	<input type="hidden" name="examen-pond" id="examen-pond" value="-1">
+				 	<input type="hidden" name="examen-pond" id="examen-pond" value="0">
 
 				 	<br>
 				 	<br>

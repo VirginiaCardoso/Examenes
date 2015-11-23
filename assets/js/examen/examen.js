@@ -390,7 +390,7 @@ function revisar_items(evaluando) {
 	$('#porcentaje-realizado').html(rta_correctas+" de "+preguntas+" ("+ porcentaje_correcto + "% )");
 	// $('#porcentaje-realizado').html(porcentaje_correcto + "%  - ("+rta_correctas+" / "+rta_respondidas+") ");
 	$('#ponderacion-realizado').html(pond + "%");
-	//document.getElementById('examen-pond').value = pond;
+	document.getElementById('examen-pond').value = pond;
 
 	if (pond<70){
 		$('#sugerencia-calificacion').html("Calificación no adquirida");

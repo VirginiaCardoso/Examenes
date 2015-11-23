@@ -35,7 +35,7 @@
 	</div>	
 	<div class="row row-botonera row-botonera-fila1">
 		<div class="col-xs-12 col-boton">
-			<a href="<?php echo site_url('estadisticas/estadisticas_view/2');?>" class="btn btn-primary btn-lg btn-block"  >Cátedras</a>
+			<a href="<?php echo site_url('estadisticas/estadisticas_view/2');?>" class="btn btn-primary btn-lg btn-block"  >Guías</a>
 		</div>
 	</div>
 	

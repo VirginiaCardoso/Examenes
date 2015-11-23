@@ -30,7 +30,7 @@ class Guias_model extends CI_Model {
 
 	public function get_guias()
 	{
-		$query_string = "SELECT DISTINCT id_guia,cod_carr,tit_guia,cod_cat,nom_cat FROM guias NATURAL JOIN guias_catedras NATURAL JOIN catedras
+		$query_string = "SELECT DISTINCT id_guia,cod_carr,tit_guia,cod_cat,nom_cat, nro_guia FROM guias NATURAL JOIN guias_catedras NATURAL JOIN catedras
 				ORDER BY nro_guia ASC";
 	
 		$query = $this->db->query($query_string);

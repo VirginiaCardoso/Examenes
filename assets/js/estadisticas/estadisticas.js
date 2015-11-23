@@ -24,14 +24,15 @@ function event_handlers_window() {
 function mostrar_alumno(nro){
 	var divmostrar = document.getElementById("div-mostrar");
 	divmostrar.innerHTML= "";
-	divmostrar.innerHTML = "<br> Eligio al alumno LU:"+ nro;
+	divmostrar.innerHTML = "<br> Eligio al alumno LU:"+ nro + "<br>  <a id='btn-mostrar' href='"+$('body').data('site-url')+"/estadisticas/mostrar_guias_alu/"+ nro +"' class='btn btn-primary'>Mostrar Guías</a> ";
 
 }
 
 
-function mostrar_catedra(nro){
+function mostrar_guia(nro){
 	var divmostrar = document.getElementById("div-mostrar");
 	divmostrar.innerHTML= "";
-	divmostrar.innerHTML = "<br> Eligio catedra nro "+ nro;
+	divmostrar.innerHTML = "<br> Eligio guía id "+ nro;
+	
 
 }

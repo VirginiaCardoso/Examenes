@@ -33,7 +33,7 @@ class Estadisticas extends CI_Controller {
             $this->legajo = $this->usuario->get_info_sesion_usuario('leg_doc');
             $this->privilegio = $this->usuario->get_info_sesion_usuario('privilegio'); 
 
-            $this->load->model(array('catedras_model','alumnos_model','docentes_model'));
+            $this->load->model(array('catedras_model','alumnos_model','docentes_model', 'guias_model'));
             
                 
         }
@@ -103,13 +103,13 @@ class Estadisticas extends CI_Controller {
            $this->load->view('content/estadisticas/estadisticas_view', $this->view_data);  
         }
         else {
-            $catedras = $this->_catedras();
+            $guias = $this->_guias();
         
-            if(count($catedras)>0)  //si no hay guias no manda datos a la view
+            if(count($guias)>0)  //si no hay guias no manda datos a la view
             {
-                $this->view_data['catedras']['list'] = $catedras;  //en la view: $alumnos['list'][indice]['lu_alu'].
+                $this->view_data['guias']['list'] = $guias;  //en la view: $alumnos['list'][indice]['lu_alu'].
             }  
-            $this->view_data['title'] = "Estadísticas Cátedras  - Departamento de Ciencias de la Salud"; 
+            $this->view_data['title'] = "Estadísticas Guías  - Departamento de Ciencias de la Salud"; 
              $this->load->view('template/header', $this->view_data);
  
             $this->view_data['mostrar'] = 2;
@@ -140,21 +140,31 @@ class Estadisticas extends CI_Controller {
      * @access  private
      * @return  array  - lista de alumnos
      */
-    function _catedras() 
+    function _guias() 
     {
         // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las alumnos
-        $catedras = $this->catedras_model->get_catedras();
+        $guias = $this->guias_model->get_guias();
         // else
         //     $alumnos = $this->alumnos_model->get_alumnos_docente($this->legajo);
-        return $catedras;
+        return $guias;
     }
 
 
+function mostrar_guias_alu($lu){
 
+     $this->view_data['docente'] = $this->nom_doc." ".$this->apellido_doc;
+        $this->view_data['privilegio_user'] =  $this->privilegio;
 
+          $this->view_data['lu'] = $lu;  //en la view: $alumnos['list'][indice]['lu_alu'].
+                          
+           $this->view_data['title'] = "Guías Estudiante - Departamento de Ciencias de la Salud"; 
+            $this->load->view('template/header', $this->view_data);
+ 
+           // $this->view_data['mostrar'] = 1;
+           $this->load->view('content/estadisticas/estadisticas_estudiante', $this->view_data);
+            $this->load->view('template/footer');
 
-
-
+}
 
 
 

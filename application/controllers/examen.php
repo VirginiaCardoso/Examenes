@@ -680,7 +680,7 @@ class Examen extends CI_Controller {
                 $this->form_validation->set_rules('alumno', 'alumno', 'required|integer');
                 $this->form_validation->set_rules('fecha', 'fecha', 'required');
                 $this->form_validation->set_rules('examen-calif', 'examen-calif', 'required|integer');
-                $this->form_validation->set_rules('examen-porc', 'examen-porc', 'numeric');
+                $this->form_validation->set_rules('examen-pond', 'examen-pond', 'required');
              // $this->form_validation->set_rules('examen-nota', 'examen-nota', 'numeric');
              // $this->form_validation->set_rules('item-pond', 'item-pond', 'numeric');
              // $this->form_validation->set_rules('item-pond[]', 'item-pond[]', 'numeric');
@@ -795,11 +795,11 @@ class Examen extends CI_Controller {
                     $obs_exam = $this->input->post('examen-obs');
 
                     //PORCENTAJE (no es requerido, validado en form_validation)
-                    $porc_exam = $this->input->post('examen-porc');
+                 //   $porc_exam = $this->input->post('examen-porc');
                     //VALIDAR QUE SEA ENTRE 0 Y 100??
 
                      //PONDERACION (no es requerido, validado en form_validation)
-                    // $pond_exam = $this->input->post('examen-pond');
+                     $pond_exam = $this->input->post('examen-pond');
 
                     //CALIFICACION GENERAL (requerida, valor int, validado en form_validation)
                     $calif_exam = $this->input->post('examen-calif');
@@ -828,7 +828,7 @@ class Examen extends CI_Controller {
                         
                         //Guardo el examen y sus items mediante el modelo (operacion atomica, si falla, lanza excepcion)
                         try {
-                            $examen = $this->examenes_model->guardar_examen($id_guia,$cod_cat,$lu_alu,$this->legajo,$timestamp,$calif_exam,$obs_exam,$items,$porc_exam); //,$pond_exam
+                            $examen = $this->examenes_model->guardar_examen($id_guia,$cod_cat,$lu_alu,$this->legajo,$timestamp,$calif_exam,$obs_exam,$items,$pond_exam); //,$pond_exam
                             //$examen['id_exam'] = $id_exam;
                             $this->util->json_response(TRUE,STATUS_OK,$examen); //no mandar el JSON tal cual la BD por seguridad??
 

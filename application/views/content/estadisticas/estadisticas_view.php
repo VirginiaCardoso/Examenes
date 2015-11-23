@@ -30,15 +30,13 @@
 			
 		}
 		elseif ($mostrar==2) {
-			echo '<label>Estadísticas cátedras</label>';
+			echo '<label>Estadísticas guías</label>';
 		}
 	?>
 </div>
 
 <div id="div-principal">
-	<div class="form-group-generar">
-
-	
+	<div class="form-group-generar">	
 		<?php
 			if($mostrar==1){
 				/* SELECT DE ALUMNOS */
@@ -52,37 +50,37 @@
 					echo "<select id='select-alumno' name='alumno' data-live-search='true'  class='select' onchange='mostrar_alumno(this.value);'>";
 
 					foreach ($alumnos['list'] as $indice => $alumno): 
-						if($indice == $alumnos['selected'])
-						{
-							echo '<option value="'.$alumno['lu_alu'].'" selected = "selected">'.$alumno['lu_alu'].' - '.$alumno['apellido_alu'].', '.$alumno['nom_alu'].'</option>';
-						}
-						else
-						{
+						// if($indice == $alumnos['selected'])
+						// {
+						// 	echo '<option value="'.$alumno['lu_alu'].'" selected = "selected">'.$alumno['lu_alu'].' - '.$alumno['apellido_alu'].', '.$alumno['nom_alu'].'</option>';
+						// }
+						// else
+						// {
 							echo '<option value="'.$alumno['lu_alu'].'">'.$alumno['lu_alu'].' - '.$alumno['apellido_alu'].', '.$alumno['nom_alu'].'</option>';
-						}
+						// }
 
 					endforeach; 
 					echo '</select>';
 				}
 			}
 			elseif ($mostrar==2) {
-				if(!isset($catedras)) // si no existen alumnos
+				if(!isset($guias)) // si no existen alumnos
 				{
-					echo '<select id="select-catedra" name="catedra" data-live-search="true" class="select" disabled onchange="mostrar_catedra(this.value);"></select>';
+					echo '<select id="select-guia" name="guia" data-live-search="true" class="select" disabled onchange="mostrar_guia(this.value);"></select>';
 				}
 				else
 				{ 
-					echo "<select id='select-catedra' name='catedra' data-live-search='true'  class='select' onchange='mostrar_catedra(this.value);'>";
+					echo "<select id='select-guia' name='guia' data-live-search='true'  class='select' onchange='mostrar_guia(this.value);'>";
 
-					foreach ($catedras['list'] as $indice => $catedra): 
-						if($indice == $catedra['selected'])
-						{
-							echo '<option value="'.$catedra['cod_cat'].'" selected = "selected">'.$catedra['cod_cat'].' - '.$catedra['nom_cat'].' ('.$catedra['nom_carr'].')</option>';
-						}
-						else
-						{
-							echo '<option value="'.$catedra['cod_cat'].'">'.$catedra['cod_cat'].' - '.$catedra['nom_cat'].' ('.$catedra['nom_carr'].')</option>';
-						}
+					foreach ($guias['list'] as $indice => $guia): 
+						// if($indice == $guia['selected'])
+						// {
+						// 	echo '<option value="'.$catedra['cod_cat'].'" selected = "selected">'.$catedra['cod_cat'].' - '.$catedra['nom_cat'].' ('.$catedra['nom_carr'].')</option>';
+						// }
+						// else
+						// {
+							echo '<option value="'.$guia['id_guia'].'">'.$guia['nro_guia'].' - '.$guia['tit_guia'].' ('.$guia['nom_cat'].')</option>';
+						// }
 
 					endforeach; 
 					echo '</select>';
