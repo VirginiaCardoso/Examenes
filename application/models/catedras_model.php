@@ -6,7 +6,9 @@
  *@package      models
  *@author       Fernando Andrés Prieto
  *@author       Diego Martín Schwindt
- *@copyright    Marzo, 2014 - Departamento de Ciencias e Ingeniería de la Computación - UNIVERSIDAD NACIONAL DEL SUR 
+ *@author       Virginia Cardoso
+ *@author       Matías Marzullo
+ *@copyright    Diciembre, 2015 - Departamento de Ciencias e Ingeniería de la Computación - UNIVERSIDAD NACIONAL DEL SUR 
 */
 
 class Catedras_model extends CI_Model {
@@ -311,31 +313,34 @@ class Catedras_model extends CI_Model {
 		// 	$exam = $query->row_array();	
 		// 	throw new Exception(ERROR_REPETIDO); //cambiar error
 		// }
+
 			$query_string = "SELECT cod_cat FROM catedras
 				 WHERE cod_cat = ? ";
 			$query = $this->db->query($query_string,array($cod_cat));
 			if($this->db->affected_rows() > 0) 
 			{	
-				$query_string = "DELETE FROM guias_catedras WHERE cod_cat = ?";
-				$this->db->query($query_string,array($cod_cat));
+				$this->db->delete('guias_catedras', array('cod_cat' => $cod_cat)); 
+				$this->db->delete('docentes_catedras', array('cod_cat' => $cod_cat)); 
+				$this->db->delete('alumnos_catedras', array('cod_cat' => $cod_cat)); 
 			}
-			if($this->db->affected_rows() > 0) 
-			{	
-				$query_string = "DELETE FROM docentes_catedras WHERE cod_cat = ?";
-				$this->db->query($query_string,array($cod_cat));
-			}
-			$query = $this->db->query($query_string,array($cod_cat));
-			if($this->db->affected_rows() > 0) 
-			{	
-				$query_string = "DELETE FROM alumnos_catedras WHERE cod_cat = ?";
-				$this->db->query($query_string,array($cod_cat));
-			}
-			$query = $this->db->query($query_string,array($cod_cat));
+			// if($this->db->affected_rows() > 0) 
+			// {	
+			// 	$query_string = "DELETE FROM docentes_catedras WHERE cod_cat = ?";
+			// 	$this->db->query($query_string,array($cod_cat));
+			// }
+			// $query = $this->db->query($query_string,array($cod_cat));
+			// if($this->db->affected_rows() > 0) 
+			// {	
+			// 	$query_string = "DELETE FROM alumnos_catedras WHERE cod_cat = ?";
+			// 	$this->db->query($query_string,array($cod_cat));
+			// }
+			// $query = $this->db->query($query_string,array($cod_cat));
 			
 
-		
-		$query_string = "DELETE FROM catedras WHERE cod_cat = ?";
-		$this->db->query($query_string,array($cod_cat));
+						$this->db->delete('catedras', array('cod_cat' => $cod_cat)); 
+
+		// $query_string = "DELETE FROM catedras WHERE cod_cat = ?";
+		// $this->db->query($query_string,array($cod_cat));
 	}
 
 

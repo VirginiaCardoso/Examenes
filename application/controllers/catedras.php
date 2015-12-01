@@ -284,7 +284,7 @@ class Catedras extends CI_Controller {
      *
      * 
      * @access  public
-     * @param   $id int id leg_doc de catedra
+     * @param   $cod_cat de catedra
      */
     public function eliminar_catedra($cod_cat)
     {

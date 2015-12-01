@@ -34,6 +34,26 @@ class Ponderacion_model extends CI_Model {
 	
 		return $query->row_array();
 	}
+
+	public function actualizar_pond($nro, $max, $min)
+	{
+		// UPDATE table_name
+		// 	SET column_name = value
+		// 	WHERE condition
+
+		//Verifico que exista un alumno con el mismo legajo
+		$query_string = " UPDATE ponderacion
+	 		SET max_valor = ?, min_valor = ? 
+		 	WHERE nro_pond = ?";
+		$query = $this->db->query($query_string,array($max,$min,$nro));
+		// if($this->db->affected_rows() == 0) 
+		// {
+		// 	$exam = $query->row_array();	
+		// 	throw new Exception(ERROR_REPETIDO); //cambiar error
+		// }
+		
+	}	
+
 }
 
 /* Fin del archivo ponderacion_model.php */

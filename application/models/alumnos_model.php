@@ -69,9 +69,12 @@ class Alumnos_model extends CI_Model {
 	public function eliminar_alumno($lu_alu)
 	{
 		//Verifico que exista un alumno con el mismo lu_alu
-		$query_string = "SELECT lu_alu FROM alumnos
-				WHERE lu_alu = ? ";
-		$query = $this->db->query($query_string,array($lu_alu));
+		// $query_string = "SELECT lu_alu FROM alumnos
+		// 		WHERE lu_alu = ? ";
+		// $query = $this->db->query($query_string,array($lu_alu));
+		//select en una linea:
+		$query = $this->db->get_where('alumnos', array('lu_alu' => $lu_alu), $lu_alu);
+
 		if($this->db->affected_rows() == 0) 
 		{
 
@@ -79,13 +82,18 @@ class Alumnos_model extends CI_Model {
 			throw new Exception(ERROR_REPETIDO); //cambiar error
 		}
 		else{
+
 			$query_string = "SELECT cod_cat FROM alumnos_catedras
 				WHERE lu_alu = ? ";
 			$query = $this->db->query($query_string,array($lu_alu));
 			if($this->db->affected_rows() > 0) 
 			{	
-				$query_string = "DELETE FROM alumnos_catedras WHERE lu_alu = ?";
-				$this->db->query($query_string,array($lu_alu));
+				$this->db->delete('alumnos_catedras', array('lu_alu' => $lu_alu)); 
+			}
+			else{
+
+			$exam = $query->row_array();	
+			throw new Exception(ERROR_REPETIDO); //cambiar error
 			}
 
 		}

@@ -38,30 +38,14 @@
    <a id="btn-agregar" href="<?php echo site_url('administracion/nuevo_usuario');?>" class="btn btn-primary ">Agregar nuevo</a> 	
 	<div class="row">
 		<div class="lista col-xs-12">
-		<?php echo $tabla; ?>
+		<!-- <form id="form-modificaru" class="form-evaluar" role="form" method="post" action="<?php echo site_url('administracion/eliminar');?>"> -->
+		
+			<?php echo $tabla; ?>
+
+		<!-- </form> -->
 		</div>
 	</div>
 </div>
-<!-- 
-									<div class="modal fade" id="delAlu" tabindex="-1" role="dialog" aria-labelledby="delAluLabel">
-									  <div class="modal-dialog" role="document">
-									    <div class="modal-content">
-									      <div class="modal-header">
-									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									        <h4 class="modal-title" id="delAluLabel">Eliminar Usuario</h4>
-									      </div>
-									      <div class="modal-body">
-									        <div id="alert-warning-save" class="alert alert-warning modal-body-content">
-												<strong>ATENCIÓN!</strong> ¿Está realmente seguro de que desea eliminar este usuario?
-											</div>
-									      </div>
-									      <div class="modal-footer">
-									        <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-									        <a type="button" id="confirm" class="btn btn-primary btn-ok">Eliminar</a>
-									      </div>
-									    </div>
-									  </div>
-									</div> -->
 
 <?php 
 			if(isset($error))

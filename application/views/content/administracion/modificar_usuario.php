@@ -46,18 +46,7 @@
 							</div>
 						</div>
 					</div>
-					<!-- <div class="form-group">
-						<div class="row"> 
-							<div class="col-xs-6">
-									<label for="pass" class="control-label">Contraseña</label>
-									<input type="text" class="form-control" id="pass" name="pass" value="<?php echo $usuario['pass'];?>" disabled/>
-							</div>
-							<div class="col-xs-6">
-									<label for="passconf" class="control-label">Confirmar Contraseña</label>
-									<input type="text" class="form-control" id="passconf" name="passconf" value="<?php echo $usuario['leg_doc'];?>"  />
-							</div>
-						</div>
-					</div> -->
+				
 					<div class="form-group">
 						<div class="row"> 
 							<div class="col-xs-6">
@@ -108,9 +97,55 @@
 			    	</div>
 			    	
 				<div class="form-group-buttons">
-					<a id="btn-cancelar" href="<?php echo site_url('administracion/usuarios');?>" class="btn btn-default">Cancelar</a>
-					<button id="btn-submit" name="boton" class="btn btn-primary" type="submit">Guardar</button>
+					<!-- <a id="btn-cancelar" href="<?php echo site_url('administracion/usuarios');?>" class="btn btn-default">Cancelar</a>
+					<button id="btn-submit" name="boton" class="btn btn-primary" type="submit">Guardar</button> -->
+
+					<button id="btn-cancelar" name="boton" class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#cUsuario">Cancelar</button>
+							<button id="btn-guardar" name="boton" class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#gUsuario">Guardar</button>
+						
 				</div>		
+
+				<!-- Modal -->
+									<div class="modal fade" id="gUsuario" tabindex="-1" role="dialog" aria-labelledby="gGuiaLabel">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									        <h4 class="modal-title" id="gGuiaLabel">Modificar Usuario</h4>
+									      </div>
+									      <div class="modal-body">
+									        <div id="alert-warning-save" class="alert alert-warning modal-body-content">
+												<strong>ATENCIÓN!</strong> Está a punto de modificar los datos del usuario.
+											</div>
+									      </div>
+									      <div class="modal-footer">
+									        <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+									        <button  type="submit" id="btn-modal-save" class="btn btn-primary success">Si, Guardar</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+
+									<div class="modal fade" id="cUsuario" tabindex="-1" role="dialog" aria-labelledby="cGuiaLabel">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									        <h4 class="modal-title" id="cGuiaLabel">Cancelar Modificar Usuario</h4>
+									      </div>
+									      <div class="modal-body">
+									        <div id="alert-warning-save" class="alert alert-warning modal-body-content">
+												<strong>ATENCIÓN!</strong> Usted está por abandonar la modificación del usuario. Si continúa los datos no seran guardados.
+											</div>
+									      </div>
+									      <div class="modal-footer">
+									        <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+									        <a  id="btn-modal-save" href="<?php echo site_url('administracion/admin');?>" type="button" class="btn btn-primary success">Salir</a>
+									      </div>
+									    </div>
+									  </div>
+									</div>		 
+									<!-- Fin Modal -->
 
 			</form>
 		</div> <!-- cierre contenedor formulario -->
