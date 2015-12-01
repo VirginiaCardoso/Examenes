@@ -1,0 +1,20 @@
+No necesario nro de guia
+
+poder modificar guias, aunq sea modificar ponderacion
+
+falta agregar objetivo, caso clinico, Escenario, requerimientos
+
+90 a 100 adquirida
+89 a 85 medianamente adquirida
+menos de 85 no adquirida
+Agregar para establecer rango de las ponderaciones
+
+no dejar modificar la calificación final --> LISTO
+
+Cambiar orden de los items simples, primero opción de elegir.
+
+agrandar ancho cuadro ponderación
+
+continuar con las de estadisticas
+
+12:30 reunion 1/12

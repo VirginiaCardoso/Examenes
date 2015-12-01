@@ -13,13 +13,6 @@
 <script type="text/javascript"  src="<?php echo base_url('assets/js/select2_locale_es.js'); ?>"></script>
 <script type="text/javascript"  src="<?php echo base_url('assets/js/alumnos/alumnos.js'); ?>"></script>
 
- <script>
-        $('#delAlu').on('btn-modal-save', function(e) {
-            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-            
-            $('.debug-url').html('Delete URL: <strong>' + $(this).find('.success').attr('href') + '</strong>');
-        });
-    </script>
 <!-- <link type="text/css" href="<?php echo base_url('assets/css/administracion/lista.css'); ?>" rel="stylesheet" media="screen"/>
  -->
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dataTables.bootstrap.css'); ?>">
@@ -47,36 +40,31 @@
 	<div class="row">
 		<div class="lista col-xs-12">
 		<?php echo $tabla; ?>
+
 		</div>
 	</div>
 </div>
 
+ <div class="modal fade" id="confirmDelete" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Delete Parmanently</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure about this ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirm">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- Modal -->
-									<div class="modal fade" id="delAlu" tabindex="-1" role="dialog" aria-labelledby="delAluLabel">
-									  <div class="modal-dialog" role="document">
-									    <div class="modal-content">
-									      <div class="modal-header">
-									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									        <h4 class="modal-title" id="delAluLabel">Eliminar Estudiante</h4>
-									      </div>
-									      <div class="modal-body">
-									        <div id="alert-warning-save" class="alert alert-warning modal-body-content">
-												<strong>ATENCIÓN!</strong> ¿Está realmente seguro de que desea eliminar este estudiante?
-											</div>
-									      </div>
-									      <div class="modal-footer">
-									        <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-									        <a  type="button" id="confirm" class="btn btn-primary btn-ok">Eliminar</a>
-									      </div>
-									    </div>
-									  </div>
-									</div>
 <?php 
 			if(isset($error))
 				echo '<label id="error-server" class="label-error">'.$error .'</label> ';
 ?>
 
-	
-			
-					

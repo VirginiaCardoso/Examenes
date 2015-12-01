@@ -299,7 +299,8 @@ function event_handlers_selects() {
 							for(var i = 0 ; i < guias.length; i++) {
 
 								guia = guias[i];
-								$('#select-guia').append('<option value="'+guia.id_guia+'">'+guia.nro_guia+' - '+guia.tit_guia+'</option>');
+								$('#select-guia').append('<option value="'+guia.id_guia+'">'+guia.tit_guia+'</option>');
+																							// +guia.nro_guia+' - '
 							}
 
 							for(var i = 0 ; i < alumnos.length; i++) {

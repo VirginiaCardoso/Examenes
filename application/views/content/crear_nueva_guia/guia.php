@@ -37,7 +37,8 @@
 	<div id="div" class="container">
 
 		<div class="div-titulo">
-			<label>Agregar items a la guía: <?php echo $tit_guia.' ('.$nro_guia.')'; ?> </label>
+			<label>Agregar items a la guía: <?php echo $tit_guia; ?> </label>
+
 		</div>
 		<!-- obtengo los datos de la guía creada resientemente por medio de la session 	
 		<?php
@@ -68,8 +69,15 @@
 
 						<!-- <input type="hidden" name="input-cod-carr" id="input-cod-carr" value="<?php echo $cod_carr; ?>"/> -->
 						<input type="hidden" name="input-cod-cat" id="input-cod-cat" value="<?php echo $cod_cat; ?>"/>
-						<input type="hidden" name="input-nro-guia" id="input-nro-guia" value="<?php echo $nro_guia; ?>"/>
+						<!-- <input type="hidden" name="input-nro-guia" id="input-nro-guia" value="<?php echo $nro_guia; ?>"/> -->
 						<input type="hidden" name="input-tit-guia" id="input-tit-guia" value="<?php echo $tit_guia; ?>"/>
+
+						<input type="hidden" name="input-obj-guia" id="input-obj-guia" value="<?php echo $guiaobj; ?>"/>
+						<input type="hidden" name="input-caso-guia" id="input-caso-guia" value="<?php echo $guiacaso; ?>"/>
+						<input type="hidden" name="input-req-guia" id="input-req-guia" value="<?php echo $guiareq; ?>"/>
+						<input type="hidden" name="input-esc-guia" id="input-esc-guia" value="<?php echo $guiaesc; ?>"/>
+
+
 					 	<div class="guardar-guia form-group-buttons botonera">
 
 							<!-- <a id="btn-cancelar" href="<?php echo site_url('crear_nueva_guia/crear');?>" class="btn btn-default ">Cancelar</a> -->

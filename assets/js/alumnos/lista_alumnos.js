@@ -13,6 +13,9 @@ $(document).ready(function() {
 	$('[data-toggle="tooltip"]').tooltip();
 
 	$(window).resize(); // Disparo el evento para que el contenido quede centrado.
+
+
+
 });
 
 
@@ -31,10 +34,11 @@ function crearDataTable() {
             	"createdCell": function (td, cellData, rowData, row, col) {
       				var newData = '';
      
-  					 newData += '<div class="contenedor-botones">'; 
+  					 newData += '<div class="contenedor-botones">';
   					 newData += '<div class="boton-modificar"><a href="'+rowData[5]+'" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="bottom" title="Modificar datos" ><span class="glyphicon glyphicon-pencil grande"></span> </a></div>';
-  					 newData += '<div class="boton-eliminar"><a href="'+rowData[6]+'" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delAlu" data-placement="bottom" title="Eliminar"><span class="glyphicon glyphicon-trash grande"></span> </a></div>';	
-					 newData += '</div>'; 
+  					 newData +=  '<div class="boton-eliminar">  <form method="post" action="'+rowData[6]+'" accept-charset="UTF-8" style="display:inline"><button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmDelete" data-title="Eliminar" data-message="Está seguro desea eliminar al alumno ?">  <span class="glyphicon glyphicon-trash grande"></span></button></form></div>';                         
+  					
+  					 // '<div class="boton-eliminar"> <form method="POST" action="'+rowData[6]+'" accept-charset="UTF-8" style="display:inline"> <button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmDelete" data-title="Delete User" data-message="Are you sure you want to delete this user ?"> <i class="glyphicon glyphicon-trash"></i> Delete</button></form> </div>';
   					 $(td).html(newData);
   					 $(td).css("text-align","center");	
     			}

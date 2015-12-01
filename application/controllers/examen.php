@@ -33,7 +33,9 @@ class Examen extends CI_Controller {
             $this->legajo = $this->usuario->get_info_sesion_usuario('leg_doc');
             $this->privilegio = $this->usuario->get_info_sesion_usuario('privilegio'); 
 
-            $this->load->model(array('carreras_model','catedras_model','guias_model', 'alumnos_model'));
+            $this->load->model(array('carreras_model','catedras_model','guias_model', 'alumnos_model','ponderacion_model'));
+
+
 
                 
         }
@@ -639,6 +641,9 @@ class Examen extends CI_Controller {
         $itemsestudiante = $this->guias_model->get_itemsestudiante($id_guia);
         $this->view_data['guia']['itemsestudiante'] = $itemsestudiante;
 
+        $this->view_data['adq'] = $this->ponderacion_model->get_max_min(2);
+        $this->view_data['med_adq'] = $this->ponderacion_model->get_max_min(1);
+
         $this->view_data['title'] = "Evaluar Guía - Departamento de Ciencias de la Salud";          
         $this->load->view('template/header', $this->view_data);
 
@@ -679,7 +684,7 @@ class Examen extends CI_Controller {
                 $this->form_validation->set_rules('guia', 'guia', 'required|integer');
                 $this->form_validation->set_rules('alumno', 'alumno', 'required|integer');
                 $this->form_validation->set_rules('fecha', 'fecha', 'required');
-                $this->form_validation->set_rules('examen-calif', 'examen-calif', 'required|integer');
+                $this->form_validation->set_rules('examen-calif', 'examen-calif', 'required');
                 $this->form_validation->set_rules('examen-pond', 'examen-pond', 'required');
              // $this->form_validation->set_rules('examen-nota', 'examen-nota', 'numeric');
              // $this->form_validation->set_rules('item-pond', 'item-pond', 'numeric');
@@ -885,7 +890,10 @@ class Examen extends CI_Controller {
      */
     public function ver($id)
     {
-        $this->_cargar_datos_examen($id);    
+        $this->_cargar_datos_examen($id); 
+
+        $this->view_data['adq'] = $this->ponderacion_model->get_max_min(2);
+        $this->view_data['med_adq'] = $this->ponderacion_model->get_max_min(1);   
 
         $this->load->view('template/header', $this->view_data);
 
@@ -977,7 +985,7 @@ class Examen extends CI_Controller {
 
         //GUIA 
         $guia['id_guia'] = $examen['id_guia'];
-        $guia['nro_guia'] = $examen['nro_guia'];
+        // $guia['nro_guia'] = $examen['nro_guia'];
         $guia['tit_guia'] = $examen['tit_guia'];
         $guia['subtit_guia'] = $examen['subtit_guia'];
         $this->view_data['guia'] = $guia;

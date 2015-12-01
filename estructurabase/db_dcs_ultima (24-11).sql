@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.4.15
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2015 a las 23:17:26
--- Versión del servidor: 5.6.24
--- Versión de PHP: 5.6.8
+-- Host: localhost
+-- Generation Time: Nov 24, 2015 at 03:56 PM
+-- Server version: 5.5.44-MariaDB
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,16 +14,16 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_dcs`
+-- Database: `db_dcs`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnos`
+-- Table structure for table `alumnos`
 --
 
 CREATE TABLE IF NOT EXISTS `alumnos` (
@@ -34,17 +34,21 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `alumnos`
+-- Dumping data for table `alumnos`
 --
 
 INSERT INTO `alumnos` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
+(88730, 'Abelleira', 'Guillermina Sara', 88730),
 (98064, 'Dimate Pineda', 'Jhoiner Alexander', 13),
 (98284, 'Mandolesi', 'Nicolas', 98284),
 (98747, 'Campos', 'Giuliana', 98747),
-(98749, 'Campos', 'Giuliana', 98749),
 (101014, 'Ivanoff', 'Micaela', 101014),
+(101016, 'Aban Arias', 'Juana', 0),
 (103027, 'Lambertucci', 'Antonela', 1),
 (103155, 'Cordoba', 'Agustin', 103155),
+(103434, 'LLoret', 'Franco Lujan', 103434),
+(103569, 'Villagra', 'Marina Antonieta', 103569),
+(103692, 'Becchio', 'Natalia Andrea', 103692),
 (104229, 'Astrada', 'Lucia', 104229),
 (104275, 'Subia', 'Eber', 104275),
 (104573, 'Matarazzo', 'Matias', 104573),
@@ -53,6 +57,7 @@ INSERT INTO `alumnos` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
 (106173, 'Gallardo', 'Yanina', 106173),
 (106392, 'Escobar', 'Jorge', 8),
 (106531, 'Linder', 'Josefina', 106531),
+(106663, 'Ponce Cuadros', 'Cecilia', 106663),
 (107505, 'Moraga', 'Gabriel', 107505),
 (107782, 'Renero', 'Alan', 107782),
 (107983, 'Recio', 'Mauro', 107983),
@@ -60,8 +65,10 @@ INSERT INTO `alumnos` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
 (108406, 'Muñoz', 'Melisa', 4),
 (108824, 'Campetelli', 'Estefania', 9),
 (109054, 'Insaurralde', 'Alejandrina', 16),
+(109067, 'Castañeda', 'Marial Ara', 109067),
 (109120, 'Marin', 'Sofia', 7),
 (109123, 'Rodriguez', 'Valentina', 109123),
+(109136, 'Salvadori Martorelli', 'Micaela', 109136),
 (109150, 'Dias Ruiz', 'Camila', 109150),
 (109363, 'Paci', 'Magali', 109363),
 (110532, 'Lopez', 'Lucila', 110532),
@@ -72,9 +79,12 @@ INSERT INTO `alumnos` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
 (111792, 'Santi', 'Agostina', 5),
 (111797, 'Castaldi', 'Genesis', 111797),
 (111805, 'Gorosito', 'Antonela', 111805),
+(111808, 'Usabiaga', 'María Abril', 111808),
 (111809, 'Scarpaci', 'Tomas', 111809),
 (112103, 'Torre', 'Camila', 112103),
 (112175, 'Aman', 'Aldana', 112175),
+(112176, 'Araya', 'Guadalupe Lucia', 112176),
+(112177, 'Stafolani', 'Agustina', 112177),
 (112178, 'Delbes', 'Camila', 112178),
 (112179, 'Meder', 'Sebastian', 112179),
 (112180, 'Gasso', 'Facundo', 112180),
@@ -84,11 +94,13 @@ INSERT INTO `alumnos` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
 (112184, 'Gutierrez', 'María Belen', 14),
 (112188, 'Laucirica', 'Ailen', 17),
 (112189, 'Schpak', 'Martina', 112189),
+(112190, 'Maruenda', 'Micaela Jacqueline', 112190),
 (112191, 'Arias', 'Daiana', 112191),
 (112193, 'Galassi', 'Maria', 112193),
 (112194, 'Zabala', 'Victor', 6),
 (112195, 'Viera', 'Julieta', 112195),
 (112197, 'Tronelli', 'Evelyn', 112197),
+(112198, 'Bellando', 'María Belen', 112198),
 (112199, 'Cesari', 'Macarena', 10),
 (112201, 'Paredes', 'Naiara', 112201),
 (112202, 'Ibarra', 'Ximena', 112202),
@@ -99,6 +111,7 @@ INSERT INTO `alumnos` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
 (112211, 'Acuña', 'Magali', 112211),
 (112212, 'Colagreco', 'Camila', 112212),
 (112213, 'Cerini', 'Maria', 112213),
+(112214, 'Anrique ', 'Camila Denise', 112214),
 (112215, 'Buhedo', 'Julian', 112215),
 (112216, 'Cicconi', 'Gimena', 11),
 (112221, 'Diaz', 'Joaquin', 112221),
@@ -109,7 +122,7 @@ INSERT INTO `alumnos` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnos_catedras`
+-- Table structure for table `alumnos_catedras`
 --
 
 CREATE TABLE IF NOT EXISTS `alumnos_catedras` (
@@ -121,16 +134,21 @@ CREATE TABLE IF NOT EXISTS `alumnos_catedras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `alumnos_catedras`
+-- Dumping data for table `alumnos_catedras`
 --
 
 INSERT INTO `alumnos_catedras` (`lu_alu`, `cod_cat`, `estado_alu_cat`, `year_alu_cat`, `periodo_alu_cat`) VALUES
+(88730, 20018, 0, '2015', 'Anual'),
 (98064, 20018, 0, '', '0'),
 (98284, 20018, 0, '', '0'),
 (98747, 20018, 0, '', '0'),
 (101014, 20018, 0, '', '0'),
+(101016, 20018, 0, '2015', 'Anual'),
 (103027, 20018, 0, '', '0'),
 (103155, 20018, 0, '', '0'),
+(103434, 20018, 0, '2015', 'Anual'),
+(103569, 20018, 0, '2015', 'Anual'),
+(103692, 20018, 0, '2015', 'Anual'),
 (104229, 20018, 0, '', '0'),
 (104275, 20018, 0, '', '0'),
 (105074, 20018, 0, '', '0'),
@@ -138,13 +156,16 @@ INSERT INTO `alumnos_catedras` (`lu_alu`, `cod_cat`, `estado_alu_cat`, `year_alu
 (106173, 20018, 0, '', '0'),
 (106392, 20018, 0, '', '0'),
 (106531, 20018, 0, '', '0'),
+(106663, 20018, 0, '2015', 'Anual'),
 (107505, 20018, 0, '', '0'),
 (107782, 20018, 0, '', '0'),
 (108406, 20018, 0, '', '0'),
 (108824, 20018, 0, '', '0'),
 (109054, 20018, 0, '', '0'),
+(109067, 20018, 0, '2015', 'Anual'),
 (109120, 20018, 0, '', '0'),
 (109123, 20018, 0, '', '0'),
+(109136, 20018, 0, '2015', 'Anual'),
 (109150, 20018, 0, '', '0'),
 (109363, 20018, 0, '', '0'),
 (110532, 20018, 0, '', '0'),
@@ -155,20 +176,27 @@ INSERT INTO `alumnos_catedras` (`lu_alu`, `cod_cat`, `estado_alu_cat`, `year_alu
 (111792, 20018, 0, '', '0'),
 (111797, 20018, 0, '', '0'),
 (111805, 20018, 0, '', '0'),
+(111808, 20018, 0, '2015', 'Anual'),
 (111809, 20018, 0, '', '0'),
 (112103, 20018, 0, '', '0'),
 (112175, 20018, 0, '', '0'),
+(112176, 20018, 0, '2015', 'Anual'),
+(112177, 20018, 0, '2015', 'Anual'),
 (112178, 20018, 0, '', '0'),
+(112179, 20018, 0, '2015', 'Anual'),
 (112180, 20018, 0, '', '0'),
 (112181, 20018, 0, '', '0'),
 (112183, 20018, 0, '', '0'),
 (112184, 20018, 0, '', '0'),
 (112188, 20018, 0, '', '0'),
 (112189, 20018, 0, '', '0'),
+(112190, 20018, 0, '2015', 'Anual'),
 (112191, 20018, 0, '', '0'),
 (112193, 20018, 0, '', '0'),
 (112194, 20018, 0, '', '0'),
 (112195, 20018, 0, '', '0'),
+(112197, 20018, 0, '2015', 'Anual'),
+(112198, 20018, 0, '2015', 'Anual'),
 (112199, 20018, 0, '', '0'),
 (112201, 20018, 0, '', '0'),
 (112202, 20018, 0, '', '0'),
@@ -178,6 +206,7 @@ INSERT INTO `alumnos_catedras` (`lu_alu`, `cod_cat`, `estado_alu_cat`, `year_alu
 (112209, 20018, 0, '', '0'),
 (112212, 20018, 0, '', '0'),
 (112213, 20018, 0, '', '0'),
+(112214, 20018, 0, '2015', 'Anual'),
 (112215, 20018, 0, '', '0'),
 (112216, 20018, 0, '', '0'),
 (112221, 20018, 0, '', '0'),
@@ -188,7 +217,7 @@ INSERT INTO `alumnos_catedras` (`lu_alu`, `cod_cat`, `estado_alu_cat`, `year_alu
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carreras`
+-- Table structure for table `carreras`
 --
 
 CREATE TABLE IF NOT EXISTS `carreras` (
@@ -197,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `carreras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `carreras`
+-- Dumping data for table `carreras`
 --
 
 INSERT INTO `carreras` (`cod_carr`, `nom_carr`) VALUES
@@ -207,7 +236,7 @@ INSERT INTO `carreras` (`cod_carr`, `nom_carr`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `catedras`
+-- Table structure for table `catedras`
 --
 
 CREATE TABLE IF NOT EXISTS `catedras` (
@@ -217,7 +246,7 @@ CREATE TABLE IF NOT EXISTS `catedras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `catedras`
+-- Dumping data for table `catedras`
 --
 
 INSERT INTO `catedras` (`cod_cat`, `cod_carr`, `nom_cat`) VALUES
@@ -231,7 +260,7 @@ INSERT INTO `catedras` (`cod_cat`, `cod_carr`, `nom_cat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ci_sessions`
+-- Table structure for table `ci_sessions`
 --
 
 CREATE TABLE IF NOT EXISTS `ci_sessions` (
@@ -243,16 +272,17 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `ci_sessions`
+-- Dumping data for table `ci_sessions`
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('ee20a646c73ac32ddd2f680d99bacb93', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0', 1447971374, 'a:3:{s:9:"user_data";s:0:"";s:7:"usuario";a:8:{s:7:"leg_doc";s:5:"12198";s:12:"apellido_doc";s:10:"Stepanosky";s:7:"nom_doc";s:6:"Silvia";s:7:"dni_doc";s:1:"0";s:9:"email_doc";s:27:"silvia.stepanosky@gmail.com";s:7:"tel_doc";s:1:"1";s:6:"activo";s:1:"1";s:10:"privilegio";s:1:"2";}s:16:"actividad_actual";s:14:"generar_examen";}');
+('44b7fddd7913a6572c7027582fc7114f', '200.126.204.65', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1448383158, 'a:3:{s:9:"user_data";s:0:"";s:7:"usuario";a:8:{s:7:"leg_doc";s:5:"12198";s:12:"apellido_doc";s:10:"Stepanosky";s:7:"nom_doc";s:6:"Silvia";s:7:"dni_doc";s:1:"0";s:9:"email_doc";s:27:"silvia.stepanosky@gmail.com";s:7:"tel_doc";s:1:"1";s:6:"activo";s:1:"1";s:10:"privilegio";s:1:"2";}s:16:"actividad_actual";s:14:"generar_examen";}'),
+('b32010c03179129069057bcc33275f9e', '186.0.209.250', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1448383155, 'a:3:{s:9:"user_data";s:0:"";s:7:"usuario";a:8:{s:7:"leg_doc";s:5:"12198";s:12:"apellido_doc";s:10:"Stepanosky";s:7:"nom_doc";s:6:"Silvia";s:7:"dni_doc";s:1:"0";s:9:"email_doc";s:27:"silvia.stepanosky@gmail.com";s:7:"tel_doc";s:1:"1";s:6:"activo";s:1:"1";s:10:"privilegio";s:1:"2";}s:16:"actividad_actual";s:14:"generar_examen";}');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `descripciones`
+-- Table structure for table `descripciones`
 --
 
 CREATE TABLE IF NOT EXISTS `descripciones` (
@@ -263,7 +293,7 @@ CREATE TABLE IF NOT EXISTS `descripciones` (
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `descripciones`
+-- Dumping data for table `descripciones`
 --
 
 INSERT INTO `descripciones` (`id_desc`, `id_guia`, `nom_desc`, `contenido_desc`) VALUES
@@ -294,7 +324,7 @@ INSERT INTO `descripciones` (`id_desc`, `id_guia`, `nom_desc`, `contenido_desc`)
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `docentes`
+-- Table structure for table `docentes`
 --
 
 CREATE TABLE IF NOT EXISTS `docentes` (
@@ -310,7 +340,7 @@ CREATE TABLE IF NOT EXISTS `docentes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `docentes`
+-- Dumping data for table `docentes`
 --
 
 INSERT INTO `docentes` (`leg_doc`, `pass`, `apellido_doc`, `nom_doc`, `dni_doc`, `email_doc`, `tel_doc`, `activo`, `privilegio`) VALUES
@@ -321,7 +351,7 @@ INSERT INTO `docentes` (`leg_doc`, `pass`, `apellido_doc`, `nom_doc`, `dni_doc`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `docentes_catedras`
+-- Table structure for table `docentes_catedras`
 --
 
 CREATE TABLE IF NOT EXISTS `docentes_catedras` (
@@ -331,7 +361,7 @@ CREATE TABLE IF NOT EXISTS `docentes_catedras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `docentes_catedras`
+-- Dumping data for table `docentes_catedras`
 --
 
 INSERT INTO `docentes_catedras` (`leg_doc`, `cod_cat`, `permiso_doc`) VALUES
@@ -340,7 +370,7 @@ INSERT INTO `docentes_catedras` (`leg_doc`, `cod_cat`, `permiso_doc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `examenes`
+-- Table structure for table `examenes`
 --
 
 CREATE TABLE IF NOT EXISTS `examenes` (
@@ -353,10 +383,10 @@ CREATE TABLE IF NOT EXISTS `examenes` (
   `calificacion` int(11) NOT NULL DEFAULT '-1',
   `obs_exam` text,
   `porcentaje_exam` float DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `examenes`
+-- Dumping data for table `examenes`
 --
 
 INSERT INTO `examenes` (`id_exam`, `id_guia`, `cod_cat`, `lu_alu`, `leg_doc`, `fecha`, `calificacion`, `obs_exam`, `porcentaje_exam`) VALUES
@@ -415,23 +445,33 @@ INSERT INTO `examenes` (`id_exam`, `id_guia`, `cod_cat`, `lu_alu`, `leg_doc`, `f
 (55, 7, 20018, 112215, 12198, '2015-10-23 05:16:13', 1, '', -1),
 (56, 7, 20018, 110812, 12198, '2015-10-23 05:32:29', 2, '', -1),
 (57, 7, 20018, 104229, 12198, '2015-10-23 05:51:15', 2, '', -1),
-(58, 7, 20018, 103027, 12198, '2015-11-04 17:42:20', 2, '', -1),
-(59, 8, 20018, 104229, 12863, '2015-11-05 17:00:44', 0, '', 0);
+(59, 7, 20018, 112179, 12198, '2015-11-05 01:11:03', 0, '', -1),
+(60, 7, 20018, 109363, 12198, '2015-11-05 01:15:52', 2, '', -1),
+(61, 7, 20018, 112197, 12198, '2015-11-05 01:22:29', 1, '', -1),
+(62, 7, 20018, 111808, 12198, '2015-11-05 01:24:50', 2, '', -1),
+(63, 7, 20018, 112222, 12198, '2015-11-05 01:27:03', 2, '', -1),
+(64, 7, 20018, 112198, 12198, '2015-11-05 17:45:34', 2, '', -1),
+(65, 7, 20018, 88730, 12198, '2015-11-05 18:08:14', 1, '', -1),
+(66, 7, 20018, 109136, 12198, '2015-11-05 18:22:20', 2, '', -1),
+(67, 7, 20018, 103692, 12198, '2015-11-05 18:38:35', 1, '', -1),
+(68, 7, 20018, 112190, 12198, '2015-11-05 18:54:02', 2, '', -1),
+(69, 7, 20018, 112176, 12198, '2015-11-05 19:13:07', 1, '', -1),
+(70, 7, 20018, 112214, 12198, '2015-11-05 19:28:08', 2, '', -1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `grupositems`
+-- Table structure for table `grupositems`
 --
 
 CREATE TABLE IF NOT EXISTS `grupositems` (
   `id_grupoitem` int(10) unsigned NOT NULL,
   `nom_grupoitem` varchar(255) DEFAULT NULL,
   `nro_grupoitem` int(10) unsigned DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `grupositems`
+-- Dumping data for table `grupositems`
 --
 
 INSERT INTO `grupositems` (`id_grupoitem`, `nom_grupoitem`, `nro_grupoitem`) VALUES
@@ -446,26 +486,22 @@ INSERT INTO `grupositems` (`id_grupoitem`, `nom_grupoitem`, `nro_grupoitem`) VAL
 (9, 'Prepara material:', 4),
 (10, 'Conecta electrodos precordiales en orden y posición  adecuadas, con gel conductor:', 8),
 (11, 'Prepara material:', 2),
-(12, 'Prepara material:', 2),
-(13, 'gruo', 5),
-(14, '', 1),
-(15, 'titulo grupo', 5),
-(16, 'ffff', 3);
+(12, 'Prepara material:', 2);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `guias`
+-- Table structure for table `guias`
 --
 
 CREATE TABLE IF NOT EXISTS `guias` (
   `id_guia` int(10) unsigned NOT NULL,
   `tit_guia` varchar(100) NOT NULL,
   `subtit_guia` varchar(160) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `guias`
+-- Dumping data for table `guias`
 --
 
 INSERT INTO `guias` (`id_guia`, `tit_guia`, `subtit_guia`) VALUES
@@ -477,13 +513,12 @@ INSERT INTO `guias` (`id_guia`, `tit_guia`, `subtit_guia`) VALUES
 (6, 'Oximetría de pulso', NULL),
 (7, 'Cateterismo Vesical Permanente', NULL),
 (8, 'Técnica de lavado de manos húmedo', NULL),
-(20, '65565', NULL),
-(21, 'pruebaaaaa', NULL);
+(10, 'Técnica de lavado de manos en seco', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `guias_catedras`
+-- Table structure for table `guias_catedras`
 --
 
 CREATE TABLE IF NOT EXISTS `guias_catedras` (
@@ -493,7 +528,7 @@ CREATE TABLE IF NOT EXISTS `guias_catedras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `guias_catedras`
+-- Dumping data for table `guias_catedras`
 --
 
 INSERT INTO `guias_catedras` (`id_guia`, `cod_cat`, `nro_guia`) VALUES
@@ -506,23 +541,22 @@ INSERT INTO `guias_catedras` (`id_guia`, `cod_cat`, `nro_guia`) VALUES
 (6, 20018, 11),
 (7, 20018, 12),
 (8, 20018, 1),
-(20, 20018, 4555),
-(21, 20018, 4444);
+(10, 20018, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `items`
+-- Table structure for table `items`
 --
 
 CREATE TABLE IF NOT EXISTS `items` (
   `id_item` int(10) unsigned NOT NULL,
   `nom_item` varchar(255) NOT NULL,
   `solo_texto` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=192 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `items`
+-- Dumping data for table `items`
 --
 
 INSERT INTO `items` (`id_item`, `nom_item`, `solo_texto`) VALUES
@@ -686,16 +720,21 @@ INSERT INTO `items` (`id_item`, `nom_item`, `solo_texto`) VALUES
 (158, 'Coloca palma contra palma y entrelaza los dedos', 0),
 (159, 'Frota las uñas con palma opuesta con los dedos unidos', 0),
 (160, 'Frota el pulgar izquierdo en forma circular sobre la palma derecha y viceversa', 0),
-(161, 'Frota las yemas de los dedis en la palma izquierd en forma circular y vicerversa', 0),
+(161, 'Frota las yemas de los dedos en la palma izquierda en forma circular y vicerversa', 0),
 (162, 'Enjuaga las manos con abundante agua', 0),
 (163, 'Toma una toalla descartable y seca las manos', 0),
 (164, 'Con la misma toalla envuelve la canilla y la cierra', 0),
-(165, 'Descarta la toalla en el recipiente correspondiente', 0);
+(165, 'Descarta la toalla en el recipiente correspondiente', 0),
+(166, 'Forma un hueco con la mano.', 0),
+(167, 'Se aplica una dosis de alcohol en gel y cubre toda la superficie.', 0),
+(168, 'Fricciona enérgicamente las palmas.', 0),
+(169, 'Continua frotando hasta que las manos están completamente secas', 0),
+(170, 'Concluye la técnica en 20-30 segundos', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `itemsestudiante`
+-- Table structure for table `itemsestudiante`
 --
 
 CREATE TABLE IF NOT EXISTS `itemsestudiante` (
@@ -704,7 +743,7 @@ CREATE TABLE IF NOT EXISTS `itemsestudiante` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `itemsestudiante`
+-- Dumping data for table `itemsestudiante`
 --
 
 INSERT INTO `itemsestudiante` (`id_itemest`, `nom_itemest`) VALUES
@@ -724,7 +763,7 @@ INSERT INTO `itemsestudiante` (`id_itemest`, `nom_itemest`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `itemsestudiante_guias`
+-- Table structure for table `itemsestudiante_guias`
 --
 
 CREATE TABLE IF NOT EXISTS `itemsestudiante_guias` (
@@ -734,7 +773,7 @@ CREATE TABLE IF NOT EXISTS `itemsestudiante_guias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `itemsestudiante_guias`
+-- Dumping data for table `itemsestudiante_guias`
 --
 
 INSERT INTO `itemsestudiante_guias` (`id_itemest`, `id_guia`, `nro_item`) VALUES
@@ -760,7 +799,7 @@ INSERT INTO `itemsestudiante_guias` (`id_itemest`, `id_guia`, `nro_item`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `items_examenes`
+-- Table structure for table `items_examenes`
 --
 
 CREATE TABLE IF NOT EXISTS `items_examenes` (
@@ -771,7 +810,7 @@ CREATE TABLE IF NOT EXISTS `items_examenes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `items_examenes`
+-- Dumping data for table `items_examenes`
 --
 
 INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) VALUES
@@ -830,7 +869,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (1, 55, 1, ''),
 (1, 56, 1, ''),
 (1, 57, 1, ''),
-(1, 58, -1, ''),
+(1, 59, 1, ''),
+(1, 60, 1, ''),
+(1, 61, 1, ''),
+(1, 62, 1, ''),
+(1, 63, 1, ''),
+(1, 64, 1, ''),
+(1, 65, 1, ''),
+(1, 66, 1, ''),
+(1, 67, 1, ''),
+(1, 68, 1, ''),
+(1, 69, 1, ''),
+(1, 70, 1, ''),
 (7, 3, 1, ''),
 (7, 4, 1, ''),
 (7, 5, 1, ''),
@@ -886,7 +936,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (7, 55, 1, ''),
 (7, 56, 1, ''),
 (7, 57, 1, ''),
-(7, 58, -1, ''),
+(7, 59, 1, ''),
+(7, 60, 1, ''),
+(7, 61, 1, ''),
+(7, 62, 1, ''),
+(7, 63, 1, ''),
+(7, 64, 1, ''),
+(7, 65, 1, ''),
+(7, 66, 1, ''),
+(7, 67, 1, ''),
+(7, 68, 1, ''),
+(7, 69, 1, ''),
+(7, 70, 1, ''),
 (116, 3, 1, ''),
 (116, 4, 1, ''),
 (116, 5, 1, ''),
@@ -942,7 +1003,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (116, 55, 1, ''),
 (116, 56, 1, ''),
 (116, 57, 1, ''),
-(116, 58, -1, ''),
+(116, 59, 1, ''),
+(116, 60, 1, ''),
+(116, 61, 1, ''),
+(116, 62, 1, ''),
+(116, 63, 1, ''),
+(116, 64, 1, ''),
+(116, 65, 1, ''),
+(116, 66, 1, ''),
+(116, 67, 1, ''),
+(116, 68, 1, ''),
+(116, 69, 1, ''),
+(116, 70, 1, ''),
 (117, 3, 1, ''),
 (117, 4, 1, ''),
 (117, 5, 1, ''),
@@ -998,7 +1070,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (117, 55, 1, ''),
 (117, 56, 1, ''),
 (117, 57, 1, ''),
-(117, 58, -1, ''),
+(117, 59, 1, ''),
+(117, 60, 1, ''),
+(117, 61, 1, ''),
+(117, 62, 1, ''),
+(117, 63, 1, ''),
+(117, 64, 1, ''),
+(117, 65, 1, ''),
+(117, 66, 1, ''),
+(117, 67, 1, ''),
+(117, 68, 1, ''),
+(117, 69, 1, ''),
+(117, 70, 1, ''),
 (118, 3, 1, ''),
 (118, 4, 1, ''),
 (118, 5, 1, ''),
@@ -1054,7 +1137,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (118, 55, 1, ''),
 (118, 56, 1, ''),
 (118, 57, 1, ''),
-(118, 58, -1, ''),
+(118, 59, 1, ''),
+(118, 60, 1, ''),
+(118, 61, 1, ''),
+(118, 62, 1, ''),
+(118, 63, 1, ''),
+(118, 64, 1, ''),
+(118, 65, 1, ''),
+(118, 66, 1, ''),
+(118, 67, 1, ''),
+(118, 68, 1, ''),
+(118, 69, 1, ''),
+(118, 70, 1, ''),
 (119, 3, 1, ''),
 (119, 4, 1, ''),
 (119, 5, 1, ''),
@@ -1110,7 +1204,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (119, 55, 1, ''),
 (119, 56, 1, ''),
 (119, 57, 1, ''),
-(119, 58, -1, ''),
+(119, 59, 1, ''),
+(119, 60, 1, ''),
+(119, 61, 1, ''),
+(119, 62, 1, ''),
+(119, 63, 1, ''),
+(119, 64, 1, ''),
+(119, 65, 1, ''),
+(119, 66, 1, ''),
+(119, 67, 1, ''),
+(119, 68, 1, ''),
+(119, 69, 1, ''),
+(119, 70, 1, ''),
 (120, 3, 1, ''),
 (120, 4, 1, ''),
 (120, 5, 1, ''),
@@ -1166,7 +1271,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (120, 55, 1, ''),
 (120, 56, 1, ''),
 (120, 57, 1, ''),
-(120, 58, -1, ''),
+(120, 59, 1, ''),
+(120, 60, 1, ''),
+(120, 61, 1, ''),
+(120, 62, 1, ''),
+(120, 63, 1, ''),
+(120, 64, 1, ''),
+(120, 65, 1, ''),
+(120, 66, 1, ''),
+(120, 67, 1, ''),
+(120, 68, 1, ''),
+(120, 69, 1, ''),
+(120, 70, 1, ''),
 (121, 3, 1, ''),
 (121, 4, 1, ''),
 (121, 5, 1, ''),
@@ -1222,7 +1338,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (121, 55, 1, ''),
 (121, 56, 1, ''),
 (121, 57, 1, ''),
-(121, 58, -1, ''),
+(121, 59, 1, ''),
+(121, 60, 1, ''),
+(121, 61, 1, ''),
+(121, 62, 1, ''),
+(121, 63, 1, ''),
+(121, 64, 1, ''),
+(121, 65, 1, ''),
+(121, 66, 1, ''),
+(121, 67, 1, ''),
+(121, 68, 1, ''),
+(121, 69, 1, ''),
+(121, 70, 1, ''),
 (122, 3, 1, ''),
 (122, 4, 1, ''),
 (122, 5, 1, ''),
@@ -1278,7 +1405,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (122, 55, 1, ''),
 (122, 56, 1, ''),
 (122, 57, 1, ''),
-(122, 58, -1, ''),
+(122, 59, 1, ''),
+(122, 60, 1, ''),
+(122, 61, 1, ''),
+(122, 62, 1, ''),
+(122, 63, 1, ''),
+(122, 64, 1, ''),
+(122, 65, 1, ''),
+(122, 66, 1, ''),
+(122, 67, 1, ''),
+(122, 68, 1, ''),
+(122, 69, 1, ''),
+(122, 70, 1, ''),
 (123, 3, 1, ''),
 (123, 4, 1, ''),
 (123, 5, 1, ''),
@@ -1334,7 +1472,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (123, 55, 1, ''),
 (123, 56, 1, ''),
 (123, 57, 1, ''),
-(123, 58, -1, ''),
+(123, 59, 1, ''),
+(123, 60, 1, ''),
+(123, 61, 1, ''),
+(123, 62, 1, ''),
+(123, 63, 1, ''),
+(123, 64, 1, ''),
+(123, 65, 1, ''),
+(123, 66, 1, ''),
+(123, 67, 1, ''),
+(123, 68, 1, ''),
+(123, 69, 1, ''),
+(123, 70, 1, ''),
 (124, 3, 1, ''),
 (124, 4, 1, ''),
 (124, 5, 1, ''),
@@ -1390,7 +1539,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (124, 55, 1, ''),
 (124, 56, 1, ''),
 (124, 57, 1, ''),
-(124, 58, -1, ''),
+(124, 59, 1, ''),
+(124, 60, 1, ''),
+(124, 61, 1, ''),
+(124, 62, 1, ''),
+(124, 63, 1, ''),
+(124, 64, 1, ''),
+(124, 65, 1, ''),
+(124, 66, 1, ''),
+(124, 67, 1, ''),
+(124, 68, 1, ''),
+(124, 69, 1, ''),
+(124, 70, 1, ''),
 (125, 3, 1, ''),
 (125, 4, 1, ''),
 (125, 5, 1, ''),
@@ -1446,7 +1606,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (125, 55, 1, ''),
 (125, 56, 1, ''),
 (125, 57, 1, ''),
-(125, 58, -1, ''),
+(125, 59, 1, ''),
+(125, 60, 1, ''),
+(125, 61, 1, ''),
+(125, 62, 1, ''),
+(125, 63, 1, ''),
+(125, 64, 1, ''),
+(125, 65, 1, ''),
+(125, 66, 1, ''),
+(125, 67, 1, ''),
+(125, 68, 1, ''),
+(125, 69, 1, ''),
+(125, 70, 1, ''),
 (126, 3, 1, ''),
 (126, 4, 1, ''),
 (126, 5, 1, ''),
@@ -1502,7 +1673,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (126, 55, 1, ''),
 (126, 56, 1, ''),
 (126, 57, 1, ''),
-(126, 58, -1, ''),
+(126, 59, 1, ''),
+(126, 60, 1, ''),
+(126, 61, 1, ''),
+(126, 62, 1, ''),
+(126, 63, 1, ''),
+(126, 64, 1, ''),
+(126, 65, 1, ''),
+(126, 66, 1, ''),
+(126, 67, 1, ''),
+(126, 68, 1, ''),
+(126, 69, 1, ''),
+(126, 70, 1, ''),
 (127, 3, 1, ''),
 (127, 4, 1, ''),
 (127, 5, 1, ''),
@@ -1558,7 +1740,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (127, 55, 1, ''),
 (127, 56, 1, ''),
 (127, 57, 1, ''),
-(127, 58, -1, ''),
+(127, 59, 1, ''),
+(127, 60, 1, ''),
+(127, 61, 1, ''),
+(127, 62, 1, ''),
+(127, 63, 1, ''),
+(127, 64, 1, ''),
+(127, 65, 1, ''),
+(127, 66, 1, ''),
+(127, 67, 1, ''),
+(127, 68, 1, ''),
+(127, 69, 1, ''),
+(127, 70, 1, ''),
 (128, 3, 1, 'ampolla solo 1'),
 (128, 4, 1, ''),
 (128, 5, 1, ''),
@@ -1614,7 +1807,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (128, 55, 1, ''),
 (128, 56, 1, ''),
 (128, 57, 1, ''),
-(128, 58, -1, ''),
+(128, 59, 1, ''),
+(128, 60, 1, ''),
+(128, 61, 1, ''),
+(128, 62, 1, ''),
+(128, 63, 1, ''),
+(128, 64, 1, ''),
+(128, 65, 1, ''),
+(128, 66, 1, ''),
+(128, 67, 1, ''),
+(128, 68, 1, ''),
+(128, 69, 1, ''),
+(128, 70, 1, ''),
 (129, 3, 1, ''),
 (129, 4, 1, ''),
 (129, 5, 1, ''),
@@ -1670,7 +1874,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (129, 55, 1, ''),
 (129, 56, 1, ''),
 (129, 57, 1, ''),
-(129, 58, -1, ''),
+(129, 59, 1, ''),
+(129, 60, 1, ''),
+(129, 61, 1, ''),
+(129, 62, 1, ''),
+(129, 63, 1, ''),
+(129, 64, 1, ''),
+(129, 65, 1, ''),
+(129, 66, 1, ''),
+(129, 67, 1, ''),
+(129, 68, 1, ''),
+(129, 69, 1, ''),
+(129, 70, 1, ''),
 (130, 3, 1, ''),
 (130, 4, 1, ''),
 (130, 5, 1, ''),
@@ -1726,7 +1941,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (130, 55, 1, ''),
 (130, 56, 1, ''),
 (130, 57, 1, ''),
-(130, 58, -1, ''),
+(130, 59, 1, ''),
+(130, 60, 1, ''),
+(130, 61, 1, ''),
+(130, 62, 1, ''),
+(130, 63, 1, ''),
+(130, 64, 1, ''),
+(130, 65, 1, ''),
+(130, 66, 1, ''),
+(130, 67, 1, ''),
+(130, 68, 1, ''),
+(130, 69, 1, ''),
+(130, 70, 1, ''),
 (131, 3, 1, ''),
 (131, 4, 0, ''),
 (131, 5, 1, ''),
@@ -1782,7 +2008,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (131, 55, 1, ''),
 (131, 56, 1, ''),
 (131, 57, 1, ''),
-(131, 58, -1, ''),
+(131, 59, 1, ''),
+(131, 60, 1, ''),
+(131, 61, 1, ''),
+(131, 62, 1, ''),
+(131, 63, 1, ''),
+(131, 64, 1, ''),
+(131, 65, 1, ''),
+(131, 66, 1, ''),
+(131, 67, 1, ''),
+(131, 68, 1, ''),
+(131, 69, 1, ''),
+(131, 70, 1, ''),
 (132, 3, 1, ''),
 (132, 4, 1, ''),
 (132, 5, 1, ''),
@@ -1838,7 +2075,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (132, 55, 1, ''),
 (132, 56, 1, ''),
 (132, 57, 1, ''),
-(132, 58, -1, ''),
+(132, 59, 1, ''),
+(132, 60, 1, ''),
+(132, 61, 1, ''),
+(132, 62, 1, ''),
+(132, 63, 1, ''),
+(132, 64, 1, ''),
+(132, 65, 1, ''),
+(132, 66, 1, ''),
+(132, 67, 1, ''),
+(132, 68, 1, ''),
+(132, 69, 1, ''),
+(132, 70, 1, ''),
 (133, 3, 1, ''),
 (133, 4, 1, ''),
 (133, 5, 1, ''),
@@ -1894,7 +2142,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (133, 55, 1, ''),
 (133, 56, 1, ''),
 (133, 57, 1, ''),
-(133, 58, -1, ''),
+(133, 59, 1, ''),
+(133, 60, 1, ''),
+(133, 61, 1, ''),
+(133, 62, 1, ''),
+(133, 63, 1, ''),
+(133, 64, 1, ''),
+(133, 65, 1, ''),
+(133, 66, 1, ''),
+(133, 67, 1, ''),
+(133, 68, 1, ''),
+(133, 69, 1, ''),
+(133, 70, 1, ''),
 (134, 3, 1, ''),
 (134, 4, 1, ''),
 (134, 5, 1, ''),
@@ -1950,7 +2209,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (134, 55, 1, ''),
 (134, 56, 1, ''),
 (134, 57, 1, ''),
-(134, 58, -1, ''),
+(134, 59, 1, ''),
+(134, 60, 1, ''),
+(134, 61, 1, ''),
+(134, 62, 1, ''),
+(134, 63, 1, ''),
+(134, 64, 1, ''),
+(134, 65, 1, ''),
+(134, 66, 1, ''),
+(134, 67, 1, ''),
+(134, 68, 1, ''),
+(134, 69, 1, ''),
+(134, 70, 1, ''),
 (135, 3, -1, 'incorrecto higiene'),
 (135, 4, 1, 'incorrecto'),
 (135, 5, 1, 'incorrecta, no coloca chata'),
@@ -2006,7 +2276,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (135, 55, 1, ''),
 (135, 56, 1, ''),
 (135, 57, 1, ''),
-(135, 58, -1, ''),
+(135, 59, 1, ''),
+(135, 60, 1, ''),
+(135, 61, 1, ''),
+(135, 62, 1, ''),
+(135, 63, 1, ''),
+(135, 64, 1, ''),
+(135, 65, 1, ''),
+(135, 66, 1, ''),
+(135, 67, 1, ''),
+(135, 68, 1, ''),
+(135, 69, 1, ''),
+(135, 70, 1, ''),
 (136, 3, 1, ''),
 (136, 4, 1, ''),
 (136, 5, 1, ''),
@@ -2062,7 +2343,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (136, 55, 1, ''),
 (136, 56, 1, ''),
 (136, 57, 1, ''),
-(136, 58, -1, ''),
+(136, 59, 1, ''),
+(136, 60, 1, ''),
+(136, 61, 1, ''),
+(136, 62, 1, ''),
+(136, 63, 1, ''),
+(136, 64, 1, ''),
+(136, 65, 1, ''),
+(136, 66, 1, ''),
+(136, 67, 1, ''),
+(136, 68, 1, ''),
+(136, 69, 1, ''),
+(136, 70, 1, ''),
 (137, 3, 1, ''),
 (137, 4, 1, ''),
 (137, 5, 1, ''),
@@ -2118,7 +2410,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (137, 55, 1, ''),
 (137, 56, 1, ''),
 (137, 57, 1, ''),
-(137, 58, -1, ''),
+(137, 59, 1, ''),
+(137, 60, 1, ''),
+(137, 61, 1, ''),
+(137, 62, 1, ''),
+(137, 63, 1, ''),
+(137, 64, 1, ''),
+(137, 65, 1, ''),
+(137, 66, 1, ''),
+(137, 67, 1, ''),
+(137, 68, 1, ''),
+(137, 69, 1, ''),
+(137, 70, 1, ''),
 (138, 3, 0, ''),
 (138, 4, 0, 'contamina compresa y guantes'),
 (138, 5, -1, 'contamina los guantes'),
@@ -2174,7 +2477,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (138, 55, 0, 'Contamina los  guantes'),
 (138, 56, -1, ''),
 (138, 57, 1, ''),
-(138, 58, -1, ''),
+(138, 59, 0, 'Contamina los guantes'),
+(138, 60, 1, ''),
+(138, 61, 0, 'Contamina los guantes'),
+(138, 62, 1, ''),
+(138, 63, 1, ''),
+(138, 64, 1, ''),
+(138, 65, 0, 'contamina los guantes'),
+(138, 66, -1, ''),
+(138, 67, 0, 'Contamina los guantes'),
+(138, 68, 1, ''),
+(138, 69, 0, 'Contamina los guantes'),
+(138, 70, 1, ''),
 (139, 3, 1, 'contamina'),
 (139, 4, 1, ''),
 (139, 5, 1, ''),
@@ -2230,7 +2544,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (139, 55, 1, ''),
 (139, 56, 1, ''),
 (139, 57, 1, ''),
-(139, 58, -1, ''),
+(139, 59, 1, ''),
+(139, 60, 1, ''),
+(139, 61, 1, ''),
+(139, 62, 1, ''),
+(139, 63, 1, ''),
+(139, 64, 1, ''),
+(139, 65, 1, ''),
+(139, 66, 1, ''),
+(139, 67, 1, ''),
+(139, 68, 1, ''),
+(139, 69, 1, ''),
+(139, 70, 1, ''),
 (140, 3, 1, ''),
 (140, 4, 1, ''),
 (140, 5, 1, ''),
@@ -2286,7 +2611,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (140, 55, 1, ''),
 (140, 56, 1, ''),
 (140, 57, 1, ''),
-(140, 58, -1, ''),
+(140, 59, 0, 'No mantiene el ángulo adecuado'),
+(140, 60, 1, ''),
+(140, 61, 1, ''),
+(140, 62, 1, ''),
+(140, 63, 1, ''),
+(140, 64, 1, ''),
+(140, 65, 1, ''),
+(140, 66, 1, ''),
+(140, 67, 1, ''),
+(140, 68, 1, ''),
+(140, 69, 1, ''),
+(140, 70, 1, ''),
 (141, 3, 1, ''),
 (141, 4, 1, ''),
 (141, 5, 1, ''),
@@ -2342,7 +2678,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (141, 55, 1, ''),
 (141, 56, 1, ''),
 (141, 57, 1, ''),
-(141, 58, -1, ''),
+(141, 59, 1, ''),
+(141, 60, 1, ''),
+(141, 61, 1, ''),
+(141, 62, 1, ''),
+(141, 63, 1, ''),
+(141, 64, 1, ''),
+(141, 65, 1, ''),
+(141, 66, 1, ''),
+(141, 67, 1, ''),
+(141, 68, 1, ''),
+(141, 69, 1, ''),
+(141, 70, 1, ''),
 (142, 3, 1, ''),
 (142, 4, 1, ''),
 (142, 5, 1, ''),
@@ -2398,7 +2745,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (142, 55, 1, ''),
 (142, 56, 1, ''),
 (142, 57, 1, ''),
-(142, 58, -1, ''),
+(142, 59, 0, ''),
+(142, 60, 1, ''),
+(142, 61, 1, ''),
+(142, 62, 1, ''),
+(142, 63, 1, ''),
+(142, 64, 1, ''),
+(142, 65, 1, ''),
+(142, 66, 1, ''),
+(142, 67, 1, ''),
+(142, 68, 1, ''),
+(142, 69, 1, ''),
+(142, 70, 1, ''),
 (143, 3, 1, ''),
 (143, 4, 1, ''),
 (143, 5, 1, ''),
@@ -2454,7 +2812,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (143, 55, 1, ''),
 (143, 56, 1, ''),
 (143, 57, 1, ''),
-(143, 58, -1, ''),
+(143, 59, 1, ''),
+(143, 60, 1, ''),
+(143, 61, 1, ''),
+(143, 62, 1, ''),
+(143, 63, 1, ''),
+(143, 64, 1, ''),
+(143, 65, 1, ''),
+(143, 66, 1, ''),
+(143, 67, 1, ''),
+(143, 68, 1, ''),
+(143, 69, 1, ''),
+(143, 70, 1, ''),
 (144, 3, 1, ''),
 (144, 4, 1, ''),
 (144, 5, 1, ''),
@@ -2510,7 +2879,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (144, 55, 1, ''),
 (144, 56, 1, ''),
 (144, 57, 1, ''),
-(144, 58, -1, ''),
+(144, 59, 1, ''),
+(144, 60, 1, ''),
+(144, 61, 1, ''),
+(144, 62, 1, ''),
+(144, 63, 1, ''),
+(144, 64, 1, ''),
+(144, 65, 1, ''),
+(144, 66, 1, ''),
+(144, 67, 1, ''),
+(144, 68, 1, ''),
+(144, 69, 1, ''),
+(144, 70, 1, ''),
 (145, 3, 1, ''),
 (145, 4, 1, ''),
 (145, 5, 0, ''),
@@ -2566,7 +2946,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (145, 55, 1, ''),
 (145, 56, 1, ''),
 (145, 57, 1, ''),
-(145, 58, 1, ''),
+(145, 59, 1, ''),
+(145, 60, 1, ''),
+(145, 61, 1, ''),
+(145, 62, 1, ''),
+(145, 63, 1, ''),
+(145, 64, 1, ''),
+(145, 65, 1, ''),
+(145, 66, 1, ''),
+(145, 67, 1, ''),
+(145, 68, 1, ''),
+(145, 69, 1, ''),
+(145, 70, 1, ''),
 (146, 3, 1, ''),
 (146, 4, 1, ''),
 (146, 5, 1, 'reconoce no haber insuflado el balon'),
@@ -2622,7 +3013,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (146, 55, 1, ''),
 (146, 56, 1, ''),
 (146, 57, 1, ''),
-(146, 58, 1, ''),
+(146, 59, 1, ''),
+(146, 60, 1, ''),
+(146, 61, 0, ''),
+(146, 62, 1, ''),
+(146, 63, 1, ''),
+(146, 64, 0, ''),
+(146, 65, 1, ''),
+(146, 66, 1, ''),
+(146, 67, 1, ''),
+(146, 68, 1, ''),
+(146, 69, 1, ''),
+(146, 70, 1, ''),
 (147, 3, 1, ''),
 (147, 4, 1, ''),
 (147, 5, 1, ''),
@@ -2678,7 +3080,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (147, 55, 1, ''),
 (147, 56, 1, ''),
 (147, 57, 1, ''),
-(147, 58, 1, ''),
+(147, 59, 1, ''),
+(147, 60, 1, ''),
+(147, 61, 1, ''),
+(147, 62, 1, ''),
+(147, 63, 1, ''),
+(147, 64, 1, ''),
+(147, 65, 1, ''),
+(147, 66, 1, ''),
+(147, 67, 1, ''),
+(147, 68, 1, ''),
+(147, 69, 1, ''),
+(147, 70, 1, ''),
 (148, 3, 1, ''),
 (148, 4, 1, ''),
 (148, 5, 1, ''),
@@ -2734,7 +3147,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (148, 55, 1, ''),
 (148, 56, 1, ''),
 (148, 57, 1, ''),
-(148, 58, -1, ''),
+(148, 59, 0, ''),
+(148, 60, 1, ''),
+(148, 61, 1, ''),
+(148, 62, 1, ''),
+(148, 63, 1, ''),
+(148, 64, 1, ''),
+(148, 65, 1, ''),
+(148, 66, 1, ''),
+(148, 67, 1, ''),
+(148, 68, 1, ''),
+(148, 69, 1, ''),
+(148, 70, 1, ''),
 (149, 3, 1, ''),
 (149, 4, 1, ''),
 (149, 5, 1, ''),
@@ -2790,7 +3214,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (149, 55, 1, ''),
 (149, 56, 1, ''),
 (149, 57, 1, ''),
-(149, 58, -1, ''),
+(149, 59, 1, ''),
+(149, 60, 1, ''),
+(149, 61, 1, ''),
+(149, 62, 1, ''),
+(149, 63, 1, ''),
+(149, 64, 1, ''),
+(149, 65, 1, ''),
+(149, 66, 1, ''),
+(149, 67, 1, ''),
+(149, 68, 1, ''),
+(149, 69, 1, ''),
+(149, 70, 1, ''),
 (150, 3, 1, ''),
 (150, 4, 1, ''),
 (150, 5, 1, ''),
@@ -2846,7 +3281,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (150, 55, 1, ''),
 (150, 56, 1, ''),
 (150, 57, 1, ''),
-(150, 58, 1, ''),
+(150, 59, 1, ''),
+(150, 60, 1, ''),
+(150, 61, 1, ''),
+(150, 62, 1, ''),
+(150, 63, 1, ''),
+(150, 64, 1, ''),
+(150, 65, 1, ''),
+(150, 66, 1, ''),
+(150, 67, 1, ''),
+(150, 68, 1, ''),
+(150, 69, 1, ''),
+(150, 70, 1, ''),
 (151, 3, 1, ''),
 (151, 4, 1, ''),
 (151, 5, 1, ''),
@@ -2902,7 +3348,18 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (151, 55, 1, ''),
 (151, 56, 0, 'Registra y luego se lava las manos'),
 (151, 57, 1, ''),
-(151, 58, -1, ''),
+(151, 59, 1, ''),
+(151, 60, 1, ''),
+(151, 61, 1, ''),
+(151, 62, 1, ''),
+(151, 63, 1, ''),
+(151, 64, 1, ''),
+(151, 65, 1, ''),
+(151, 66, 1, ''),
+(151, 67, 1, ''),
+(151, 68, 1, ''),
+(151, 69, 1, ''),
+(151, 70, 1, ''),
 (152, 3, 1, ''),
 (152, 4, 1, ''),
 (152, 5, 1, ''),
@@ -2958,25 +3415,23 @@ INSERT INTO `items_examenes` (`id_item`, `id_exam`, `estado_item`, `obs_item`) V
 (152, 55, 1, ''),
 (152, 56, 1, ''),
 (152, 57, 1, ''),
-(152, 58, -1, ''),
-(153, 59, 1, ''),
-(154, 59, 1, ''),
-(155, 59, 0, ''),
-(156, 59, 1, ''),
-(157, 59, 0, ''),
-(158, 59, 1, ''),
-(159, 59, 0, ''),
-(160, 59, 1, ''),
-(161, 59, 1, ''),
-(162, 59, 0, ''),
-(163, 59, 1, ''),
-(164, 59, 0, ''),
-(165, 59, 1, '');
+(152, 59, 1, ''),
+(152, 60, 1, ''),
+(152, 61, 1, ''),
+(152, 62, 1, ''),
+(152, 63, 1, ''),
+(152, 64, 1, ''),
+(152, 65, 1, ''),
+(152, 66, 1, ''),
+(152, 67, 1, ''),
+(152, 68, -1, ''),
+(152, 69, 1, ''),
+(152, 70, 1, '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `items_guias`
+-- Table structure for table `items_guias`
 --
 
 CREATE TABLE IF NOT EXISTS `items_guias` (
@@ -2988,10 +3443,10 @@ CREATE TABLE IF NOT EXISTS `items_guias` (
   `nro_item` int(10) unsigned NOT NULL,
   `id_grupoitem` int(10) unsigned DEFAULT NULL,
   `id_sec` int(10) unsigned DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=209 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `items_guias`
+-- Dumping data for table `items_guias`
 --
 
 INSERT INTO `items_guias` (`id_items_guia`, `id_item`, `id_guia`, `pon_item`, `pos_item`, `nro_item`, `id_grupoitem`, `id_sec`) VALUES
@@ -3150,7 +3605,6 @@ INSERT INTO `items_guias` (`id_items_guia`, `id_item`, `id_guia`, `pon_item`, `p
 (154, 125, 7, 1, 11, 10, 12, NULL),
 (155, 126, 7, 1, 12, 11, 12, NULL),
 (156, 127, 7, 1, 13, 12, 12, NULL),
-(157, 127, 20, 0, 1, 1, NULL, NULL),
 (158, 128, 7, 1, 14, 13, 12, NULL),
 (159, 129, 7, 1, 15, 14, 12, NULL),
 (160, 130, 7, 0.4, 16, 15, 12, NULL),
@@ -3189,17 +3643,25 @@ INSERT INTO `items_guias` (`id_items_guia`, `id_item`, `id_guia`, `pon_item`, `p
 (193, 163, 8, 10, 11, 11, NULL, NULL),
 (194, 164, 8, 10, 12, 12, NULL, NULL),
 (195, 165, 8, 10, 13, 13, NULL, NULL),
-(196, 127, 21, 0, 1, 1, NULL, NULL),
-(197, 127, 21, 0, 2, 2, NULL, NULL),
-(198, 127, 21, 0, 3, 3, NULL, NULL);
+(198, 153, 10, 10, 1, 1, NULL, NULL),
+(199, 166, 10, 5, 2, 2, NULL, NULL),
+(200, 167, 10, 10, 3, 3, NULL, NULL),
+(201, 168, 10, 10, 4, 4, NULL, NULL),
+(202, 157, 10, 10, 5, 5, NULL, NULL),
+(203, 158, 10, 10, 6, 6, NULL, NULL),
+(204, 159, 10, 10, 7, 7, NULL, NULL),
+(205, 160, 10, 10, 8, 8, NULL, NULL),
+(206, 161, 10, 10, 9, 9, NULL, NULL),
+(207, 169, 10, 10, 10, 10, NULL, NULL),
+(208, 170, 10, 5, 11, 11, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `items_guias_vieja`
+-- Table structure for table `items_guias_old`
 --
 
-CREATE TABLE IF NOT EXISTS `items_guias_vieja` (
+CREATE TABLE IF NOT EXISTS `items_guias_old` (
   `id_item` int(10) unsigned NOT NULL,
   `id_guia` int(10) unsigned NOT NULL,
   `pon_item` float unsigned NOT NULL,
@@ -3210,10 +3672,10 @@ CREATE TABLE IF NOT EXISTS `items_guias_vieja` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `items_guias_vieja`
+-- Dumping data for table `items_guias_old`
 --
 
-INSERT INTO `items_guias_vieja` (`id_item`, `id_guia`, `pon_item`, `pos_item`, `nro_item`, `id_grupoitem`, `id_sec`) VALUES
+INSERT INTO `items_guias_old` (`id_item`, `id_guia`, `pon_item`, `pos_item`, `nro_item`, `id_grupoitem`, `id_sec`) VALUES
 (1, 1, 0, 1, 1, NULL, NULL),
 (1, 3, 0, 1, 1, NULL, NULL),
 (1, 4, 0, 3, 3, NULL, NULL),
@@ -3369,7 +3831,6 @@ INSERT INTO `items_guias_vieja` (`id_item`, `id_guia`, `pon_item`, `pos_item`, `
 (125, 7, 1, 11, 10, 12, NULL),
 (126, 7, 1, 12, 11, 12, NULL),
 (127, 7, 1, 13, 12, 12, NULL),
-(127, 20, 0, 1, 1, NULL, NULL),
 (128, 7, 1, 14, 13, 12, NULL),
 (129, 7, 1, 15, 14, 12, NULL),
 (130, 7, 0.4, 16, 15, 12, NULL),
@@ -3377,24 +3838,24 @@ INSERT INTO `items_guias_vieja` (`id_item`, `id_guia`, `pon_item`, `pos_item`, `
 (132, 7, 0.5, 18, 17, 12, NULL),
 (133, 7, 0.5, 19, 18, 12, NULL),
 (134, 7, 1, 20, 3, NULL, NULL),
-(135, 7, 5, 21, 4, NULL, NULL),
-(136, 7, 1, 22, 5, NULL, NULL),
-(137, 7, 10, 23, 6, NULL, NULL),
-(138, 7, 15, 24, 7, NULL, NULL),
-(139, 7, 10, 25, 8, NULL, NULL),
-(140, 7, 5, 26, 9, NULL, NULL),
-(141, 7, 5, 27, 10, NULL, NULL),
-(142, 7, 10, 28, 11, NULL, NULL),
-(143, 7, 2, 29, 12, NULL, NULL),
-(144, 7, 2, 30, 13, NULL, NULL),
-(145, 7, 2, 31, 14, NULL, NULL),
-(146, 7, 1, 32, 15, NULL, NULL),
-(147, 7, 1, 33, 16, NULL, NULL),
-(148, 7, 1, 34, 17, NULL, NULL),
-(149, 7, 1, 35, 18, NULL, NULL),
-(150, 7, 2, 36, 19, NULL, NULL),
-(151, 7, 5, 37, 20, NULL, NULL),
-(152, 7, 1, 38, 21, NULL, NULL),
+(135, 7, 5, 21, 3, NULL, NULL),
+(136, 7, 1, 22, 4, NULL, NULL),
+(137, 7, 10, 23, 5, NULL, NULL),
+(138, 7, 15, 24, 6, NULL, NULL),
+(139, 7, 10, 25, 7, NULL, NULL),
+(140, 7, 5, 26, 8, NULL, NULL),
+(141, 7, 5, 27, 9, NULL, NULL),
+(142, 7, 10, 28, 10, NULL, NULL),
+(143, 7, 2, 29, 11, NULL, NULL),
+(144, 7, 2, 30, 12, NULL, NULL),
+(145, 7, 2, 31, 13, NULL, NULL),
+(146, 7, 1, 32, 14, NULL, NULL),
+(147, 7, 1, 33, 15, NULL, NULL),
+(148, 7, 1, 34, 16, NULL, NULL),
+(149, 7, 1, 35, 17, NULL, NULL),
+(150, 7, 2, 36, 18, NULL, NULL),
+(151, 7, 5, 37, 19, NULL, NULL),
+(152, 7, 1, 38, 20, NULL, NULL),
 (153, 8, 1, 1, 1, NULL, NULL),
 (154, 8, 1, 2, 2, NULL, NULL),
 (155, 8, 1, 3, 3, NULL, NULL),
@@ -3412,7 +3873,29 @@ INSERT INTO `items_guias_vieja` (`id_item`, `id_guia`, `pon_item`, `pos_item`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `secciones`
+-- Table structure for table `ponderacion`
+--
+
+CREATE TABLE IF NOT EXISTS `ponderacion` (
+  `texto_pond` text NOT NULL,
+  `nro_pond` int(11) NOT NULL,
+  `max_valor` int(11) NOT NULL,
+  `min_valor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ponderacion`
+--
+
+INSERT INTO `ponderacion` (`texto_pond`, `nro_pond`, `max_valor`, `min_valor`) VALUES
+('No Adquirida', 0, 84, 0),
+('Medianamente Adquirida', 1, 89, 85),
+('Adquirida', 2, 100, 90);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `secciones`
 --
 
 CREATE TABLE IF NOT EXISTS `secciones` (
@@ -3422,7 +3905,7 @@ CREATE TABLE IF NOT EXISTS `secciones` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `secciones`
+-- Dumping data for table `secciones`
 --
 
 INSERT INTO `secciones` (`id_sec`, `nom_sec`, `nro_sec`) VALUES
@@ -3433,235 +3916,262 @@ INSERT INTO `secciones` (`id_sec`, `nom_sec`, `nro_sec`) VALUES
 (5, '¿Qué recomendación realiza?', 5);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `alumnos`
+-- Indexes for table `alumnos`
 --
 ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`lu_alu`), ADD UNIQUE KEY `lu_alu` (`lu_alu`), ADD UNIQUE KEY `dni_alu` (`dni_alu`);
+  ADD PRIMARY KEY (`lu_alu`),
+  ADD UNIQUE KEY `lu_alu` (`lu_alu`),
+  ADD UNIQUE KEY `dni_alu` (`dni_alu`);
 
 --
--- Indices de la tabla `alumnos_catedras`
+-- Indexes for table `alumnos_catedras`
 --
 ALTER TABLE `alumnos_catedras`
-  ADD PRIMARY KEY (`lu_alu`,`cod_cat`), ADD KEY `cod_cat` (`cod_cat`);
+  ADD PRIMARY KEY (`lu_alu`,`cod_cat`),
+  ADD KEY `cod_cat` (`cod_cat`);
 
 --
--- Indices de la tabla `carreras`
+-- Indexes for table `carreras`
 --
 ALTER TABLE `carreras`
-  ADD PRIMARY KEY (`cod_carr`), ADD UNIQUE KEY `cod_carr` (`cod_carr`);
+  ADD PRIMARY KEY (`cod_carr`),
+  ADD UNIQUE KEY `cod_carr` (`cod_carr`);
 
 --
--- Indices de la tabla `catedras`
+-- Indexes for table `catedras`
 --
 ALTER TABLE `catedras`
-  ADD PRIMARY KEY (`cod_cat`), ADD UNIQUE KEY `cod_cat` (`cod_cat`), ADD KEY `cod_carr` (`cod_carr`);
+  ADD PRIMARY KEY (`cod_cat`),
+  ADD UNIQUE KEY `cod_cat` (`cod_cat`),
+  ADD KEY `cod_carr` (`cod_carr`);
 
 --
--- Indices de la tabla `ci_sessions`
+-- Indexes for table `ci_sessions`
 --
 ALTER TABLE `ci_sessions`
-  ADD PRIMARY KEY (`session_id`), ADD KEY `last_activity_idx` (`last_activity`);
+  ADD PRIMARY KEY (`session_id`),
+  ADD KEY `last_activity_idx` (`last_activity`);
 
 --
--- Indices de la tabla `descripciones`
+-- Indexes for table `descripciones`
 --
 ALTER TABLE `descripciones`
-  ADD PRIMARY KEY (`id_desc`), ADD KEY `id_guia` (`id_guia`);
+  ADD PRIMARY KEY (`id_desc`),
+  ADD KEY `id_guia` (`id_guia`);
 
 --
--- Indices de la tabla `docentes`
+-- Indexes for table `docentes`
 --
 ALTER TABLE `docentes`
-  ADD PRIMARY KEY (`leg_doc`), ADD UNIQUE KEY `leg_doc` (`leg_doc`), ADD UNIQUE KEY `dni_doc` (`dni_doc`);
+  ADD PRIMARY KEY (`leg_doc`),
+  ADD UNIQUE KEY `leg_doc` (`leg_doc`),
+  ADD UNIQUE KEY `dni_doc` (`dni_doc`);
 
 --
--- Indices de la tabla `docentes_catedras`
+-- Indexes for table `docentes_catedras`
 --
 ALTER TABLE `docentes_catedras`
-  ADD PRIMARY KEY (`leg_doc`,`cod_cat`), ADD KEY `cod_cat` (`cod_cat`);
+  ADD PRIMARY KEY (`leg_doc`,`cod_cat`),
+  ADD KEY `cod_cat` (`cod_cat`);
 
 --
--- Indices de la tabla `examenes`
+-- Indexes for table `examenes`
 --
 ALTER TABLE `examenes`
-  ADD PRIMARY KEY (`id_exam`), ADD KEY `id_guia` (`id_guia`), ADD KEY `cod_cat` (`cod_cat`), ADD KEY `lu_alu` (`lu_alu`), ADD KEY `leg_doc` (`leg_doc`);
+  ADD PRIMARY KEY (`id_exam`),
+  ADD KEY `id_guia` (`id_guia`),
+  ADD KEY `cod_cat` (`cod_cat`),
+  ADD KEY `lu_alu` (`lu_alu`),
+  ADD KEY `leg_doc` (`leg_doc`);
 
 --
--- Indices de la tabla `grupositems`
+-- Indexes for table `grupositems`
 --
 ALTER TABLE `grupositems`
   ADD PRIMARY KEY (`id_grupoitem`);
 
 --
--- Indices de la tabla `guias`
+-- Indexes for table `guias`
 --
 ALTER TABLE `guias`
   ADD PRIMARY KEY (`id_guia`);
 
 --
--- Indices de la tabla `guias_catedras`
+-- Indexes for table `guias_catedras`
 --
 ALTER TABLE `guias_catedras`
-  ADD PRIMARY KEY (`id_guia`,`cod_cat`), ADD KEY `cod_cat` (`cod_cat`);
+  ADD PRIMARY KEY (`id_guia`,`cod_cat`),
+  ADD KEY `cod_cat` (`cod_cat`);
 
 --
--- Indices de la tabla `items`
+-- Indexes for table `items`
 --
 ALTER TABLE `items`
   ADD PRIMARY KEY (`id_item`);
 
 --
--- Indices de la tabla `itemsestudiante`
+-- Indexes for table `itemsestudiante`
 --
 ALTER TABLE `itemsestudiante`
   ADD PRIMARY KEY (`id_itemest`);
 
 --
--- Indices de la tabla `itemsestudiante_guias`
+-- Indexes for table `itemsestudiante_guias`
 --
 ALTER TABLE `itemsestudiante_guias`
-  ADD PRIMARY KEY (`id_itemest`,`id_guia`), ADD KEY `id_guia` (`id_guia`);
+  ADD PRIMARY KEY (`id_itemest`,`id_guia`),
+  ADD KEY `id_guia` (`id_guia`);
 
 --
--- Indices de la tabla `items_examenes`
+-- Indexes for table `items_examenes`
 --
 ALTER TABLE `items_examenes`
-  ADD PRIMARY KEY (`id_item`,`id_exam`), ADD KEY `id_exam` (`id_exam`);
+  ADD PRIMARY KEY (`id_item`,`id_exam`),
+  ADD KEY `id_exam` (`id_exam`);
 
 --
--- Indices de la tabla `items_guias`
+-- Indexes for table `items_guias`
 --
 ALTER TABLE `items_guias`
   ADD PRIMARY KEY (`id_items_guia`);
 
 --
--- Indices de la tabla `items_guias_vieja`
+-- Indexes for table `items_guias_old`
 --
-ALTER TABLE `items_guias_vieja`
-  ADD PRIMARY KEY (`id_item`,`id_guia`), ADD KEY `id_guia` (`id_guia`), ADD KEY `id_grupoitem` (`id_grupoitem`), ADD KEY `id_sec` (`id_sec`);
+ALTER TABLE `items_guias_old`
+  ADD PRIMARY KEY (`id_item`,`id_guia`),
+  ADD KEY `id_guia` (`id_guia`),
+  ADD KEY `id_grupoitem` (`id_grupoitem`),
+  ADD KEY `id_sec` (`id_sec`);
 
 --
--- Indices de la tabla `secciones`
+-- Indexes for table `ponderacion`
+--
+ALTER TABLE `ponderacion`
+  ADD UNIQUE KEY `nro` (`nro_pond`);
+
+--
+-- Indexes for table `secciones`
 --
 ALTER TABLE `secciones`
   ADD PRIMARY KEY (`id_sec`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `descripciones`
+-- AUTO_INCREMENT for table `descripciones`
 --
 ALTER TABLE `descripciones`
   MODIFY `id_desc` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
--- AUTO_INCREMENT de la tabla `examenes`
+-- AUTO_INCREMENT for table `examenes`
 --
 ALTER TABLE `examenes`
-  MODIFY `id_exam` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=63;
+  MODIFY `id_exam` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 --
--- AUTO_INCREMENT de la tabla `grupositems`
+-- AUTO_INCREMENT for table `grupositems`
 --
 ALTER TABLE `grupositems`
-  MODIFY `id_grupoitem` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+  MODIFY `id_grupoitem` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT de la tabla `guias`
+-- AUTO_INCREMENT for table `guias`
 --
 ALTER TABLE `guias`
-  MODIFY `id_guia` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `id_guia` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT de la tabla `items`
+-- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id_item` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=192;
+  MODIFY `id_item` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=171;
 --
--- AUTO_INCREMENT de la tabla `itemsestudiante`
+-- AUTO_INCREMENT for table `itemsestudiante`
 --
 ALTER TABLE `itemsestudiante`
   MODIFY `id_itemest` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT de la tabla `items_guias`
+-- AUTO_INCREMENT for table `items_guias`
 --
 ALTER TABLE `items_guias`
-  MODIFY `id_items_guia` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=199;
+  MODIFY `id_items_guia` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=209;
 --
--- AUTO_INCREMENT de la tabla `secciones`
+-- AUTO_INCREMENT for table `secciones`
 --
 ALTER TABLE `secciones`
   MODIFY `id_sec` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `alumnos_catedras`
+-- Constraints for table `alumnos_catedras`
 --
 ALTER TABLE `alumnos_catedras`
-ADD CONSTRAINT `alumnos_catedras_ibfk_1` FOREIGN KEY (`lu_alu`) REFERENCES `alumnos` (`lu_alu`),
-ADD CONSTRAINT `alumnos_catedras_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `catedras` (`cod_cat`);
+  ADD CONSTRAINT `alumnos_catedras_ibfk_1` FOREIGN KEY (`lu_alu`) REFERENCES `alumnos` (`lu_alu`),
+  ADD CONSTRAINT `alumnos_catedras_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `catedras` (`cod_cat`);
 
 --
--- Filtros para la tabla `catedras`
+-- Constraints for table `catedras`
 --
 ALTER TABLE `catedras`
-ADD CONSTRAINT `catedras_ibfk_1` FOREIGN KEY (`cod_carr`) REFERENCES `carreras` (`cod_carr`);
+  ADD CONSTRAINT `catedras_ibfk_1` FOREIGN KEY (`cod_carr`) REFERENCES `carreras` (`cod_carr`);
 
 --
--- Filtros para la tabla `descripciones`
+-- Constraints for table `descripciones`
 --
 ALTER TABLE `descripciones`
-ADD CONSTRAINT `descripciones_ibfk_1` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`);
+  ADD CONSTRAINT `descripciones_ibfk_1` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`);
 
 --
--- Filtros para la tabla `docentes_catedras`
+-- Constraints for table `docentes_catedras`
 --
 ALTER TABLE `docentes_catedras`
-ADD CONSTRAINT `docentes_catedras_ibfk_1` FOREIGN KEY (`leg_doc`) REFERENCES `docentes` (`leg_doc`),
-ADD CONSTRAINT `docentes_catedras_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `catedras` (`cod_cat`);
+  ADD CONSTRAINT `docentes_catedras_ibfk_1` FOREIGN KEY (`leg_doc`) REFERENCES `docentes` (`leg_doc`),
+  ADD CONSTRAINT `docentes_catedras_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `catedras` (`cod_cat`);
 
 --
--- Filtros para la tabla `examenes`
+-- Constraints for table `examenes`
 --
 ALTER TABLE `examenes`
-ADD CONSTRAINT `examenes_ibfk_1` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
-ADD CONSTRAINT `examenes_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `catedras` (`cod_cat`),
-ADD CONSTRAINT `examenes_ibfk_3` FOREIGN KEY (`lu_alu`) REFERENCES `alumnos` (`lu_alu`),
-ADD CONSTRAINT `examenes_ibfk_4` FOREIGN KEY (`leg_doc`) REFERENCES `docentes` (`leg_doc`);
+  ADD CONSTRAINT `examenes_ibfk_1` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
+  ADD CONSTRAINT `examenes_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `catedras` (`cod_cat`),
+  ADD CONSTRAINT `examenes_ibfk_3` FOREIGN KEY (`lu_alu`) REFERENCES `alumnos` (`lu_alu`),
+  ADD CONSTRAINT `examenes_ibfk_4` FOREIGN KEY (`leg_doc`) REFERENCES `docentes` (`leg_doc`);
 
 --
--- Filtros para la tabla `guias_catedras`
+-- Constraints for table `guias_catedras`
 --
 ALTER TABLE `guias_catedras`
-ADD CONSTRAINT `guias_catedras_ibfk_1` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
-ADD CONSTRAINT `guias_catedras_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `catedras` (`cod_cat`);
+  ADD CONSTRAINT `guias_catedras_ibfk_1` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
+  ADD CONSTRAINT `guias_catedras_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `catedras` (`cod_cat`);
 
 --
--- Filtros para la tabla `itemsestudiante_guias`
+-- Constraints for table `itemsestudiante_guias`
 --
 ALTER TABLE `itemsestudiante_guias`
-ADD CONSTRAINT `itemsestudiante_guias_ibfk_1` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
-ADD CONSTRAINT `itemsestudiante_guias_ibfk_2` FOREIGN KEY (`id_itemest`) REFERENCES `itemsestudiante` (`id_itemest`);
+  ADD CONSTRAINT `itemsestudiante_guias_ibfk_1` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
+  ADD CONSTRAINT `itemsestudiante_guias_ibfk_2` FOREIGN KEY (`id_itemest`) REFERENCES `itemsestudiante` (`id_itemest`);
 
 --
--- Filtros para la tabla `items_examenes`
+-- Constraints for table `items_examenes`
 --
 ALTER TABLE `items_examenes`
-ADD CONSTRAINT `items_examenes_ibfk_1` FOREIGN KEY (`id_exam`) REFERENCES `examenes` (`id_exam`),
-ADD CONSTRAINT `items_examenes_ibfk_2` FOREIGN KEY (`id_item`) REFERENCES `items` (`id_item`);
+  ADD CONSTRAINT `items_examenes_ibfk_1` FOREIGN KEY (`id_exam`) REFERENCES `examenes` (`id_exam`),
+  ADD CONSTRAINT `items_examenes_ibfk_2` FOREIGN KEY (`id_item`) REFERENCES `items` (`id_item`);
 
 --
--- Filtros para la tabla `items_guias_vieja`
+-- Constraints for table `items_guias_old`
 --
-ALTER TABLE `items_guias_vieja`
-ADD CONSTRAINT `items_guias_vieja_ibfk_1` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
-ADD CONSTRAINT `items_guias_vieja_ibfk_2` FOREIGN KEY (`id_item`) REFERENCES `items` (`id_item`),
-ADD CONSTRAINT `items_guias_vieja_ibfk_3` FOREIGN KEY (`id_grupoitem`) REFERENCES `grupositems` (`id_grupoitem`),
-ADD CONSTRAINT `items_guias_vieja_ibfk_4` FOREIGN KEY (`id_sec`) REFERENCES `secciones` (`id_sec`);
+ALTER TABLE `items_guias_old`
+  ADD CONSTRAINT `items_guias_old_ibfk_1` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
+  ADD CONSTRAINT `items_guias_old_ibfk_2` FOREIGN KEY (`id_item`) REFERENCES `items` (`id_item`),
+  ADD CONSTRAINT `items_guias_old_ibfk_3` FOREIGN KEY (`id_grupoitem`) REFERENCES `grupositems` (`id_grupoitem`),
+  ADD CONSTRAINT `items_guias_old_ibfk_4` FOREIGN KEY (`id_sec`) REFERENCES `secciones` (`id_sec`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -86,9 +86,10 @@ class Examenes extends CI_Controller {
             $fecha_hora = explode(" ", $exam['fecha']);
             $fecha = $this->util->YMDtoDMY($fecha_hora[0])." ".$fecha_hora[1];
             $this->table->add_row($fecha,$exam['apellido_alu'].", ".$exam['nom_alu']." (LU: ".$exam['lu_alu'].")",
-                                sprintf('%02u',$exam['nro_guia']).") ".$exam['tit_guia'],$exam['nom_cat']." (".$exam['cod_cat'].")",
+                                ") ".$exam['tit_guia'],$exam['nom_cat']." (".$exam['cod_cat'].")",
                                 $exam['calificacion'],site_url('examen/ver/'.$exam['id_exam']),site_url('examen/pdf/'.$exam['id_exam']));
         }
+        // sprintf('%02u',$exam['nro_guia']).
         $template= array ('table_open'  => '<table id="lista_examenes" class="display" cellspacing="0" width="100%">');
         $this->table->set_template($template);
         $tabla= $this->table->generate();
@@ -139,9 +140,10 @@ class Examenes extends CI_Controller {
             $fecha_hora = explode(" ", $exam['fecha']);
             $fecha = $this->util->YMDtoDMY($fecha_hora[0])." ".$fecha_hora[1];
             $this->table->add_row($fecha,$exam['apellido_alu'].", ".$exam['nom_alu']." (LU: ".$exam['lu_alu'].")",
-                                sprintf('%02u',$exam['nro_guia']).") ".$exam['tit_guia'],$exam['nom_cat']." (".$exam['cod_cat'].")",
+                                ") ".$exam['tit_guia'],$exam['nom_cat']." (".$exam['cod_cat'].")",
                                 $exam['calificacion'],site_url('examen/ver/'.$exam['id_exam']),site_url('examen/pdf/'.$exam['id_exam']));
         }
+        // sprintf('%02u',$exam['nro_guia']).
         $template= array ('table_open'  => '<table id="lista_examenes" class="display" cellspacing="0" width="100%">');
         $this->table->set_template($template);
         $tabla= $this->table->generate();

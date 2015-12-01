@@ -194,7 +194,8 @@
 	<tbody>
 		<tr>
 			<td class="col-titulo-guia">
-				Guía N° <?php echo $guia['nro_guia'].': '.$guia['tit_guia']; ?>
+				Guía N° <?php echo $guia['tit_guia']; ?>
+									<!-- $guia['nro_guia'].': '. -->
 			</td>
 		</tr>
 		<tr>

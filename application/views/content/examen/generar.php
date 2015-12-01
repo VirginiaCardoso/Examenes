@@ -135,11 +135,11 @@
 				foreach ($guias['list'] as $indice => $guia): 
 					if($indice == $guias['selected'])
 					{
-						echo '<option value="'.$guia['id_guia'].'" selected = "selected">'.$guia['nro_guia'].' - '.$guia['tit_guia'].'</option>';
+						echo '<option value="'.$guia['id_guia'].'" selected = "selected">'.$guia['tit_guia'].'</option>';
 					}
 					else
 					{
-						echo '<option value="'.$guia['id_guia'].'">'.$guia['nro_guia'].' - '.$guia['tit_guia'].'</option>';
+						echo '<option value="'.$guia['id_guia'].'">'.$guia['tit_guia'].'</option>';
 					}
 
 				endforeach; 

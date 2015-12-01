@@ -134,6 +134,21 @@ class Estadisticas extends CI_Controller {
         return $alumnos;
     }
 
+     /**
+     * Devuelve el alumno
+     *
+     * @access  private
+     * @return  alumno
+     */
+    function _alumno($lu) 
+    {
+        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las alumnos
+        $alumno = $this->alumnos_model->get_alumno($lu);
+        // else
+        //     $alumnos = $this->alumnos_model->get_alumnos_docente($this->legajo);
+        return $alumno;
+    }
+
     /**
      * Devuelve arreglo con los alumnos
      *
@@ -150,21 +165,46 @@ class Estadisticas extends CI_Controller {
     }
 
 
-function mostrar_guias_alu($lu){
+function mostrar_examenes_alu($lu){
 
      $this->view_data['docente'] = $this->nom_doc." ".$this->apellido_doc;
         $this->view_data['privilegio_user'] =  $this->privilegio;
 
           $this->view_data['lu'] = $lu;  //en la view: $alumnos['list'][indice]['lu_alu'].
+
+          $alum = $this->_alumno($lu);
+          $this->view_data['apellido'] = $alum['apellido_alu'];
+          $this->view_data['nombre'] = $alum['nom_alu'];
                           
-           $this->view_data['title'] = "Guías Estudiante - Departamento de Ciencias de la Salud"; 
+           $this->view_data['title'] = "Exámenes estudiante - Departamento de Ciencias de la Salud"; 
             $this->load->view('template/header', $this->view_data);
- 
+
+            $guias_est = $this->_guias_estudiante($lu);
+            if(count($guias_est)>0)  //si no hay guias no manda datos a la view
+            {
+                $this->view_data['guias_est']['list'] = $guias_est;  //en la view: $alumnos['list'][indice]['lu_alu'].
+            } 
+
            // $this->view_data['mostrar'] = 1;
            $this->load->view('content/estadisticas/estadisticas_estudiante', $this->view_data);
             $this->load->view('template/footer');
 
 }
+
+/**
+     * Devuelve arreglo con los alumnos
+     *
+     * @access  private
+     * @return  array  - lista de alumnos
+     */
+    function _guias_estudiante($lu) 
+    {
+        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las alumnos
+        $guias_est = $this->alumnos_model->get_examenes_alumno($lu);
+        // else
+        //     $alumnos = $this->alumnos_model->get_alumnos_docente($this->legajo);
+        return $guias_est;
+    }
 
 
 

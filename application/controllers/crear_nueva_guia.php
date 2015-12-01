@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * Controlador Crear_Nuevo
+ * Controlador Crear_Nuevo 
  *
  *@package      controllers
  *@author       Cardoso Virginia
@@ -190,7 +190,7 @@ class Crear_nueva_guia extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('carrera', 'Carrera', 'required|integer');
         $this->form_validation->set_rules('catedra', 'Cátedra', 'required|integer');
-        $this->form_validation->set_rules('nro', 'Número de Guía', 'required|integer');
+        // $this->form_validation->set_rules('nro', 'Número de Guía', 'required|integer');
         $this->form_validation->set_rules('guia', 'Nombre de Guía', 'trim|required');
 
         if (!$this->form_validation->run())  //si no verifica inputs
@@ -203,8 +203,13 @@ class Crear_nueva_guia extends CI_Controller {
 
         $cod_carr = $this->input->post('carrera'); 
         $cod_cat = $this->input->post('catedra'); 
-        $nro_guia = $this->input->post('nro');
+        // $nro_guia = $this->input->post('nro');
         $tit_guia = $this->input->post('guia');
+
+        $obj_guia = $this->input->post('guiaobj');
+        $caso_guia = $this->input->post('guiacaso');
+        $esc_guia = $this->input->post('guiaesc');
+        $req_guia = $this->input->post('guiareq');
         
        //agregar items a guia
 
@@ -220,6 +225,11 @@ class Crear_nueva_guia extends CI_Controller {
          $this->view_data['items']['list']=$items; //en la view: $items['list'][indice]['id_item'].
          $this->view_data['items']['selected'] = 0;
 
+         $this->view_data['guiaobj'] = $obj_guia;
+        $this->view_data['guiacaso'] = $caso_guia;
+        $this->view_data['guiaesc'] = $esc_guia;
+        $this->view_data['guiareq'] = $req_guia;
+
          $tituloGrupo = $this->_grupositems();
          $this->view_data['tituloGrupo'] = $tituloGrupo;
 
@@ -233,7 +243,7 @@ class Crear_nueva_guia extends CI_Controller {
         $this->view_data['tabla'] = $tabla;
 
         $this->view_data['cod_cat'] = $cod_cat;
-        $this->view_data['nro_guia'] = $nro_guia; 
+        // $this->view_data['nro_guia'] = $nro_guia; 
         $this->view_data['tit_guia'] = $tit_guia;
 
 
@@ -264,7 +274,7 @@ class Crear_nueva_guia extends CI_Controller {
                 $this->load->library('form_validation');
                //verifico inputs
                 $this->form_validation->set_rules('input-cod-cat', 'input-cod-cat', 'required');
-                $this->form_validation->set_rules('input-nro-guia', 'input-nro-guia', 'required');
+                // $this->form_validation->set_rules('input-nro-guia', 'input-nro-guia', 'required');
                 $this->form_validation->set_rules('input-tit-guia', 'input-tit-guia', 'required');
                 $this->form_validation->set_rules('item-id', 'item-id', 'required');
                 $this->form_validation->set_rules('item-tipo', 'item-tipo', 'required');
@@ -292,13 +302,20 @@ class Crear_nueva_guia extends CI_Controller {
                     //obtengo datos de la guia y la creo
                     // $cod_carr =  $this->input->post('input-cod-carr');
                     $cod_cat =   $this->input->post('input-cod-cat');
-                    $nro_guia =  $this->input->post('input-nro-guia');
+                    // $nro_guia =  $this->input->post('input-nro-guia');
                     $tit_guia =  $this->input->post('input-tit-guia');
 
-                    try {
+                    $obj_guia = $this->input->post('input-obj-guia');
+                    $caso_guia = $this->input->post('input-caso-guia');
+                    $req_guia = $this->input->post('input-req-guia');
+                    $esc_guia = $this->input->post('input-esc-guia');
 
-                             $guia_id = $this->guias_model->insert_guia_catedra($cod_cat, $nro_guia, $tit_guia);
+                    try {
+                                                                                         // $nro_guia,
+                             $guia_id = $this->guias_model->insert_guia_catedra($cod_cat, $tit_guia, $obj_guia,$caso_guia,$req_guia,$esc_guia);
                              $this->util->json_response(TRUE,STATUS_OK,$guia_id);
+
+
 
                     } catch (Exception $e) {
                          switch ($e->getMessage()) {

@@ -1,0 +1,66 @@
+
+body {
+	min-width: 290px !Important;
+}
+
+.form-container {
+	margin: 0px auto;
+	min-width: 225px;
+}
+
+.form-group-estad {
+	/*max-width: 600px;*/
+	/*max-width: 50%;*/
+	width: 45%;
+	margin-bottom: 15px;
+	float: left;
+}
+.form-group-estad > label {
+	text-align: left !Important;
+	width: 85px;
+}
+
+.form-group-estad > div {
+	width: 100%;
+}
+
+.form-group-estad > div > div {
+	padding-top: 4px;
+}
+
+/*.form-group-generar-fecha {
+	min-width: 270px;
+}
+
+.fecha {
+	width: 200px !Important;
+}*/
+
+.resumen_exam {
+	/*max-width: 600px;*/
+	margin: 5px 5px 5px 25px;
+	float: left;
+}
+
+ .lista_resumen{
+ 	padding: 5px;
+ 	/*margin-left: 10 px;*/
+ }
+
+.form-group-buttons {
+	text-align: center;
+	clear: both;
+	margin: 0px auto;
+	width: 100%;
+}
+
+h2 {
+	margin-bottom: 20px;
+	margin-right: 0px;
+	max-width: 600px;
+}
+
+.select {
+	min-width: 250px;
+	max-width: 600px;
+}

@@ -298,8 +298,7 @@ class Alumnos_model extends CI_Model {
 	 */
 	public function get_examenes_alumno($lu)
 	{
-		$query_string = "SELECT DISTINCT lu_alu,apellido_alu,nom_alu,id_guia,fecha,calificacion,porcentaje_exam FROM alumnos NATURAL JOIN examenes,guias 
-				WHERE lu_alu = ? ORDER BY fecha ASC";
+		$query_string = "SELECT DISTINCT lu_alu,apellido_alu,nom_alu,examenes.id_guia,fecha,calificacion,porcentaje_exam,id_exam, tit_guia FROM alumnos NATURAL JOIN examenes NATURAL LEFT JOIN guias WHERE lu_alu = ?  ORDER BY fecha ASC ";
 		$query = $this->db->query($query_string,array($lu));
 	
 		return $query->result_array();

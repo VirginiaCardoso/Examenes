@@ -161,6 +161,7 @@ private function mostrar_tabla_alumnos(){
                                   " ",
                                   site_url('alumnos/modificar_alumno/'.$alu['lu_alu']),
                                   site_url('alumnos/eliminar_alumno/'.$alu['lu_alu'])
+                                  // "eliminar"
                                   );
         }
         $template= array ('table_open'  => '<table id="lista_alumnos" class="table table-striped table-bordered  table-condensed" cellspacing="5" width="100%">');

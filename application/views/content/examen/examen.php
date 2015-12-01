@@ -268,7 +268,8 @@
 	<div class="barra-division"></div>
 
 	<div class="col-xs-12 col-titulo-guia">
-		Guía N° <?php echo $guia['nro_guia'].': '.$guia['tit_guia']; ?>
+		"<?php echo $guia['tit_guia']; ?>"
+		<!-- $guia['nro_guia'].': '. -->
 	</div>
 	<div class="col-xs-12 col-subtitulo-guia">
 		<?php 
@@ -429,59 +430,68 @@
 				 	Porcentaje ponderación: <span id="ponderacion-realizado">ponderacion</span>
 				 	<input type="hidden" name="examen-pond" id="examen-pond" value="0">
 
+
+				 	<input type="hidden" name="min-adq" id="min-adq" value=<?php echo '"'.$adq['min_valor'].'"';?>>
+				 	<input type="hidden" name="min-med-adq" id="min-med-adq" value=<?php echo '"'.$med_adq['min_valor'].'"';?>>
 				 	<br>
 				 	<br>
-				 	Sugerencia calificación: <span id="sugerencia-calificacion">calificación</span>
+				 	<!-- Sugerencia calificación: <span id="sugerencia-calificacion">calificación</span> -->
 
 				 	<div class="examen-calificacion">
-					 	<span class="span-calif-obsGral">CALIFICACION: </span>
-					 	<?php
-
-				 			if(!$evaluar)
-				 			{
-				 				switch($examen['calificacion'])
-				 				{
-				 					case CALIF_COMPETENCIA_NO_ADQUIRIDA:
-				 															echo "<span class='span-calificacion no-adquirida'>Competencia no adquirida.</span>";
-				 															break;
-
-				 					case CALIF_COMPETENCIA_MED_ADQUIRIDA:	echo "<span class='span-calificacion medianamente-adquirida'>Competencia medianamente adquirida.</span>";
-				 															break;
-
-				 					case CALIF_COMPETENCIA_ADQUIRIDA:		echo "<span class='span-calificacion adquirida'>Competencia adquirida.</span>";
-				 															break;
-				 					default:
-				 															echo "Sin calificar.";
-				 				}
-				 			}
-				 			else {
-				 				echo '
-				 					<div id="examen-calificacion" class="opciones-calificacion">
-								 		<input type="radio" name="examen-calif" id="calificacion-1" value="-1" style="display:none" checked="checked">
-								 		<div class="radio">
-									 	<label>						 		
-											<input type="radio" name="examen-calif" id="calificacion2" value="2">
-											<span class="radio-texto">Competencia adquirida</span>
-									 	</label>
-									 	</div>
-									 	<div class="radio">
-									 	<label>
-											<input type="radio" name="examen-calif" id="calificacion1" value="1">
-											<span class="radio-texto">Competencia medianamente adquirida</span>
-									 	</label>
-									 	</div>
-									 	<div class="radio">
-									 	<label>
-											<input type="radio" name="examen-calif" id="calificacion0" value="0">
-											<span class="radio-texto">Competencia no adquirida</span>
-									 	</label>
-									 	</div>
-									</div>
-									<label id="error-radio" class="label-error errores"></label>
-				 				';
-				 			}
-				 		?>
+					 	<span class="span-calif-obsGral">CALIFICACION: </span> 
+					 	<span id="sugerencia-calificacion"></span>
+				 		<input type="hidden" name="examen-calif" id="examen-calif" value="-1">
 					 	
+			<!-- 		 	<?php
+
+				 			// if(!$evaluar)
+				 			// {
+				 			// 	switch($examen['calificacion'])
+				 			// 	{
+				 			// 		case CALIF_COMPETENCIA_NO_ADQUIRIDA:
+				 			// 												echo "<span class='span-calificacion no-adquirida'>Competencia no adquirida.</span>";
+				 			// 												break;
+
+				 			// 		case CALIF_COMPETENCIA_MED_ADQUIRIDA:	echo "<span class='span-calificacion medianamente-adquirida'>Competencia medianamente adquirida.</span>";
+				 			// 												break;
+
+				 			// 		case CALIF_COMPETENCIA_ADQUIRIDA:		echo "<span class='span-calificacion adquirida'>Competencia adquirida.</span>";
+				 			// 												break;
+				 			// 		default:
+				 			// 												echo "Sin calificar.";
+				 			// 	}
+				 			// }
+				 			// else {
+
+				 			// 	echo '<span id="sugerencia-calificacion"></span>
+				 			// 						 	<input type="hidden" name="examen-calif" id="examen-calif" value="-1">';
+				 				// echo '
+				 				// 	<div id="examen-calificacion" class="opciones-calificacion">
+								 // 		<input type="radio" name="examen-calif" id="calificacion-1" value="-1" style="display:none" checked="checked">
+								 // 		<div class="radio">
+									//  	<label>						 		
+									// 		<input type="radio" name="examen-calif" id="calificacion2" value="2">
+									// 		<span class="radio-texto">Competencia adquirida</span>
+									//  	</label>
+									//  	</div>
+									//  	<div class="radio">
+									//  	<label>
+									// 		<input type="radio" name="examen-calif" id="calificacion1" value="1">
+									// 		<span class="radio-texto">Competencia medianamente adquirida</span>
+									//  	</label>
+									//  	</div>
+									//  	<div class="radio">
+									//  	<label>
+									// 		<input type="radio" name="examen-calif" id="calificacion0" value="0">
+									// 		<span class="radio-texto">Competencia no adquirida</span>
+									//  	</label>
+									//  	</div>
+									// </div>
+									// <label id="error-radio" class="label-error errores"></label>
+				 				// ';
+				 			// }
+				 		?>
+					 	 -->
 					</div>
 
 					

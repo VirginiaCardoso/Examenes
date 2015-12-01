@@ -121,9 +121,11 @@ class Examenes_model extends CI_Model {
 	 *
 	 */
 	public function get_examen_id($id_exam)
-	{
+	{			
+				// nro_guia,
+
 		$query_string = "SELECT id_exam,cod_carr,nom_carr,cod_cat,nom_cat,leg_doc,apellido_doc,nom_doc,
-							lu_alu,apellido_alu,nom_alu,id_guia,nro_guia,tit_guia,subtit_guia,
+							lu_alu,apellido_alu,nom_alu,id_guia,tit_guia,subtit_guia,
 							fecha,calificacion,porcentaje_exam,obs_exam 
 							FROM examenes NATURAL LEFT JOIN guias NATURAL LEFT JOIN guias_catedras NATURAL LEFT JOIN catedras 
 							NATURAL LEFT JOIN carreras NATURAL LEFT JOIN docentes NATURAL LEFT JOIN alumnos 
@@ -165,8 +167,9 @@ class Examenes_model extends CI_Model {
 
 	public function get_examenes_docente($leg_doc)
 	{
+		   								// nro_guia,
 		$query_string = "SELECT id_exam,cod_carr,nom_carr,cod_cat,nom_cat,leg_doc,apellido_doc,nom_doc,
-							lu_alu,apellido_alu,nom_alu,id_guia,nro_guia,tit_guia,subtit_guia,
+							lu_alu,apellido_alu,nom_alu,id_guia,tit_guia,subtit_guia,
 							fecha,calificacion,porcentaje_exam,obs_exam 
 							FROM examenes NATURAL LEFT JOIN guias NATURAL LEFT JOIN guias_catedras NATURAL LEFT JOIN catedras 
 							NATURAL LEFT JOIN carreras NATURAL LEFT JOIN docentes NATURAL LEFT JOIN alumnos 

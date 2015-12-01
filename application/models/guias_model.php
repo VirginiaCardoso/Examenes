@@ -30,8 +30,8 @@ class Guias_model extends CI_Model {
 
 	public function get_guias()
 	{
-		$query_string = "SELECT DISTINCT id_guia,cod_carr,tit_guia,cod_cat,nom_cat, nro_guia FROM guias NATURAL JOIN guias_catedras NATURAL JOIN catedras
-				ORDER BY nro_guia ASC";
+		$query_string = "SELECT DISTINCT id_guia,cod_carr,tit_guia,cod_cat,nom_cat FROM guias NATURAL JOIN guias_catedras NATURAL JOIN catedras
+				ORDER BY tit_guia ASC";
 	
 		$query = $this->db->query($query_string);
 		return $query->result_array();
@@ -47,8 +47,8 @@ class Guias_model extends CI_Model {
 
 	public function get_guias_catedra($cod_catedra)
 	{
-		$query_string = "SELECT DISTINCT id_guia,nro_guia,tit_guia,subtit_guia FROM guias NATURAL JOIN guias_catedras
-				WHERE cod_cat = ? ORDER BY nro_guia ASC";
+		$query_string = "SELECT DISTINCT id_guia,tit_guia,subtit_guia FROM guias NATURAL JOIN guias_catedras
+				WHERE cod_cat = ? ORDER BY tit_guia ASC";
 		$query = $this->db->query($query_string,array($cod_catedra));
 	
 		return $query->result_array();
@@ -66,7 +66,7 @@ class Guias_model extends CI_Model {
 
 	public function get_guia_catedra($id_guia,$cod_cat)
 	{
-		$query_string = "SELECT DISTINCT id_guia,nro_guia,tit_guia,subtit_guia FROM guias NATURAL JOIN guias_catedras
+		$query_string = "SELECT DISTINCT id_guia,tit_guia,subtit_guia FROM guias NATURAL JOIN guias_catedras
 				WHERE cod_cat = ? AND id_guia = ?";
 		$query = $this->db->query($query_string,array($cod_cat,$id_guia));
 	
@@ -124,8 +124,8 @@ class Guias_model extends CI_Model {
 	 * @param 	$tit_guia dato titulo de la guia
 	 *
 	 */
-
-	public function insert_guia_catedra($cod_cat, $nro_guia, $tit_guia)
+													// $nro_guia,
+	public function insert_guia_catedra($cod_cat,  $tit_guia, $obj_guia,$caso_guia,$req_guia,$esc_guia)
 	{
 
 		//Verifico que no exista una guía con el mismo nombre
@@ -150,9 +150,45 @@ class Guias_model extends CI_Model {
 		$id_guia = $this->db->insert_id();
 		
 		//Inserto info en la tabla guias_catedras
-		$query_string = "INSERT INTO guias_catedras(id_guia, cod_cat, nro_guia) VALUES (LAST_INSERT_ID(),?,?);";
+		$query_string = "INSERT INTO guias_catedras(id_guia, cod_cat) VALUES (LAST_INSERT_ID(),?);";
 
-		$this->db->query($query_string,array($cod_cat, $nro_guia));
+		$this->db->query($query_string,array($cod_cat));
+		//controlo que se haya insertado nueva relacion guia-catedra
+		if($this->db->affected_rows() == 0)
+		{
+			throw new Exception(ERROR_NO_INSERT_EXAM); //cambiar error
+		}
+
+		$query_string2 = "INSERT INTO descripciones(id_guia, nom_desc, contenido_desc) VALUES (?,'Objetivo del taller',?);";
+
+		$this->db->query($query_string2,array($id_guia,$obj_guia));
+		//controlo que se haya insertado nueva relacion guia-catedra
+		if($this->db->affected_rows() == 0)
+		{
+			throw new Exception(ERROR_NO_INSERT_EXAM); //cambiar error
+		}
+
+		
+		$query_string3 = "INSERT INTO descripciones(id_guia, nom_desc, contenido_desc) VALUES (?,'Caso clínico',?);";
+
+		$this->db->query($query_string3,array($id_guia,$caso_guia));
+		//controlo que se haya insertado nueva relacion guia-catedra
+		if($this->db->affected_rows() == 0)
+		{
+			throw new Exception(ERROR_NO_INSERT_EXAM); //cambiar error
+		}
+		$query_string4 = "INSERT INTO descripciones(id_guia, nom_desc, contenido_desc) VALUES (?,'Escenario',?);";
+
+		$this->db->query($query_string4,array($id_guia,$esc_guia));
+		//controlo que se haya insertado nueva relacion guia-catedra
+		if($this->db->affected_rows() == 0)
+		{
+			throw new Exception(ERROR_NO_INSERT_EXAM); //cambiar error
+		}
+
+		$query_string5 = "INSERT INTO descripciones(id_guia, nom_desc, contenido_desc) VALUES (?,'Requerimientos',?);";
+
+		$this->db->query($query_string5,array($id_guia,$req_guia));
 		//controlo que se haya insertado nueva relacion guia-catedra
 		if($this->db->affected_rows() == 0)
 		{

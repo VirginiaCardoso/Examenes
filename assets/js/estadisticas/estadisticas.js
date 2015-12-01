@@ -24,7 +24,7 @@ function event_handlers_window() {
 function mostrar_alumno(nro){
 	var divmostrar = document.getElementById("div-mostrar");
 	divmostrar.innerHTML= "";
-	divmostrar.innerHTML = "<br> Eligio al alumno LU:"+ nro + "<br>  <a id='btn-mostrar' href='"+$('body').data('site-url')+"/estadisticas/mostrar_guias_alu/"+ nro +"' class='btn btn-primary'>Mostrar Guías</a> ";
+	divmostrar.innerHTML = "<br> Eligio al alumno LU:"+ nro + "<br>  <a id='btn-mostrar' href='"+$('body').data('site-url')+"/estadisticas/mostrar_examenes_alu/"+ nro +"' class='btn btn-primary'>Mostrar exámenes rendidos</a> ";
 
 }
 

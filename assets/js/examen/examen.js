@@ -374,7 +374,8 @@ function revisar_items(evaluando) {
 
 					$(this).parent().parent().addClass('bg-no-resp');
 				}
-			}					
+			}
+			preguntas++;					
 		});
 
 	}
@@ -392,19 +393,28 @@ function revisar_items(evaluando) {
 	$('#ponderacion-realizado').html(pond + "%");
 	document.getElementById('examen-pond').value = pond;
 
-	if (pond<70){
-		$('#sugerencia-calificacion').html("Calificación no adquirida");
-		document.getElementById("calificacion0").checked = true;
+ 	var min_adq = document.getElementById('min-adq').value;
+ 	var min_med = document.getElementById('min-med-adq').value;
+
+	if (pond<min_med){
+		$('#sugerencia-calificacion').html("Competencia no adquirida");
+		$('#sugerencia-calificacion').addClass('span-calificacion no-adquirida');
+		document.getElementById('examen-calif').value = 0;
+		//document.getElementById("calificacion0").checked = true;
 	}
 	else {
-		if (pond<85){
-			$('#sugerencia-calificacion').html("Calificación medianamente adquirida");
-			document.getElementById("calificacion1").checked = true;
+		if (pond<min_adq){
+			$('#sugerencia-calificacion').html("Competencia medianamente adquirida");
+			$('#sugerencia-calificacion').addClass('span-calificacion medianamente-adquirida');
+			document.getElementById('examen-calif').value = 1;
+			//document.getElementById("calificacion1").checked = true;
 		}
 		else {
-			$('#sugerencia-calificacion').html("Calificación adquirida");	
+			$('#sugerencia-calificacion').html("Competencia adquirida");	
+			$('#sugerencia-calificacion').addClass('span-calificacion adquirida');
+			document.getElementById('examen-calif').value = 2;
 			//calificacion2
-			  document.getElementById("calificacion2").checked = true;
+			 // document.getElementById("calificacion2").checked = true;
 		}
 
 	}
@@ -484,25 +494,25 @@ function validar() {
 
 	ocultar_errores();
 
-	if( !$('#calificacion0').is(':checked') && 
-		!$('#calificacion1').is(':checked') &&
-		!$('#calificacion2').is(':checked'))
-	{
-		$('#error-radio').text('Debe seleccionar una calificación');
-		$('#error-radio').show();
-		return false;
-	}
-	else {
+	// if( !$('#calificacion0').is(':checked') && 
+	// 	!$('#calificacion1').is(':checked') &&
+	// 	!$('#calificacion2').is(':checked'))
+	// {
+	// 	$('#error-radio').text('Debe seleccionar una calificación');
+	// 	$('#error-radio').show();
+	// 	return false;
+	// }
+	// else {
 		
-		if( ($('#calificacion0').is(':checked') && ($('#calificacion0').val() != CALIF_COMPETENCIA_NO_ADQUIRIDA)) ||
-		    ($('#calificacion1').is(':checked') && ($('#calificacion1').val() != CALIF_COMPETENCIA_MED_ADQUIRIDA)) ||
-		    ($('#calificacion2').is(':checked') && ($('#calificacion2').val() != CALIF_COMPETENCIA_ADQUIRIDA)))
-		{
-			$('#error-radio').text('El valor de la opción seleccionada es inválido');
-			$('#error-radio').show();
-			return false;
-		}
-	}
+	// 	if( ($('#calificacion0').is(':checked') && ($('#calificacion0').val() != CALIF_COMPETENCIA_NO_ADQUIRIDA)) ||
+	// 	    ($('#calificacion1').is(':checked') && ($('#calificacion1').val() != CALIF_COMPETENCIA_MED_ADQUIRIDA)) ||
+	// 	    ($('#calificacion2').is(':checked') && ($('#calificacion2').val() != CALIF_COMPETENCIA_ADQUIRIDA)))
+	// 	{
+	// 		$('#error-radio').text('El valor de la opción seleccionada es inválido');
+	// 		$('#error-radio').show();
+	// 		return false;
+	// 	}
+	// }
 
 	return true;
 }

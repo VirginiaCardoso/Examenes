@@ -35,7 +35,8 @@ function crearDataTable() {
   					 newData += '<div class="boton-modificar"><a href="'+rowData[8]+'" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="bottom" title="Modificar datos" ><span class="glyphicon glyphicon-pencil grande"></span> </a></div>';
   					 newData += '<div class="boton-contrasena"><a href="'+rowData[9]+'" class="btn btn-success btn-xs " data-toggle="tooltip" data-placement="bottom" title="Modificar contraseña"><span class="glyphicon glyphicon-lock grande blanco"></span> </a></div>';	
   					 newData += '<div class="boton-eliminar"><a href="'+rowData[10]+'" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Eliminar"><span class="glyphicon glyphicon-trash grande"></span> </a></div>';	
-						newData += '</div>'; 
+					 // newData += '<div class="boton-eliminar"><a href="'+rowData[10]+'" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delUsu" data-placement="bottom" title="Eliminar"><span class="glyphicon glyphicon-trash grande"></span> </a></div>';	
+					 newData += '</div>'; 
   					$(td).html(newData);
   					$(td).css("text-align","center");	
     			}

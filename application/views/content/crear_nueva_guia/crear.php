@@ -25,7 +25,7 @@
 
 
 <div id="div-form" class="form-container">
-
+ 
 	<div class="div-titulo">
 		<label>Crear Nueva Guía</label>
 	</div>
@@ -101,15 +101,15 @@
 			</div>
 			<label id="error-catedra" class="label-error errores">Cátedra inválida</label>
 		</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 						<div class="row"> 
 							<div class="col-xs-12">
 			    				<label for="nro">Número de Guía</label>
 			    				<input type="text" class="form-control" id="nro" name="nro" placeholder="Ingrese el Número de Guía" required title="Ingrese un Número de Guía">
-			    				<!-- <span id="errmsg"></span> -->
-			    			</div>
+			     -->				<!-- <span id="errmsg"></span> -->
+			    <!-- 			</div>
 			    		</div>
-			  		</div>
+			  		</div> -->
 		<div class="form-group">
 						<div class="row"> 
 							<div class="col-xs-12">
@@ -121,25 +121,47 @@
 			    		</div>
 			  		</div>
 			
-		<div class="form-group-buttons">
+		
+	<div class="form-group">
+			<div class="row"> 
+				<div class="col-xs-12">
+    				<label for="guiaobj">Objetivos</label>
+    				<textarea class="form-control" id="guiaobj" name="guiaobj" idrows="2"></textarea>
+    			</div>
+    		</div>
+	</div>
+
+	<div class="form-group">
+			<div class="row"> 
+				<div class="col-xs-12">
+    				<label for="guiacaso">Caso Clínico</label>
+    				<textarea class="form-control" id="guiacaso" name="guiacaso" idrows="2"></textarea>
+    			</div>
+    		</div>
+	</div>
+	<div class="form-group">
+			<div class="row"> 
+				<div class="col-xs-12">
+    				<label for="guiaesc">Escenario</label>
+    				<textarea class="form-control" id="guiaesc" name="guiaesc" idrows="2"></textarea>
+    			</div>
+    		</div>
+	</div>
+	<div class="form-group">
+			<div class="row"> 
+				<div class="col-xs-12">
+    				<label for="guiareq">Requerimientos</label>
+    				<textarea class="form-control" id="guiareq" name="guiareq" idrows="2"></textarea>
+    			</div>
+    		</div>
+	</div>
+     
+       <div class="form-group-buttons">
 			<a id="btn-cancelar" href="<?php echo site_url('home');?>" class="btn btn-default">Cancelar</a>
 			<button id="btn-submit" name="boton" class="btn btn-primary" type="submit">Continuar</button>
 		</div>
 
 	</form>
-<script>
-$(document).ready(function () {
-  //called when key is pressed in textbox
-  $("#nro").keypress(function (e) {
-     //if the letter is not digit then display error and don't type anything
-     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-        //display error message
-        // $("#errmsg").html("Solo dígitos").show().fadeOut("fast");
-               return false;
-    }
-   });
-});
-</script>
 	<?php 
 		if(isset($error))
 			echo '<label id="error-server" class="label-error">'.$error .'</label> ';
