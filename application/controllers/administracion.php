@@ -234,6 +234,20 @@ class Administracion extends CI_Controller {
     }
 
 private function mostrar_tabla_usuarios(){
+  $atts = array(
+                  // 'id'=>'form-delete-usuario' ,
+                  // 'class'=>'form-del-usuario' ,
+                  // 'role'=>'form' ,
+                  // 'method'=>'post' 
+              // 'onclick'=>"javascript:deleteConfirm('<?php echo base_url().'admin/home/delete_image/'.$image['id'];
+              // 'deleteConfirm',
+              // 'data-confirm' => "Are you sure you want to delete?",
+              'class'=>'btn btn-danger btn-xs',
+              'data-toggle'=>'modal' ,
+              'data-target'=>'#delUsu',
+              'data-placement'=>'bottom', 
+              'title'=>'Eliminar'
+           );
        $this->load->model('docentes_model');
 
         $usuarios = $this->docentes_model->get_usuarios();
@@ -274,7 +288,18 @@ private function mostrar_tabla_usuarios(){
                                   //   </a>");
                                   site_url('administracion/modificar_usuario/'.$user['leg_doc']),
                                   site_url('administracion/modificarC_usuario/'.$user['leg_doc']),
+                                  // form_open('administracion/eliminar_usuario/'.$user['leg_doc'],$atts)
+                                  // <a class="delete" onclick="javascript:deleteConfirm('<?php echo base_url().'admin/home/delete_image/'.$image['id'];>');" deleteConfirm href="#">Delete</a>
                                   site_url('administracion/eliminar_usuario/'.$user['leg_doc'])
+                                  // <a class="btn btn-sm btn-danger" href="javascript:void()" title="Hapus" onclick="delete_person('."'".$person->id."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+                                  // <a href="" class="btn btn-mini" data-toggle="modal" data-target="#myModalDel" onClick="document.getElementById('idExp').value=<?php echo $row['id_applicantpc_experience']; signo  >"><i class="icon-trash"></i></a>  
+                                   // anchor('+rowData[10]+',
+                                   //  "<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",
+                                   //  array(
+                                   //          'onclick' => '"administracion/eliminar_usuario/".$user["leg_doc"]',
+                                   //          'class'   => 'btn btn-sm btn-danger',
+                                   //          'title'   => 'Eliminar'))
+                                  
                                   );
 
 

@@ -15,14 +15,27 @@ $(document).ready(function() {
 	$(window).resize(); // Disparo el evento para que el contenido quede centrado.
 
 
-
+	event_handlers_modal_buttons();
 });
+
+
+
+function event_handlers_modal_buttons() {
+
+	$('#confirm').click(function(event) {
+
+		
+			event.preventDefault();
+			$('#form-eliminar').submit();
+		
+	});
+}
 
 
 function crearDataTable() {
 	
-	  // $('#lista_alumnos').DataTable(); //datateble original
-	$('#lista_alumnos').dataTable({ //datatable personalizado
+	  // $('#lista_estudiantes').DataTable(); //datateble original
+	$('#lista_estudiantes').dataTable({ //datatable personalizado
 		"columnDefs": [
             {
                 "targets": [ 5,6 ],
@@ -36,7 +49,7 @@ function crearDataTable() {
      
   					 newData += '<div class="contenedor-botones">';
   					 newData += '<div class="boton-modificar"><a href="'+rowData[5]+'" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="bottom" title="Modificar datos" ><span class="glyphicon glyphicon-pencil grande"></span> </a></div>';
-  					 newData +=  '<div class="boton-eliminar">  <form method="post" action="'+rowData[6]+'" accept-charset="UTF-8" style="display:inline"><button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmDelete" data-title="Eliminar" data-message="Está seguro desea eliminar al alumno ?">  <span class="glyphicon glyphicon-trash grande"></span></button></form></div>';                         
+  					 newData += '<div class="boton-eliminar"> <a class="btn btn-sm btn-danger" href="javascript:void()" title="Hapus" onclick="delete_person('."'".$person->id."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a></div>';                         
   					
   					 // '<div class="boton-eliminar"> <form method="POST" action="'+rowData[6]+'" accept-charset="UTF-8" style="display:inline"> <button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmDelete" data-title="Delete User" data-message="Are you sure you want to delete this user ?"> <i class="glyphicon glyphicon-trash"></i> Delete</button></form> </div>';
   					 $(td).html(newData);
@@ -71,12 +84,12 @@ function crearDataTable() {
 		}
 	});
 
-	$('#lista_alumnos').removeClass('display')
+	$('#lista_estudiantes').removeClass('display')
 		.addClass('table table-striped table-bordered');
 
-	var table = $('#lista_alumnos').DataTable();
+	var table = $('#lista_estudiantes').DataTable();
  
-	$('#lista_alumnos tbody tr').click(
+	$('#lista_estudiantes tbody tr').click(
 		// function () {
   //   		//$( this ).addClass( "active" );	
   //   		document.location = table.row(this).data()[5];

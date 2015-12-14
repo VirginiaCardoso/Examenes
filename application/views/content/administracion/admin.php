@@ -57,7 +57,7 @@
 	</div>
 	<div class="row row-botonera row-botonera-fila1">
 		<div class="col-xs-12 col-boton">
-			<a href="<?php echo site_url('alumnos/lista_alumnos');?>" class="btn btn-primary btn-lg btn-block" <?php if ($privilegio_user!=2) {echo "disabled";} ?> >Estudiantes</a>
+			<a href="<?php echo site_url('estudiantes');?>" class="btn btn-primary btn-lg btn-block" <?php if ($privilegio_user!=2) {echo "disabled";} ?> >Estudiantes</a>
 		</div>
 	</div>
 	<div class="row row-botonera row-botonera-fila1">

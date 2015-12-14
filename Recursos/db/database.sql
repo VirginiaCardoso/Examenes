@@ -12,14 +12,14 @@ USE dcs_examenes;
 #------------------------------- Creación tablas -------------------------------------------
 #-------------------------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS alumnos (
+CREATE TABLE IF NOT EXISTS estudiantes (
 	# id_alu INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	lu_alu INT UNSIGNED NOT NULL UNIQUE,
 	apellido_alu VARCHAR(50) NOT NULL,
 	nom_alu VARCHAR(50) NOT NULL,
 	dni_alu INT UNIQUE,
 
-	CONSTRAINT pk_alumnos PRIMARY KEY(lu_alu)
+	CONSTRAINT pk_estudiantes PRIMARY KEY(lu_alu)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS docentes (  # Usuarios del sistema
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS catedras (
 	ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS alumnos_catedras (
+CREATE TABLE IF NOT EXISTS estudiantes_catedras (
 #	id_alu_cat INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	lu_alu INT UNSIGNED NOT NULL,
 	cod_cat INT UNSIGNED NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS alumnos_catedras (
 	periodo_alu_cat INT NOT NULL,
 
 	CONSTRAINT pk_alu_cat PRIMARY KEY (lu_alu,cod_cat),
-	CONSTRAINT fk_lu_alu FOREIGN KEY (lu_alu) REFERENCES alumnos(lu_alu),
+	CONSTRAINT fk_lu_alu FOREIGN KEY (lu_alu) REFERENCES estudiantes(lu_alu),
 	FOREIGN KEY (cod_cat) REFERENCES catedras(cod_cat)
 ) ENGINE=InnoDB; 
 
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS examenes (
 	PRIMARY KEY(id_exam),
 	FOREIGN KEY (id_guia) REFERENCES guias (id_guia),
 	FOREIGN KEY (cod_cat) REFERENCES catedras(cod_cat),
-	FOREIGN KEY (lu_alu) REFERENCES alumnos (lu_alu),
+	FOREIGN KEY (lu_alu) REFERENCES estudiantes (lu_alu),
 	FOREIGN KEY (leg_doc) REFERENCES docentes (leg_doc)
 ) ENGINE=InnoDB;
 

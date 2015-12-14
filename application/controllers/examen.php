@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * Controlador Examen. Encargado de la generación de un examen (armado de listas de catedras, guias y alumnos),
+ * Controlador Examen. Encargado de la generación de un examen (armado de listas de catedras, guias y estudiantes),
  * evaluación, almacenamiento en la BD, y vista de uno examen guardado
  *
  *@package      controllers
@@ -33,7 +33,7 @@ class Examen extends CI_Controller {
             $this->legajo = $this->usuario->get_info_sesion_usuario('leg_doc');
             $this->privilegio = $this->usuario->get_info_sesion_usuario('privilegio'); 
 
-            $this->load->model(array('carreras_model','catedras_model','guias_model', 'alumnos_model','ponderacion_model'));
+            $this->load->model(array('carreras_model','catedras_model','guias_model', 'estudiantes_model','ponderacion_model'));
 
 
 
@@ -191,28 +191,28 @@ class Examen extends CI_Controller {
 
                         } //hay guias
 
-                        //LISTA ALUMNOS DE LA CATEDRA
-                        $alumnos = $this->_alumnos($catedra['cod_cat']);
+                        //LISTA estudiantes DE LA CATEDRA
+                        $estudiantes = $this->_estudiantes($catedra['cod_cat']);
                         //DEBUG
-                        //echo 'alumnos de la catedra '.$catedra['nom_cat'].':<br/>';
-                        //foreach ($alumnos as $fila) 
+                        //echo 'estudiantes de la catedra '.$catedra['nom_cat'].':<br/>';
+                        //foreach ($estudiantes as $fila) 
                         //    var_dump($fila); echo '<br/>';
                         
                       
-                        if(count($alumnos)>0)  //si no hay guias no manda datos a la view
+                        if(count($estudiantes)>0)  //si no hay guias no manda datos a la view
                         {
-                            $this->view_data['alumnos']['list'] = $alumnos;  //en la view: $alumnos['list'][indice]['lu_alu'].
+                            $this->view_data['estudiantes']['list'] = $estudiantes;  //en la view: $estudiantes['list'][indice]['lu_alu'].
                             $index_alumno = NO_SELECTED; //Por defecto, no seleccionado
 
                             //Busco en post si hay guia seleccionada por default, y actualiza el index seleccionado de la lista
                             $lu_alu_default = $this->input->post('alumno') ;
                             if($lu_alu_default) 
                             {
-                                $index_alumno = $this->util->buscar_indice($alumnos,'lu_alu',$lu_alu_default);
+                                $index_alumno = $this->util->buscar_indice($estudiantes,'lu_alu',$lu_alu_default);
                             }
-                            $this->view_data['alumnos']['selected'] = $index_alumno;
+                            $this->view_data['estudiantes']['selected'] = $index_alumno;
 
-                        } //hay alumnos
+                        } //hay estudiantes
 
                     } //hay catedra seleccionada
                 }//hay catedras
@@ -269,15 +269,15 @@ class Examen extends CI_Controller {
     }
 
     /**
-     * Devuelve arreglo con los alumnos correspondientes a la catedra elegida
+     * Devuelve arreglo con los estudiantes correspondientes a la catedra elegida
      *
      * @param   $cod_cat int codigo catedra
      * @access  private
-     * @return  array  - lista de alumnos de la catedra elegida
+     * @return  array  - lista de estudiantes de la catedra elegida
      */
-    function _alumnos($cod_cat) 
+    function _estudiantes($cod_cat) 
     {
-        return $this->alumnos_model->get_alumnos_catedra($cod_cat);
+        return $this->estudiantes_model->get_estudiantes_catedra($cod_cat);
     }
 
     /**
@@ -307,13 +307,13 @@ class Examen extends CI_Controller {
 
 
     /**
-     * Controlador de la lista de guias y alumnos (accedido mediante AJAX). Retorna JSON
+     * Controlador de la lista de guias y estudiantes (accedido mediante AJAX). Retorna JSON
      *  
      * En POST se envia parametro: catedra (codigo)
      * 
      * @access  public
      */
-    public function get_guias_alumnos()
+    public function get_guias_estudiantes()
     {
         if(!$this->redirected)
         {
@@ -321,9 +321,9 @@ class Examen extends CI_Controller {
             if($cod_cat)
             {
                 $guias = $this->_guias($cod_cat); 
-                $alumnos = $this->_alumnos($cod_cat); 
+                $estudiantes = $this->_estudiantes($cod_cat); 
                 
-                $this->util->json_response(TRUE,STATUS_OK,array('guias' => $guias,'alumnos' => $alumnos));    
+                $this->util->json_response(TRUE,STATUS_OK,array('guias' => $guias,'estudiantes' => $estudiantes));    
                 
             }
             else
@@ -595,7 +595,7 @@ class Examen extends CI_Controller {
             $this->session->set_flashdata('error', 'Estudiante inválido');
             redirect('examen/generar');
         }
-        $alumno = $this->alumnos_model->get_alumno_catedra($lu_alu,$cod_cat);
+        $alumno = $this->estudiantes_model->get_alumno_catedra($lu_alu,$cod_cat);
         if(!$alumno)
         {
             $this->session->set_flashdata('error', 'Estudiante inválido');
@@ -751,7 +751,7 @@ class Examen extends CI_Controller {
                         $valid = false;
                         $input_errors['alumno']='Estudiante invalido';
                     }
-                    if(!$this->alumnos_model->check_alumno_catedra($lu_alu,$cod_cat))
+                    if(!$this->estudiantes_model->check_alumno_catedra($lu_alu,$cod_cat))
                     {
                         //alumno no asociado a catedra (o no existe)
                         $valid = false;

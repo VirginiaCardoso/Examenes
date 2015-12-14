@@ -93,7 +93,7 @@ class Ponderacion extends CI_Controller {
         // if(!$this->input->post()) 
         // {
         //     $this->session->set_flashdata('error', 'Acceso inválido a la creación de un nuevo alumno');
-        //     redirect('alumnos/lista_alumnos');
+        //     redirect('estudiantes/lista_estudiantes');
         // }
 
         $this->load->library('form_validation');

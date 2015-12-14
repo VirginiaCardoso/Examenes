@@ -105,6 +105,7 @@
 						
 				</div>		
 
+
 				<!-- Modal -->
 									<div class="modal fade" id="gUsuario" tabindex="-1" role="dialog" aria-labelledby="gGuiaLabel">
 									  <div class="modal-dialog" role="document">

@@ -72,6 +72,25 @@ class Guias_model extends CI_Model {
 	
 		return $query->row_array();
 	}
+
+/**
+	 *	Retorna la guia de la catedra e id indicados
+	 *
+	 * @access	public
+	 * @param 	$id_guia int id de la guia
+	 * @return	array - dato de las guia
+	 *
+	 */
+
+	public function get_guia($id_guia)
+	{
+		$query_string = "SELECT DISTINCT id_guia,tit_guia,subtit_guia FROM guias 
+				WHERE id_guia = ?";
+		$query = $this->db->query($query_string,array($id_guia));
+	
+		return $query->row_array();
+	}
+
 	/**
 	 *	Elimina un alumno.
 	 *
@@ -99,17 +118,47 @@ class Guias_model extends CI_Model {
 			$query = $this->db->query($query_string,array($id_guia));
 			if($this->db->affected_rows() > 0) 
 			{	
-				$query_string = "SELECT id_item FROM items_guias
-				WHERE id_guia = ? ";
-				$query = $this->db->query($query_string,array($id_guia));
-			    if($this->db->affected_rows() > 0)
-			    {
-			    	$query_string = "DELETE FROM items_guias WHERE id_guia = ?";
-					$this->db->query($query_string,array($id_guia));
-			    }
+
 				$query_string = "DELETE FROM guias_catedras WHERE id_guia = ?";
 				$this->db->query($query_string,array($id_guia));
+			    }
+
+			$query_string = "SELECT id_item FROM items_guias WHERE id_guia = ? ";
+			$query = $this->db->query($query_string,array($id_guia));
+		    if($this->db->affected_rows() > 0)
+		    {
+		    	$query_string = "DELETE FROM items_guias WHERE id_guia = ?";
+				$this->db->query($query_string,array($id_guia));
+				
 			}
+
+			$query_string = "SELECT id_desc FROM descripciones WHERE id_guia = ? ";
+			$query = $this->db->query($query_string,array($id_guia));
+		    if($this->db->affected_rows() > 0)
+		    {
+		    	$query_string = "DELETE FROM descripciones WHERE id_guia = ?";
+				$this->db->query($query_string,array($id_guia));
+				
+			}
+
+			$query_string = "SELECT id_itemest FROM itemsestudiante_guias WHERE id_guia = ? ";
+			$query = $this->db->query($query_string,array($id_guia));
+		    if($this->db->affected_rows() > 0)
+		    {
+		    	$query_string = "DELETE FROM itemsestudiante_guias WHERE id_guia = ?";
+				$this->db->query($query_string,array($id_guia));
+				
+			}
+
+			$query_string = "SELECT id_exam FROM examenes WHERE id_guia = ? ";
+			$query = $this->db->query($query_string,array($id_guia));
+		    if($this->db->affected_rows() > 0)
+		    {
+		    	$query_string = "DELETE FROM examenes WHERE id_guia = ?";
+				$this->db->query($query_string,array($id_guia));
+				
+			}
+
 
 		}
 		$query_string = "DELETE FROM guias WHERE id_guia = ?";
@@ -263,6 +312,25 @@ class Guias_model extends CI_Model {
 	
 
 	}
+
+	public function actualizar_ponderacion_item_guia($id_item,$id_guia,$nueva_pond,$pos_item)
+	{
+		// UPDATE table_name
+		// 	SET column_name = value
+		// 	WHERE condition
+
+		//Verifico que exista un alumno con el mismo legajo
+		$query_string = " UPDATE items_guias
+	 		SET pon_item = ?
+		 	WHERE id_item = ? AND id_guia = ? AND pos_item = ?";
+		$query = $this->db->query($query_string,array($nueva_pond,$id_item,$id_guia,$pos_item));
+		// if($this->db->affected_rows() == 0) 
+		// {
+		// 	$exam = $query->row_array();	
+		// 	throw new Exception(ERROR_REPETIDO); //cambiar error
+		// }
+		
+	}	
 
 
 	/**

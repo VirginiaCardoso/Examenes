@@ -33,7 +33,7 @@ class Crear_nueva_guia extends CI_Controller {
             $this->legajo = $this->usuario->get_info_sesion_usuario('leg_doc');
             $this->privilegio = $this->usuario->get_info_sesion_usuario('privilegio'); 
 
-            $this->load->model(array('carreras_model','catedras_model','guias_model', 'alumnos_model','items_model'));
+            $this->load->model(array('carreras_model','catedras_model','guias_model', 'estudiantes_model','items_model'));
 
                             
         }
@@ -661,15 +661,15 @@ class Crear_nueva_guia extends CI_Controller {
     }*/
 
     /**
-     * Devuelve arreglo con los alumnos correspondientes a la catedra elegida
+     * Devuelve arreglo con los estudiantes correspondientes a la catedra elegida
      *
      * @param   $cod_cat int codigo catedra
      * @access  private
-     * @return  array  - lista de alumnos de la catedra elegida
+     * @return  array  - lista de estudiantes de la catedra elegida
      */
-    /*   function _alumnos($cod_cat) 
+    /*   function _estudiantes($cod_cat) 
     {
-        return $this->alumnos_model->get_alumnos_catedra($cod_cat);
+        return $this->estudiantes_model->get_estudiantes_catedra($cod_cat);
     }
     */
 
@@ -699,13 +699,13 @@ class Crear_nueva_guia extends CI_Controller {
     }
 
     /**
-     * Controlador de la lista de guias y alumnos (accedido mediante AJAX). Retorna JSON
+     * Controlador de la lista de guias y estudiantes (accedido mediante AJAX). Retorna JSON
      *  
      * En POST se envia parametro: catedra (codigo)
      * 
      * @access  public
      */
-  /*  public function get_guias_alumnos()
+  /*  public function get_guias_estudiantes()
     {
         if(!$this->redirected)
         {
@@ -713,9 +713,9 @@ class Crear_nueva_guia extends CI_Controller {
             if($cod_cat)
             {
                 $guias = $this->_guias($cod_cat); 
-                $alumnos = $this->_alumnos($cod_cat); 
+                $estudiantes = $this->_estudiantes($cod_cat); 
                 
-                $this->util->json_response(TRUE,STATUS_OK,array('guias' => $guias,'alumnos' => $alumnos));    
+                $this->util->json_response(TRUE,STATUS_OK,array('guias' => $guias,'estudiantes' => $estudiantes));    
                 
             }
             else

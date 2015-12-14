@@ -23,10 +23,10 @@ CREATE DATABASE IF NOT EXISTS `db_dcs` DEFAULT CHARACTER SET latin1 COLLATE lati
 USE `db_dcs`;
 
 --
--- Volcado de datos para la tabla `alumnos`
+-- Volcado de datos para la tabla `estudiantes`
 --
 
-INSERT INTO `alumnos` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
+INSERT INTO `estudiantes` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
 (98064, 'DimatePineda', 'JhoinerAlexander', 13),
 (99887, 'Smith', 'Ricardo', 3685226),
 (100100, 'Gutiérrez', 'María', 3221165),
@@ -76,10 +76,10 @@ INSERT INTO `catedras` (`cod_cat`, `cod_carr`, `nom_cat`) VALUES
 (20063, 155, 'Obstetricia y ginecología');
 
 --
--- Volcado de datos para la tabla `alumnos_catedras`
+-- Volcado de datos para la tabla `estudiantes_catedras`
 --
 
-INSERT INTO `alumnos_catedras` (`lu_alu`, `cod_cat`, `estado_alu_cat`, `year_alu_cat`, `periodo_alu_cat`) VALUES
+INSERT INTO `estudiantes_catedras` (`lu_alu`, `cod_cat`, `estado_alu_cat`, `year_alu_cat`, `periodo_alu_cat`) VALUES
 (99887, 20018, 0, '2015', 'Primer Cuatrimestre'),
 (100100, 20018, 0, '2015', 'Anual'),
 (100233, 20018, 0, '2015', 'Anual');

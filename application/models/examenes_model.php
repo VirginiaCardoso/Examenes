@@ -128,7 +128,7 @@ class Examenes_model extends CI_Model {
 							lu_alu,apellido_alu,nom_alu,id_guia,tit_guia,subtit_guia,
 							fecha,calificacion,porcentaje_exam,obs_exam 
 							FROM examenes NATURAL LEFT JOIN guias NATURAL LEFT JOIN guias_catedras NATURAL LEFT JOIN catedras 
-							NATURAL LEFT JOIN carreras NATURAL LEFT JOIN docentes NATURAL LEFT JOIN alumnos 
+							NATURAL LEFT JOIN carreras NATURAL LEFT JOIN docentes NATURAL LEFT JOIN estudiantes 
 							WHERE id_exam = ?";
 		$query = $this->db->query($query_string,array($id_exam));
 		$exam = $query->row_array();
@@ -172,7 +172,7 @@ class Examenes_model extends CI_Model {
 							lu_alu,apellido_alu,nom_alu,id_guia,tit_guia,subtit_guia,
 							fecha,calificacion,porcentaje_exam,obs_exam 
 							FROM examenes NATURAL LEFT JOIN guias NATURAL LEFT JOIN guias_catedras NATURAL LEFT JOIN catedras 
-							NATURAL LEFT JOIN carreras NATURAL LEFT JOIN docentes NATURAL LEFT JOIN alumnos 
+							NATURAL LEFT JOIN carreras NATURAL LEFT JOIN docentes NATURAL LEFT JOIN estudiantes 
 							WHERE leg_doc = ?";
 		$query = $this->db->query($query_string,array($leg_doc));
 

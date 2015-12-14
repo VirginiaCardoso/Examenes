@@ -254,7 +254,7 @@ function event_handlers_selects() {
 		}
 	});
 	
-	//Actualizar select guias y alumnos al seleccionar catedra
+	//Actualizar select guias y estudiantes al seleccionar catedra
 	$('#select-catedra').change(function(event) {
 		event.preventDefault();
 
@@ -266,7 +266,7 @@ function event_handlers_selects() {
 			$.ajax({ 
 					data: {catedra: $(this).val()}, // dato enviado en el post: codigo catedra
 					type: "post", 
-					url: $('body').data('site-url')+"/examen/get_guias_alumnos", // controlador
+					url: $('body').data('site-url')+"/examen/get_guias_estudiantes", // controlador
 
 					error: function() {
 						 alert(ERROR_AJAX);
@@ -274,12 +274,12 @@ function event_handlers_selects() {
 
 					success: function(json) { 
 
-						var guias_alumnos = $.parseJSON(json);	
+						var guias_estudiantes = $.parseJSON(json);	
 
-						if(guias_alumnos.ok) {
+						if(guias_estudiantes.ok) {
 
-							var guias = guias_alumnos.data.guias;
-							var alumnos = guias_alumnos.data.alumnos;
+							var guias = guias_estudiantes.data.guias;
+							var estudiantes = guias_estudiantes.data.estudiantes;
 
 							var guia = null;
 							var alumno = null;
@@ -303,9 +303,9 @@ function event_handlers_selects() {
 																							// +guia.nro_guia+' - '
 							}
 
-							for(var i = 0 ; i < alumnos.length; i++) {
+							for(var i = 0 ; i < estudiantes.length; i++) {
 
-								alumno = alumnos[i];
+								alumno = estudiantes[i];
 								$('#select-alumno').append('<option value="'+alumno.lu_alu+'">'+alumno.lu_alu+' - '+alumno.apellido_alu+', '+alumno.nom_alu+'</option>');
 							}
 

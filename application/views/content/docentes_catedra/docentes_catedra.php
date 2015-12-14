@@ -26,7 +26,7 @@
 
 
 
-<script type="text/javascript"  src="<?php echo base_url('assets/js/alumnos/alumnos.js'); ?>"></script>
+<script type="text/javascript"  src="<?php echo base_url('assets/js/estudiantes/estudiantes.js'); ?>"></script>
 
 
 <!-- <link type="text/css" href="<?php echo base_url('assets/css/administracion/lista.css'); ?>" rel="stylesheet" media="screen"/>
@@ -58,7 +58,7 @@
 			<div>	
 		<?php
 
-			/* SELECT DE ALUMNOS */
+			/* SELECT DE estudiantes */
 
 			if(!isset($docentes)) // si no existen docentes
 			{
@@ -93,7 +93,7 @@
 
 	</form>
 
- <!-- TABLA DE ALUMNOS DE LA CÁTEDRA  -->
+ <!-- TABLA DE estudiantes DE LA CÁTEDRA  -->
  <div id="lista-usuarios" >
     	
 	<div class="row">

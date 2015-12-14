@@ -10,7 +10,7 @@
 * ESTADISTICAS 
 		- cuántas veces rindió un alumno una guía.
 
-* ALUMNOS por SIU GUARANÍ??
+* estudiantes por SIU GUARANÍ??
 
 ********To Do's *******************************
 
@@ -18,7 +18,7 @@
 
 --> NO MOSTRAR CONTENIDO HASTA QUE NO SE CARGAN Y EJECUTAN LOS JS (así no se ve temporalmente feo)
 
-- LISTA ALUMNOS ORDENADA POR APELLIDO, NO POR LU  (Apellido nombre (LU))
+- LISTA estudiantes ORDENADA POR APELLIDO, NO POR LU  (Apellido nombre (LU))
 
 - Nombre PDF: apellido alumno
 

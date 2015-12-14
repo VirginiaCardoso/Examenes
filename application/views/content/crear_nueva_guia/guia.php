@@ -40,24 +40,7 @@
 			<label>Agregar items a la guía: <?php echo $tit_guia; ?> </label>
 
 		</div>
-		<!-- obtengo los datos de la guía creada resientemente por medio de la session 	
-		<?php
-			$id = $this->session->flashdata('id');
-			$tit = $this->session->flashdata('tit');
-		?>-->
-		<!-- <div class="tabla">
-			<div class="fila">	
-				<div class="columna field-name">
-				Guía:
-				</div>
-				<div class="columna">
-					<?php echo $nro_guia.' - '.$tit_guia; ?> 					
-				</div>
-			</div>
-					 		
-		 </div>-->
-
-
+		
 	<div class="contenedor_guia container">
 		
 			<!-- AQUI VA LA TABLA DE ITEMS   -->

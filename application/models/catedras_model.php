@@ -321,7 +321,7 @@ class Catedras_model extends CI_Model {
 			{	
 				$this->db->delete('guias_catedras', array('cod_cat' => $cod_cat)); 
 				$this->db->delete('docentes_catedras', array('cod_cat' => $cod_cat)); 
-				$this->db->delete('alumnos_catedras', array('cod_cat' => $cod_cat)); 
+				$this->db->delete('estudiantes_catedras', array('cod_cat' => $cod_cat)); 
 			}
 			// if($this->db->affected_rows() > 0) 
 			// {	
@@ -331,7 +331,7 @@ class Catedras_model extends CI_Model {
 			// $query = $this->db->query($query_string,array($cod_cat));
 			// if($this->db->affected_rows() > 0) 
 			// {	
-			// 	$query_string = "DELETE FROM alumnos_catedras WHERE cod_cat = ?";
+			// 	$query_string = "DELETE FROM estudiantes_catedras WHERE cod_cat = ?";
 			// 	$this->db->query($query_string,array($cod_cat));
 			// }
 			// $query = $this->db->query($query_string,array($cod_cat));

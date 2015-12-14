@@ -41,12 +41,61 @@
 		<!-- <form id="form-modificaru" class="form-evaluar" role="form" method="post" action="<?php echo site_url('administracion/eliminar');?>"> -->
 		
 			<?php echo $tabla; ?>
-
+		
 		<!-- </form> -->
 		</div>
 	</div>
 </div>
 
+
+
+<!-- <form id="form-delete-usuario" class="form-delete-usuario" role="form" method="post" action="<?php echo site_url('administracion/eliminar_usuario/'.$user['leg_doc']);?>" > -->
+
+<a id="btn-guardar" name="boton" class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#delUsuario">Guardar</a>
+
+<div class="modal fade" id="delUsuario" tabindex="-1" role="dialog" aria-labelledby="delUsuarioLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="delUsuarioLabel">Eliminar Usuario</h4>
+        </div>
+        <div class="modal-body">
+          <div id="alert-warning-save" class="alert alert-warning modal-body-content">
+  			<strong>ATENCIÓN!</strong> Usted está por eliminar un usuario.</div>
+        </div>
+        <div class="modal-footer">
+          <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button  type="submit" id="btn-modal-save" class="btn btn-primary success">Eliminar</button>
+        </div>
+       </div>
+      </div>
+   </div>
+</form>
+
+
+
+
+
+<!-- 
+<div class="boton-eliminar">
+ <button id="btn-cancelar" name="boton" class="btn btn-danger btn-xs" type="button" data-toggle="modal" data-target="#elimUsuario">
+ <span class="glyphicon glyphicon-trash grande"></span></button> 
+ <div class="modal fade" id="elimUsuario" tabindex="-1" role="dialog" aria-labelledby="cGuiaLabel">
+  <div class="modal-dialog" role="document">
+   <div class="modal-content"> 
+   <div class="modal-header"> 
+   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+   <span aria-hidden="true">&times;</span></button> 
+   <h4 class="modal-title" id="cGuiaLabel">Eliminar Usuario</h4></div>  
+   <div class="modal-body"> 
+   <div id="alert-warning-save" class="alert alert-warning modal-body-content">	
+   <strong>ATENCIÓN!</strong> Usted está por eliminar un usuario.</div>
+      </div>   
+       <div class="modal-footer">    
+       <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button> 
+        <a  id="btn-modal-save" type="button" class="btn btn-primary success">Eliminar</a>
+         </div> </div> </div></div>	'; -->
 <?php 
 			if(isset($error))
 				echo '<label id="error-server" class="label-error">'.$error .'</label> ';

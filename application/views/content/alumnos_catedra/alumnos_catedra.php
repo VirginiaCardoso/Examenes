@@ -26,7 +26,7 @@
 
 
 
-<script type="text/javascript"  src="<?php echo base_url('assets/js/alumnos/alumnos.js'); ?>"></script>
+<script type="text/javascript"  src="<?php echo base_url('assets/js/estudiantes/estudiantes.js'); ?>"></script>
 
 
 <!-- <link type="text/css" href="<?php echo base_url('assets/css/administracion/lista.css'); ?>" rel="stylesheet" media="screen"/>
@@ -34,7 +34,7 @@
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dataTables.bootstrap.css'); ?>">
 
 <!-- JS de esta vista -->
-<script type="text/javascript"  src="<?php echo base_url('assets/js/alumnos_catedra/lista_alu_cat.js'); ?>"></script>
+<script type="text/javascript"  src="<?php echo base_url('assets/js/estudiantes_catedra/lista_alu_cat.js'); ?>"></script>
 
 <!-- DataTables JS-->
 <script type="text/javascript" charset="utf8" src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
@@ -58,18 +58,18 @@
 			<div>	
 		<?php
 
-			/* SELECT DE ALUMNOS */
+			/* SELECT DE estudiantes */
 
-			if(!isset($alumnos)) // si no existen alumnos
+			if(!isset($estudiantes)) // si no existen estudiantes
 			{
 				echo '<select id="select-alumno" name="alumno" data-live-search="true" class="select" disabled></select>';
 			}
 			else
 			{ 
-				echo "<select id='select-alumno' name='alumno' data-live-search='true' data-selected='{$alumnos['selected']}' class='select'>";
+				echo "<select id='select-alumno' name='alumno' data-live-search='true' data-selected='{$estudiantes['selected']}' class='select'>";
 
-				foreach ($alumnos['list'] as $indice => $alumno): 
-					if($indice == $alumnos['selected'])
+				foreach ($estudiantes['list'] as $indice => $alumno): 
+					if($indice == $estudiantes['selected'])
 					{
 						echo '<option value="'.$alumno['lu_alu'].'" selected = "selected">'.$alumno['lu_alu'].' - '.$alumno['apellido_alu'].', '.$alumno['nom_alu'].'</option>';
 					}
@@ -111,7 +111,7 @@
 </div>	
 	</form>
 	<div>	
- <!-- TABLA DE ALUMNOS DE LA CÁTEDRA  -->
+ <!-- TABLA DE estudiantes DE LA CÁTEDRA  -->
  <div id="lista-usuarios" >
     	
 	<div class="row">

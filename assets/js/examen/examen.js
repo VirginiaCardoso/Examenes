@@ -397,20 +397,20 @@ function revisar_items(evaluando) {
  	var min_med = document.getElementById('min-med-adq').value;
 
 	if (pond<min_med){
-		$('#sugerencia-calificacion').html("Competencia no adquirida");
+		$('#sugerencia-calificacion').html("Competencia no adquirida ( 0% - "+(min_med-0.1)+"% )");
 		$('#sugerencia-calificacion').addClass('span-calificacion no-adquirida');
 		document.getElementById('examen-calif').value = 0;
 		//document.getElementById("calificacion0").checked = true;
 	}
 	else {
 		if (pond<min_adq){
-			$('#sugerencia-calificacion').html("Competencia medianamente adquirida");
+			$('#sugerencia-calificacion').html("Competencia medianamente adquirida ( "+min_med+"% - "+(min_adq-0.1)+"% )");
 			$('#sugerencia-calificacion').addClass('span-calificacion medianamente-adquirida');
 			document.getElementById('examen-calif').value = 1;
 			//document.getElementById("calificacion1").checked = true;
 		}
 		else {
-			$('#sugerencia-calificacion').html("Competencia adquirida");	
+			$('#sugerencia-calificacion').html("Competencia adquirida ( "+min_adq+"% - 100% )");	
 			$('#sugerencia-calificacion').addClass('span-calificacion adquirida');
 			document.getElementById('examen-calif').value = 2;
 			//calificacion2

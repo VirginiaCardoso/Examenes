@@ -41,7 +41,7 @@
 						<div class="row"> 
 							<div class="col-xs-4">
 								<label for="legajo" class="control-label">Legajo</label>
-								<input type="number" class="form-control " id="legajo" name="legajo" value="" placeholder="Ingrese legajo" required title="Ingrese un Legajo"/>
+								<input type="text" class="form-control " id="legajo" name="legajo" value="" placeholder="Ingrese legajo" required title="Ingrese un Legajo"/>
 							</div>
 						</div>
 					</div>
@@ -73,7 +73,7 @@
 						<div class="row"> 
 							<div class="col-xs-6">
 									<label for="dni" class="control-label">DNI</label>
-									<input type="number" class="form-control" id="dni" name="dni" value=""  placeholder="Ingrese número de documento" title="Ingrese DNI"/>
+									<input type="text" class="form-control" id="dni" name="dni" value=""  placeholder="Ingrese número de documento" title="Ingrese DNI"/>
 							</div>
 						</div>
 					</div>
@@ -107,9 +107,58 @@
 			    	</div>
 			    	
 				<div class="form-group-buttons">
-					<a id="btn-cancelar" href="<?php echo site_url('administracion/usuarios');?>" class="btn btn-default">Cancelar</a>
+
+					<!-- <a id="btn-cancelar" href="<?php echo site_url('administracion/usuarios');?>" class="btn btn-default">Cancelar</a>
+					<button id="btn-submit" name="boton" class="btn btn-primary" type="submit">Guardar</button>
+					 -->
+
+					 <button id="btn-cancelar" name="boton" class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#cGuardarUsuario">Cancelar</button>
+							<!-- <button id="btn-guardar" name="boton" class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#guardarUsuario">Guardar</button> -->
 					<button id="btn-submit" name="boton" class="btn btn-primary" type="submit">Guardar</button>
 				</div>		
+
+<!-- Modal -->
+									<!-- <div class="modal fade" id="guardarUsuario" tabindex="-1" role="dialog" aria-labelledby="gGuiaLabel">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									        <h4 class="modal-title" id="gGuiaLabel">Agregar Usuario</h4>
+									      </div>
+									      <div class="modal-body">
+									        <div id="alert-warning-save" class="alert alert-warning modal-body-content">
+												Usuario agregado correctamente.
+											</div>
+									      </div>
+									      <div class="modal-footer">
+									        <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+									        <button  type="submit" id="btn-modal-save" class="btn btn-primary success">Continuar</button>
+									      </div>
+									    </div>
+									  </div>
+									</div> -->
+
+									<div class="modal fade" id="cGuardarUsuario" tabindex="-1" role="dialog" aria-labelledby="cGuiaLabel">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									        <h4 class="modal-title" id="cGuiaLabel">Cancelar Agregar Usuario</h4>
+									      </div>
+									      <div class="modal-body">
+									        <div id="alert-warning-save" class="alert alert-warning modal-body-content">
+												<strong>ATENCIÓN!</strong> Usted está por abandonar la creación del usuario. Si continúa los datos no seran guardados.
+											</div>
+									      </div>
+									      <div class="modal-footer">
+									        <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+									        <a  id="btn-modal-save" href="<?php echo site_url('administracion/usuarios');?>" type="button" class="btn btn-primary success">Salir</a>
+									      </div>
+									    </div>
+									  </div>
+									</div>		 
+									<!-- Fin Modal -->
+
 
 			</form>
 		</div> <!-- cierre contenedor formulario -->

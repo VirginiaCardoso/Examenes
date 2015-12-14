@@ -1,7 +1,7 @@
 USE dcs_examenes;
 
-#alumnos
-INSERT INTO alumnos(lu_alu,apellido_alu,nom_alu) VALUES
+#estudiantes
+INSERT INTO estudiantes(lu_alu,apellido_alu,nom_alu) VALUES
 	(89689,'Panzoni','Estefanía'),
 	(90536,'Arró Ortiz','Carolina'),
 	(90840,'Tracanna','Ezio'),
@@ -21,7 +21,7 @@ INSERT INTO docentes(leg_doc,pass,apellido_doc,nom_doc, privilegio,activo) VALUE
 #INSERT INTO catedras(cod_cat,cod_carr,nom_cat) VALUES
 #	(20063,155,'Obstetricia y ginecología'),	
 
-INSERT INTO alumnos_catedras(lu_alu,cod_cat,estado_alu_cat) VALUES
+INSERT INTO estudiantes_catedras(lu_alu,cod_cat,estado_alu_cat) VALUES
 	(89689,20063,1),
 	(90536,20063,1),
 	(90840,20063,1),

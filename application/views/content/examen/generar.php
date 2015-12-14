@@ -157,18 +157,18 @@
 			<div>	
 		<?php
 
-			/* SELECT DE ALUMNOS */
+			/* SELECT DE estudiantes */
 
-			if(!isset($alumnos)) // si no existen alumnos
+			if(!isset($estudiantes)) // si no existen estudiantes
 			{
 				echo '<select id="select-alumno" name="alumno" data-live-search="true" class="select" disabled></select>';
 			}
 			else
 			{ 
-				echo "<select id='select-alumno' name='alumno' data-live-search='true' data-selected='{$alumnos['selected']}' class='select'>";
+				echo "<select id='select-alumno' name='alumno' data-live-search='true' data-selected='{$estudiantes['selected']}' class='select'>";
 
-				foreach ($alumnos['list'] as $indice => $alumno): 
-					if($indice == $alumnos['selected'])
+				foreach ($estudiantes['list'] as $indice => $alumno): 
+					if($indice == $estudiantes['selected'])
 					{
 						echo '<option value="'.$alumno['lu_alu'].'" selected = "selected">'.$alumno['lu_alu'].' - '.$alumno['apellido_alu'].', '.$alumno['nom_alu'].'</option>';
 					}

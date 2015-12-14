@@ -1,7 +1,7 @@
 CREACION DE BD Y CARGA DE DATOS
 	Importar en MySql los archivos 
 		/Recursos/db/database.sql  (crea BD, estructura tablas y usuario dcs_lab)
-		/Recursos/db/datos.sql  (Carga datos: alumnos, profesores, relaciones y algunos examenes)
+		/Recursos/db/datos.sql  (Carga datos: estudiantes, profesores, relaciones y algunos examenes)
 	
 	
 USUARIOS (legajo password):

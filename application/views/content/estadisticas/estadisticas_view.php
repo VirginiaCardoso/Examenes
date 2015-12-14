@@ -40,9 +40,9 @@
 	<div class="form-group-generar">	
 		<?php
 			if($mostrar==1){
-				/* SELECT DE ALUMNOS */
+				/* SELECT DE estudiantes */
 
-				if(!isset($alumnos)) // si no existen alumnos
+				if(!isset($estudiantes)) // si no existen estudiantes
 				{
 					echo '<select id="select-alumno" name="alumno" data-live-search="true" class="select" disabled onchange="mostrar_alumno(this.value);"></select>';
 				}
@@ -50,8 +50,8 @@
 				{ 
 					echo "<select id='select-alumno' name='alumno' data-live-search='true'  class='select' onchange='mostrar_alumno(this.value);'>";
 
-					foreach ($alumnos['list'] as $indice => $alumno): 
-						// if($indice == $alumnos['selected'])
+					foreach ($estudiantes['list'] as $indice => $alumno): 
+						// if($indice == $estudiantes['selected'])
 						// {
 						// 	echo '<option value="'.$alumno['lu_alu'].'" selected = "selected">'.$alumno['lu_alu'].' - '.$alumno['apellido_alu'].', '.$alumno['nom_alu'].'</option>';
 						// }
@@ -65,7 +65,7 @@
 				}
 			}
 			elseif ($mostrar==2) {
-				if(!isset($guias)) // si no existen alumnos
+				if(!isset($guias)) // si no existen estudiantes
 				{
 					echo '<select id="select-guia" name="guia" data-live-search="true" class="select" disabled onchange="mostrar_guia(this.value);"></select>';
 				}

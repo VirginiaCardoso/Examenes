@@ -1,7 +1,7 @@
 USE db_dcs;
 
-#alumnos
-INSERT INTO alumnos(lu_alu,apellido_alu,nom_alu,dni_alu) VALUES
+#estudiantes
+INSERT INTO estudiantes(lu_alu,apellido_alu,nom_alu,dni_alu) VALUES
 	(100233,'Gómez','Fulano',37896524),
 	(110568,'González','Natalia',39852147),
 	(105698,'Enriquez','Heracio',39852136),
@@ -52,8 +52,8 @@ INSERT INTO catedras(cod_cat,cod_carr,nom_cat) VALUES
 	(20063,155,'Obstetricia y ginecología'),
 	(20059,155,'Examen general final de carrera');
 
-#Alumnos asociados a las catedras
-INSERT INTO alumnos_catedras(lu_alu,cod_cat,estado_alu_cat) VALUES
+#estudiantes asociados a las catedras
+INSERT INTO estudiantes_catedras(lu_alu,cod_cat,estado_alu_cat) VALUES
 	(100233,20018,1),
 	(93256,20018,1),
 	(110568,20018,2),
@@ -65,7 +65,7 @@ INSERT INTO alumnos_catedras(lu_alu,cod_cat,estado_alu_cat) VALUES
 	(105698,20022,2),
 	(100233,20022,1),
 	(102137,20024,1);
-INSERT INTO alumnos_catedras(lu_alu,cod_cat) VALUES
+INSERT INTO estudiantes_catedras(lu_alu,cod_cat) VALUES
 	(93256,20020),
 	(87942,20018),
 	(87942,20022),

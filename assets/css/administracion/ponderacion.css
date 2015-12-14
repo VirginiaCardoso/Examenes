@@ -1,15 +1,16 @@
+
 body {
-	min-width: 290px !Important;
+	min-width: 600px !Important;
 }
 
 #div-ppal {
-	width: 70%;
+	width: 100%;
 }
 
 .form-container {
 	margin: 0px auto;
-	min-width: 225px;
-	width: 600px;
+	min-width: 305px;
+	width: 700px;
 }
 
 .form-group-generar {
@@ -56,6 +57,7 @@ h2 {
 	max-width: 600px;
 }
 
+
 .min_adq {
 	width: 70px;
 	float: left;
@@ -63,6 +65,8 @@ h2 {
 	padding: 4px;
 }
 
-#label_rango {
+.control-label {
 	float: left;
+	display: inline-block;
+	vertical-align: middle;
 }

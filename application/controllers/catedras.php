@@ -33,7 +33,7 @@ class Catedras extends CI_Controller {
             $this->legajo = $this->usuario->get_info_sesion_usuario('leg_doc');
             $this->privilegio = $this->usuario->get_info_sesion_usuario('privilegio'); 
 
-            $this->load->model(array('carreras_model','catedras_model','alumnos_model','docentes_model'));
+            $this->load->model(array('carreras_model','catedras_model','estudiantes_model','docentes_model'));
                 
         }
         else if($this->usuario->logueado()) //no tiene privilegio, pero esta logueado
@@ -75,7 +75,7 @@ class Catedras extends CI_Controller {
                                   $catedra['nom_cat'],
                                   $catedra['nom_carr'].' ('.$catedra['cod_carr'].')',
                                   "",
-                                  site_url('catedras/alumnos_catedra/'.$catedra['cod_cat']),
+                                  site_url('catedras/estudiantes_catedra/'.$catedra['cod_cat']),
                                   site_url('catedras/docentes_catedra/'.$catedra['cod_cat']),
                                   site_url('catedras/modificar_catedra/'.$catedra['cod_cat']),
                                   site_url('catedras/eliminar_catedra/'.$catedra['cod_cat'])
@@ -133,27 +133,27 @@ class Catedras extends CI_Controller {
     }
 
     /**
-     * Devuelve arreglo con los alumnos
+     * Devuelve arreglo con los estudiantes
      *
      * @access  private
-     * @return  array  - lista de alumnos
+     * @return  array  - lista de estudiantes
      */
-    function _alumnos() 
+    function _estudiantes() 
     {
-        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las alumnos
-        $alumnos = $this->alumnos_model->get_alumnos();
+        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las estudiantes
+        $estudiantes = $this->estudiantes_model->get_estudiantes();
         // else
-        //     $alumnos = $this->alumnos_model->get_alumnos_docente($this->legajo);
-        return $alumnos;
+        //     $estudiantes = $this->estudiantes_model->get_estudiantes_docente($this->legajo);
+        return $estudiantes;
     }
 
-    function _alumnosNoCatedra($cod_catedra){
-          $alumnos = $this->alumnos_model->get_alumnos_not_catedra($cod_catedra);
-          return $alumnos;
+    function _estudiantesNoCatedra($cod_catedra){
+          $estudiantes = $this->estudiantes_model->get_estudiantes_not_catedra($cod_catedra);
+          return $estudiantes;
     }
     function _docentesNoCatedra($cod_catedra){
-          $alumnos = $this->catedras_model->get_docentes_not_catedra($cod_catedra);
-          return $alumnos;
+          $estudiantes = $this->catedras_model->get_docentes_not_catedra($cod_catedra);
+          return $estudiantes;
     }
 
     /**
@@ -448,13 +448,13 @@ class Catedras extends CI_Controller {
     }
 
     /**
-     * Controlador de la pagina de agregar alumnos a una catedra
+     * Controlador de la pagina de agregar estudiantes a una catedra
      *  
      * 
      * 
      * @access  public
      */
-         public function alumnos_catedra($cod_cat)
+         public function estudiantes_catedra($cod_cat)
     {
         
 
@@ -467,29 +467,29 @@ class Catedras extends CI_Controller {
             }
         $this->view_data['catedra'] = $catedra;
 
-        // PARTE 1 MUESTRA SELECT DE ALUMNOS PARA LA CÁTEDRA
+        // PARTE 1 MUESTRA SELECT DE estudiantes PARA LA CÁTEDRA
 
-       //$alumnos = $this->_alumnos();
-       $alumnos = $this->_alumnosNoCatedra($cod_cat);
+       //$estudiantes = $this->_estudiantes();
+       $estudiantes = $this->_estudiantesNoCatedra($cod_cat);
         
-                        if(count($alumnos)>0)  //si no hay guias no manda datos a la view
+                        if(count($estudiantes)>0)  //si no hay guias no manda datos a la view
                         {
-                            $this->view_data['alumnos']['list'] = $alumnos;  //en la view: $alumnos['list'][indice]['lu_alu'].
+                            $this->view_data['estudiantes']['list'] = $estudiantes;  //en la view: $estudiantes['list'][indice]['lu_alu'].
                             $index_alumno = NO_SELECTED; //Por defecto, no seleccionado
 
                             //Busco en post si hay guia seleccionada por default, y actualiza el index seleccionado de la lista
                             $lu_alu_default = $this->input->post('alumno') ;
                             if($lu_alu_default) 
                             {
-                                $index_alumno = $this->util->buscar_indice($alumnos,'lu_alu',$lu_alu_default);
+                                $index_alumno = $this->util->buscar_indice($estudiantes,'lu_alu',$lu_alu_default);
                             }
-                            $this->view_data['alumnos']['selected'] = $index_alumno;
+                            $this->view_data['estudiantes']['selected'] = $index_alumno;
 
-                        } //hay alumnos
+                        } //hay estudiantes
 
-        // PARTE 2 MUESTRA TABLA DE ALUMNOS DE LA CÁTEDRA
-        $this->load->model('alumnos_model');
-        $alu_cat = $this->alumnos_model->get_alumnos_catedra($cod_cat);
+        // PARTE 2 MUESTRA TABLA DE estudiantes DE LA CÁTEDRA
+        $this->load->model('estudiantes_model');
+        $alu_cat = $this->estudiantes_model->get_estudiantes_catedra($cod_cat);
 
         $this->load->library('table');
         
@@ -498,7 +498,7 @@ class Catedras extends CI_Controller {
             $this->table->add_row($alu['year_alu_cat'].' - '.$alu['periodo_alu_cat'],
                                   $alu['apellido_alu'].', '.$alu['nom_alu'], 
                                   $alu['lu_alu'],    
-                                  $alu['dni_alu'], 
+                                  // $alu['dni_alu'], 
                                   " ",
                                   site_url('catedras/eliminar_alu_cat/'.$alu['lu_alu'].'/'.$cod_cat)
                                   );
@@ -522,7 +522,7 @@ class Catedras extends CI_Controller {
         $this->view_data['docente'] = $this->nom_doc." ".$this->apellido_doc;
         $this->view_data['privilegio_user'] =  $this->privilegio;
         $this->view_data['modificar'] = true;
-        $this->load->view('content/alumnos_catedra/alumnos_catedra', $this->view_data);
+        $this->load->view('content/estudiantes_catedra/estudiantes_catedra', $this->view_data);
 
         $this->load->view('template/footer');
     }
@@ -542,25 +542,25 @@ class Catedras extends CI_Controller {
       $lu_alu = $this->input->post('alumno');
       $anio_alu_cat = $this->input->post('year');
       $per_alu_cat = $this->input->post('periodo');
-      $alumno = $this->alumnos_model->vincular_alumno_catedra($lu_alu, $anio_alu_cat, $per_alu_cat, $cod_cat);
+      $alumno = $this->estudiantes_model->vincular_alumno_catedra($lu_alu, $anio_alu_cat, $per_alu_cat, $cod_cat);
         if(!$lu_alu || $lu_alu==NO_SELECTED)
         {
             $this->session->set_flashdata('error', 'Estudiante inválido');
-            redirect('catedras/alumnos_catedra');
+            redirect('catedras/estudiantes_catedra');
         }
 
                 // $catedra = $this->catedras_model->get_catedra($cod_cat);
 
-        // $this->load->view('content/alumnos_catedra/alumnos_catedra', $cod_cat);
-        // $this->load->view('content/alumnos_catedra/alumnos_catedra', $this->view_data);
+        // $this->load->view('content/estudiantes_catedra/estudiantes_catedra', $cod_cat);
+        // $this->load->view('content/estudiantes_catedra/estudiantes_catedra', $this->view_data);
 
-        // site_url('catedras/alumnos_catedra/'.$catedra['cod_cat']),
-                   redirect('catedras/alumnos_catedra/'.$cod_cat);
+        // site_url('catedras/estudiantes_catedra/'.$catedra['cod_cat']),
+                   redirect('catedras/estudiantes_catedra/'.$cod_cat);
    
 
 
           //        try {
-          //                   $this->alumnos_model->vincular_alumno_catedra($lu_alu, $cod_cat);
+          //                   $this->estudiantes_model->vincular_alumno_catedra($lu_alu, $cod_cat);
           //                   $this->util->json_response(TRUE,STATUS_OK);
 
           // } catch (Exception $e) {
@@ -587,7 +587,7 @@ class Catedras extends CI_Controller {
           // } 
 
           //  $this->view_data['modificar'] = FALSE;
-          // redirect('catedras/alumnos_catedra');   
+          // redirect('catedras/estudiantes_catedra');   
     }
 
      /**
@@ -614,7 +614,7 @@ class Catedras extends CI_Controller {
                 redirect('catedras/lista_catedras');
             }
       try {
-                            $this->alumnos_model->eliminar_alumno_catedra($lu_alu, $cod_cat);
+                            $this->estudiantes_model->eliminar_alumno_catedra($lu_alu, $cod_cat);
                             //$examen['cod_cat_exam'] = $cod_cat_exam;
                             $this->util->json_response(TRUE,STATUS_OK,$lu_alu, $cod_cat); //no mandar el JSON tal cual la BD por seguridad??
 
@@ -642,7 +642,7 @@ class Catedras extends CI_Controller {
               }
           }
 
-           redirect('catedras/alumnos_catedra/'.$cod_cat);
+           redirect('catedras/estudiantes_catedra/'.$cod_cat);
             
     }
 

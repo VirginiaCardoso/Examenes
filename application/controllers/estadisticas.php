@@ -33,7 +33,7 @@ class Estadisticas extends CI_Controller {
             $this->legajo = $this->usuario->get_info_sesion_usuario('leg_doc');
             $this->privilegio = $this->usuario->get_info_sesion_usuario('privilegio'); 
 
-            $this->load->model(array('catedras_model','alumnos_model','docentes_model', 'guias_model'));
+            $this->load->model(array('catedras_model','estudiantes_model','docentes_model', 'guias_model'));
             
                 
         }
@@ -50,6 +50,7 @@ class Estadisticas extends CI_Controller {
         }
 
   	}
+
 
 
       /**
@@ -90,11 +91,11 @@ class Estadisticas extends CI_Controller {
 
         if ($opc==1){
 
-            $alumnos = $this->_alumnos();
+            $estudiantes = $this->_estudiantes();
         
-            if(count($alumnos)>0)  //si no hay guias no manda datos a la view
+            if(count($estudiantes)>0)  //si no hay guias no manda datos a la view
             {
-                $this->view_data['alumnos']['list'] = $alumnos;  //en la view: $alumnos['list'][indice]['lu_alu'].
+                $this->view_data['estudiantes']['list'] = $estudiantes;  //en la view: $estudiantes['list'][indice]['lu_alu'].
             }                
            $this->view_data['title'] = "Estadísticas Estudiantes  - Departamento de Ciencias de la Salud"; 
             $this->load->view('template/header', $this->view_data);
@@ -107,7 +108,7 @@ class Estadisticas extends CI_Controller {
         
             if(count($guias)>0)  //si no hay guias no manda datos a la view
             {
-                $this->view_data['guias']['list'] = $guias;  //en la view: $alumnos['list'][indice]['lu_alu'].
+                $this->view_data['guias']['list'] = $guias;  //en la view: $estudiantes['list'][indice]['lu_alu'].
             }  
             $this->view_data['title'] = "Estadísticas Guías  - Departamento de Ciencias de la Salud"; 
              $this->load->view('template/header', $this->view_data);
@@ -120,18 +121,18 @@ class Estadisticas extends CI_Controller {
     }
 
      /**
-     * Devuelve arreglo con los alumnos
+     * Devuelve arreglo con los estudiantes
      *
      * @access  private
-     * @return  array  - lista de alumnos
+     * @return  array  - lista de estudiantes
      */
-    function _alumnos() 
+    function _estudiantes() 
     {
-        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las alumnos
-        $alumnos = $this->alumnos_model->get_alumnos();
+        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las estudiantes
+        $estudiantes = $this->estudiantes_model->get_estudiantes();
         // else
-        //     $alumnos = $this->alumnos_model->get_alumnos_docente($this->legajo);
-        return $alumnos;
+        //     $estudiantes = $this->estudiantes_model->get_estudiantes_docente($this->legajo);
+        return $estudiantes;
     }
 
      /**
@@ -142,25 +143,25 @@ class Estadisticas extends CI_Controller {
      */
     function _alumno($lu) 
     {
-        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las alumnos
-        $alumno = $this->alumnos_model->get_alumno($lu);
+        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las estudiantes
+        $alumno = $this->estudiantes_model->get_alumno($lu);
         // else
-        //     $alumnos = $this->alumnos_model->get_alumnos_docente($this->legajo);
+        //     $estudiantes = $this->estudiantes_model->get_estudiantes_docente($this->legajo);
         return $alumno;
     }
 
     /**
-     * Devuelve arreglo con los alumnos
+     * Devuelve arreglo con los estudiantes
      *
      * @access  private
-     * @return  array  - lista de alumnos
+     * @return  array  - lista de estudiantes
      */
     function _guias() 
     {
-        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las alumnos
+        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las estudiantes
         $guias = $this->guias_model->get_guias();
         // else
-        //     $alumnos = $this->alumnos_model->get_alumnos_docente($this->legajo);
+        //     $estudiantes = $this->estudiantes_model->get_estudiantes_docente($this->legajo);
         return $guias;
     }
 
@@ -170,7 +171,7 @@ function mostrar_examenes_alu($lu){
      $this->view_data['docente'] = $this->nom_doc." ".$this->apellido_doc;
         $this->view_data['privilegio_user'] =  $this->privilegio;
 
-          $this->view_data['lu'] = $lu;  //en la view: $alumnos['list'][indice]['lu_alu'].
+          $this->view_data['lu'] = $lu;  //en la view: $estudiantes['list'][indice]['lu_alu'].
 
           $alum = $this->_alumno($lu);
           $this->view_data['apellido'] = $alum['apellido_alu'];
@@ -182,7 +183,7 @@ function mostrar_examenes_alu($lu){
             $guias_est = $this->_guias_estudiante($lu);
             if(count($guias_est)>0)  //si no hay guias no manda datos a la view
             {
-                $this->view_data['guias_est']['list'] = $guias_est;  //en la view: $alumnos['list'][indice]['lu_alu'].
+                $this->view_data['guias_est']['list'] = $guias_est;  //en la view: $estudiantes['list'][indice]['lu_alu'].
             } 
 
            // $this->view_data['mostrar'] = 1;
@@ -192,17 +193,17 @@ function mostrar_examenes_alu($lu){
 }
 
 /**
-     * Devuelve arreglo con los alumnos
+     * Devuelve arreglo con los estudiantes
      *
      * @access  private
-     * @return  array  - lista de alumnos
+     * @return  array  - lista de estudiantes
      */
     function _guias_estudiante($lu) 
     {
-        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las alumnos
-        $guias_est = $this->alumnos_model->get_examenes_alumno($lu);
+        // if($this->privilegio>=PRIVILEGIO_ADMIN)  //si es admin muestra todas las estudiantes
+        $guias_est = $this->estudiantes_model->get_examenes_alumno($lu);
         // else
-        //     $alumnos = $this->alumnos_model->get_alumnos_docente($this->legajo);
+        //     $estudiantes = $this->estudiantes_model->get_estudiantes_docente($this->legajo);
         return $guias_est;
     }
 

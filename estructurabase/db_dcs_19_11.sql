@@ -24,10 +24,10 @@ USE `db_dcs`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnos`
+-- Estructura de tabla para la tabla `estudiantes`
 --
 
-CREATE TABLE IF NOT EXISTS `alumnos` (
+CREATE TABLE IF NOT EXISTS `estudiantes` (
   `lu_alu` int(10) unsigned NOT NULL,
   `apellido_alu` varchar(50) NOT NULL,
   `nom_alu` varchar(50) NOT NULL,
@@ -35,10 +35,10 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `alumnos`
+-- Volcado de datos para la tabla `estudiantes`
 --
 
-INSERT INTO `alumnos` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
+INSERT INTO `estudiantes` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
 (98064, 'Dimate Pineda', 'Jhoiner Alexander', 13),
 (98284, 'Mandolesi', 'Nicolas', 98284),
 (98747, 'Campos', 'Giuliana', 98747),
@@ -110,10 +110,10 @@ INSERT INTO `alumnos` (`lu_alu`, `apellido_alu`, `nom_alu`, `dni_alu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnos_catedras`
+-- Estructura de tabla para la tabla `estudiantes_catedras`
 --
 
-CREATE TABLE IF NOT EXISTS `alumnos_catedras` (
+CREATE TABLE IF NOT EXISTS `estudiantes_catedras` (
   `lu_alu` int(10) unsigned NOT NULL,
   `cod_cat` int(10) unsigned NOT NULL,
   `estado_alu_cat` int(11) NOT NULL DEFAULT '0',
@@ -122,10 +122,10 @@ CREATE TABLE IF NOT EXISTS `alumnos_catedras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `alumnos_catedras`
+-- Volcado de datos para la tabla `estudiantes_catedras`
 --
 
-INSERT INTO `alumnos_catedras` (`lu_alu`, `cod_cat`, `estado_alu_cat`, `year_alu_cat`, `periodo_alu_cat`) VALUES
+INSERT INTO `estudiantes_catedras` (`lu_alu`, `cod_cat`, `estado_alu_cat`, `year_alu_cat`, `periodo_alu_cat`) VALUES
 (98064, 20018, 0, '', '0'),
 (98284, 20018, 0, '', '0'),
 (98747, 20018, 0, '', '0'),
@@ -3438,15 +3438,15 @@ INSERT INTO `secciones` (`id_sec`, `nom_sec`, `nro_sec`) VALUES
 --
 
 --
--- Indices de la tabla `alumnos`
+-- Indices de la tabla `estudiantes`
 --
-ALTER TABLE `alumnos`
+ALTER TABLE `estudiantes`
   ADD PRIMARY KEY (`lu_alu`), ADD UNIQUE KEY `lu_alu` (`lu_alu`), ADD UNIQUE KEY `dni_alu` (`dni_alu`);
 
 --
--- Indices de la tabla `alumnos_catedras`
+-- Indices de la tabla `estudiantes_catedras`
 --
-ALTER TABLE `alumnos_catedras`
+ALTER TABLE `estudiantes_catedras`
   ADD PRIMARY KEY (`lu_alu`,`cod_cat`), ADD KEY `cod_cat` (`cod_cat`);
 
 --
@@ -3600,11 +3600,11 @@ ALTER TABLE `secciones`
 --
 
 --
--- Filtros para la tabla `alumnos_catedras`
+-- Filtros para la tabla `estudiantes_catedras`
 --
-ALTER TABLE `alumnos_catedras`
-ADD CONSTRAINT `alumnos_catedras_ibfk_1` FOREIGN KEY (`lu_alu`) REFERENCES `alumnos` (`lu_alu`),
-ADD CONSTRAINT `alumnos_catedras_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `catedras` (`cod_cat`);
+ALTER TABLE `estudiantes_catedras`
+ADD CONSTRAINT `estudiantes_catedras_ibfk_1` FOREIGN KEY (`lu_alu`) REFERENCES `estudiantes` (`lu_alu`),
+ADD CONSTRAINT `estudiantes_catedras_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `catedras` (`cod_cat`);
 
 --
 -- Filtros para la tabla `catedras`
@@ -3631,7 +3631,7 @@ ADD CONSTRAINT `docentes_catedras_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `ca
 ALTER TABLE `examenes`
 ADD CONSTRAINT `examenes_ibfk_1` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
 ADD CONSTRAINT `examenes_ibfk_2` FOREIGN KEY (`cod_cat`) REFERENCES `catedras` (`cod_cat`),
-ADD CONSTRAINT `examenes_ibfk_3` FOREIGN KEY (`lu_alu`) REFERENCES `alumnos` (`lu_alu`),
+ADD CONSTRAINT `examenes_ibfk_3` FOREIGN KEY (`lu_alu`) REFERENCES `estudiantes` (`lu_alu`),
 ADD CONSTRAINT `examenes_ibfk_4` FOREIGN KEY (`leg_doc`) REFERENCES `docentes` (`leg_doc`);
 
 --

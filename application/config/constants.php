@@ -49,9 +49,9 @@ define('PRIVILEGIO_ADMIN', 2);  //Es admin (acceso a todos los ABM), pero no pue
 define('PRIVILEGIO_SUPERADMIN',3); //Admin, que puede nombrar nuevos admin, y borrar/modificar examenes
 
 define('PERMISO_NULO',-1); //Permiso en cátedra: no puede hacer nada
-define('PERMISO_VER',0); //Permiso en cátedra: solo puede ver examenes y alumnos asociados
-define('PERMISO_EVALUAR',1); //Permiso en cátedra: puede ver y tomar examenes y asociar alumnos. No puede modificar guias
-define('PERMISO_TOTAL', 2); //Permiso en cátedra: puede tomar examen, cargar y modificar guias, asociar y dar de baja alumnos
+define('PERMISO_VER',0); //Permiso en cátedra: solo puede ver examenes y estudiantes asociados
+define('PERMISO_EVALUAR',1); //Permiso en cátedra: puede ver y tomar examenes y asociar estudiantes. No puede modificar guias
+define('PERMISO_TOTAL', 2); //Permiso en cátedra: puede tomar examen, cargar y modificar guias, asociar y dar de baja estudiantes
 
 define('NO_SELECTED', -1);
 
